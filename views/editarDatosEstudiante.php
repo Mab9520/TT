@@ -41,7 +41,7 @@
                 //editar datos cuenta
                 echo "Editar datos";?>
 
-                <script>swal("Desea editar sus datos?");</script>
+                
 
                 <?php
             } else if(isset($_POST['editar'])){
