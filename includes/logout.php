@@ -1,9 +1,9 @@
 <?php
+session_start();
 
-include_once 'user_session.php';
-
-$userSession = new UserSession();
-
-$userSession->closeSession();
-
-header("location: ../index.php");
+require('funciones.php');
+require('../clases/Estudiante.php');
+verificarSesion();
+Estudiante::cerrarSesion();
+header('location: ../index.php');
+?>
