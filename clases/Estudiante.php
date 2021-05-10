@@ -1,105 +1,46 @@
 <?php
-//session_start();
-require_once("autoload.php");
 
-class Estudiante extends Conexion{
-    public  $nombre;
-    public  $apellidos;
-    public  $instituto;
-    public  $correo;
-    public  $password;
-    public  $telefono;
-    public  $conexion;
+class Estudiante{
+    
+    function registrar($datos){//registra el usuario
+        $conexion = conexion("root", "");
 
-    function __construct(){
-        $this->conexion = new Conexion();
-        $this->conexion = $this->conexion->connect();
+        $consulta = $conexion->prepare("INSERT INTO estudiante (Nombre, Apellidos, Instituto, Correo, Contraseña, Telefono, rol_id) VALUES (:nombre, :apellidos, :instituto, :correo, :pass, :telefono, 2)");
+        $consulta->execute(array(
+            ':nombre'=> $datos[0],
+            ':apellidos'=> $datos[1],
+            ':instituto' => $datos[2],
+            ':correo' => $datos[3],
+            ':pass' => $datos[4],
+            ':telefono' => $datos[5]
+        ));
     }
+    function verificar($correo){  //verifica que el usuario no exista
+        $conexion = conexion("root", "");
 
-    public function registraEstudiante($nombre, $apellidos, $instituto, $correo, $password, $telefono){
-        $this->nombre = $nombre;
-        $this->apellidos = $apellidos;
-        $this->instituto = $instituto;
-        $this->correo = $correo;
-        $this->password = $password;//encriptamos la contraseña
-        $this->telefono = $telefono;
-        
-        $errores='';
-
-        if(empty($nombre) || empty($apellidos) || empty($instituto) || empty($correo) || empty($password)){
-            ?>
-                <script>
-                    swal('Por favor rellena los campos');
-                </script>
-            <?php
-            $errores.='<li class="error">Por favor rellena los campos</li>';
-        }else{
-            $sql = "SELECT * FROM estudiante WHERE Correo= :correo LIMIT 1";
-            $vacio = $this->conexion->prepare($sql);
-            $vacio -> execute([
-                ':correo'=>$correo
-            ]);
-             $resultado = $vacio->fetch();
-
-            if($resultado == true){
-                ?>
-                <script>
-                    swal('Error', 'El correo que intentas ingresar ya se encuentra registrado', 'error');
-                </script>
-            <?php
-            $errores .= '<li class = "error">Este usuario ya existe</li>';
-            }
-        }
-        if($errores == ''){
-            $sql = "INSERT INTO estudiante(Nombre, Apellidos, Instituto, Correo, Contraseña, Telefono, rol_id) VALUES (?, ?, ?, ?, ?, ?, 2)";
-            $insert = $this->conexion->prepare($sql);
-            $arrData = array($this->nombre, $this->apellidos, $this->instituto, $this->correo, $this->password, $this->telefono);
-            $resInsert = $insert->execute($arrData); 
-
-            ?>
-                <script>
-                    swal('¡Te has registrado exitosamente!', "Inicia sesion",  "success");
-                </script>
-            <?php 
-        }
+        $consulta = $conexion->prepare("SELECT * FROM estudiante WHERE Correo = :correo");
+        $consulta->execute(array(':correo' => $correo));
+        $resultado = $consulta->fetchAll();
+        return $resultado;
     }
-
-    public function userExist($correo, $password){
-            
-            $query = $this->conexion->prepare("SELECT * FROM estudiante WHERE Correo = :correo AND Contraseña = :pass");
-            $query->execute(['correo' =>$correo, 'pass'=>$password]);
-
-            if($query->rowCount()){
-                return true;
-            } else{
-                return false;
-            }
-    }
-    public function setUser($correo){
-        $query=$this->conexion->prepare("SELECT * FROM estudiante WHERE Correo = :correo");
-        $query->execute(['correo' =>$correo]);
-
-        foreach($query as $currentUser){
-            $this->nombre = $currentUser['Nombre'];
-            $this->correo = $currentUser['Correo'];
-        }
-    }
-    public function getNombre(){
-        return $this->nombre;
-    }
+    
+    
 
     public function verEspecialistas(){
+            $conexion = conexion("root", "");
+    
             $sql= "SELECT * FROM especialista";
-            $execute = $this->conexion->query($sql);
+            $execute = $conexion->query($sql);
             $request = $execute->fetchall(PDO::FETCH_ASSOC);
             return $request;           
     }
 
     public function verInfoEspecialistas(){
+        $conexion = conexion("root", "");
         $result ='';
         $row = null;
         $sql = "SELECT * FROM especialista WHERE Cedula =?";
-        $execute = $this->conexion->prepare($sql);
+        $execute = $conexion->prepare($sql);
         $results = $execute->execute(array($_GET['id']));
         $row = $execute->fetch();
         ?>
@@ -116,29 +57,42 @@ class Estudiante extends Conexion{
     <?php   
     }
 
-    public function editarDatos($id, $nombre, $apellidos, $instituto, $password, $telefono){
-        $this->nombre = $nombre;
-        $this->apellidos = $apellidos;
-        $this->instituto = $instituto;
-        $this->correo = $correo;
-        $this->password = $password;
-        $this->telefono = $telefono;
+    function usuarioPorId($id){
+        $conexion = conexion("root", "");
 
-        $sql = "UPDATE  estudiante SET Nombre=?, Apellidos=?, Instituto=?, Contraseña=?, telefono=?";
-        $update = $this->conexion->prepare($sql);
-        $arrData = array($this->nombre, $this->apellidos, $this->instituto, $this->password, $this->telefono);
-        $resExecute = $update->execute($arrData);
-        return $resExecute;
+        $consulta = $conexion->prepare("SELECT * FROM estudiante WHERE id = :id");
+        $consulta->execute(array(':id' => $id));
+        $resultado = $consulta->fetchAll();
+        return $resultado;
+    }
+    function editarDatos($id, $datos){
+        $conexion = conexion("root", "");
+
+        $consulta = $conexion->prepare("UPDATE estudiante SET Nombre = :nombre, Apellidos = :apellidos, Contraseña = :pass, Telefono = :telefono WHERE id = :id");
+        $consulta->execute(array(
+            ':nombre'=> $datos[0],
+            ':apellidos'=> $datos[1],
+            ':pass' => $datos[2],
+            ':telefono' => $datos[3],
+            ':id' =>$id
+        ));
     }
 
     public function eliminarDatos($id){
-        //session_start();
-        echo "hola";
-        //$sql= "DELETE estudiante WHERE id=?";
-        //$arrWhere= array($id);
-        //$eliminar= $eliminar->execute($arrWhere);
-        //return $eliminar;
+        $conexion = conexion("root", "");
+        $consulta = $conexion->prepare("DELETE FROM estudiante WHERE id = :id");
+        $consulta->execute(array(
+            ':id' =>$id
+        ));
+        
     }
+    function cerrarSesion(){
+        
+        session_unset();
+        session_destroy();
+        
+    
+}
 
 }
 ?>

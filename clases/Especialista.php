@@ -1,97 +1,52 @@
 <?php
-class Especialista extends Conexion{
-    public  $nombre;
-    public  $apellidos;
-    public  $telefono;
-    public  $sexo;
-    public  $correo;
-    public  $password;
-    public  $especialidad;
-    public  $conexion;
+class Especialista {
 
-    function __construct(){
-        $this->conexion = new Conexion();
-        $this->conexion = $this->conexion->connect();
+    function registrar($datos){//registra el usuario
+        $conexion = conexion("root", "");
+
+        $consulta = $conexion->prepare("INSERT INTO especialista (Nombre, Apellidos, Correo, Contraseña, Cedula, Especialidad, Sexo, Telefono, id_rol) VALUES (:nombre, :apellidos, :correo, :pass, :cedula, :especialidad, :sexo, :telefono, 1)");
+        $consulta->execute(array(
+            ':nombre'=> $datos[0],
+            ':apellidos'=> $datos[1],
+            ':correo' => $datos[2],
+            ':pass' => $datos[3],
+            ':cedula' => $datos[4],
+            ':especialidad' =>$datos[5],
+            ':sexo' => $datos[6],
+            ':telefono' => $datos[7]
+        ));
     }
-    public function registraEspecialista($nombre, $apellidos, $correo, $password, $cedula, $especialidad, $sexo, $telefono){
-        $this->nombre = $nombre;
-        $this->apellidos = $apellidos;
-        $this->correo = $correo;
-        $this->password = $password;//encriptamos la contraseña
-        $this->cedula = $cedula;
-        $this->especialidad = $especialidad;
-        $this->sexo = $sexo;
-        $this->telefono = $telefono;
+    function verificar($correo){  //verifica que el usuario no exista
+        $conexion = conexion("root", "");
 
-        $errores='';
-        
-        if(empty($nombre) || empty($apellidos) || empty($correo) || empty($password) || empty($cedula) || empty($especialidad) || empty($sexo)){
-            ?>
-                <script>
-                    swal('Por favor rellena los campos');
-                </script>
-            <?php
-            $errores.='<li class="error">Por favor rellena los campos</li>';
-        } else{
-            $sql = "SELECT * FROM especialista WHERE Cedula = :cedula LIMIT 1";
-            $vacio = $this->conexion->prepare($sql);
-            $vacio -> execute([
-                ':cedula'=>$cedula
-            ]);
-             $resultado = $vacio->fetch();
-
-            if($resultado == true){
-                ?>
-                <script>
-                    swal('Error', 'El correo o la cédula que intentas ingresar ya se encuentra registrado', 'error');
-                </script>
-            <?php
-            $errores .= '<li class = "error">Este usuario ya existe</li>';
-            }
-        }
-        if($errores == ''){
-            $sql = "INSERT INTO especialista (Nombre, Apellidos,  Correo, Contraseña, Cedula, Especialidad, Sexo, Telefono, id_rol) VALUES (?, ?, ?, ?, ?, ?, ?, ?, 1)";
-            $insert = $this->conexion->prepare($sql);
-            $arrData = array($this->nombre, $this->apellidos, $this->correo, $this->password, $this->cedula, $this->especialidad, $this->sexo, $this->telefono);
-            $resInsert = $insert->execute($arrData); 
-
-            ?>
-                <script>
-                    swal('¡Te has registrado exitosamente!', "Inicia sesion",  "success");
-                </script>
-            <?php 
-        } 
-    } 
-
-    public function userExist($correo, $password){
-            
-        $query = $this->conexion->prepare("SELECT * FROM especialista WHERE Correo = :correo AND Contraseña = :pass");
-        $query->execute(['correo' =>$correo, 'pass'=>$password]);
-
-        if($query->rowCount()){
-            return true;
-        } else{
-            return false;
-        }
+        $consulta = $conexion->prepare("SELECT * FROM especialista WHERE Correo = :correo");
+        $consulta->execute(array(
+            ':correo' => $correo
+    ));
+        $resultado = $consulta->fetchAll();
+        return $resultado;
     }
-    public function setUser($correo){
-        $query=$this->conexion->prepare("SELECT * FROM especialista WHERE Correo = :correo");
-        $query->execute(['correo' =>$correo]);
 
-        foreach($query as $currentUser){
-            $this->nombre = $currentUser['Nombre'];
-            $this->correo = $currentUser['Correo'];
-        }
+    function verificarVacio($cedula){  //verifica que el usuario no exista
+        $conexion = conexion("root", "");
+
+        $consulta = $conexion->prepare("SELECT * FROM especialista WHERE Cedula = :cedula");
+        $consulta->execute(array(
+            ':cedula' => $cedula
+    ));
+        $resultado = $consulta->fetchAll();
+        return $resultado;
     }
-    public function getNombre(){
-        return $this->nombre;
-    }
+
     public function verEstudiantes(){
+        $conexion = conexion("root", "");
+
         $sql= "SELECT * FROM estudiante";
-        $execute = $this->conexion->query($sql);
+        $execute = $conexion->query($sql);
         $request = $execute->fetchall(PDO::FETCH_ASSOC);
         return $request;           
-}
+    }
+
 
     public function verInfoEstudiantes(){
         $result ='';
@@ -118,6 +73,31 @@ class Especialista extends Conexion{
     <?php   
     }
 
+    function usuarioPorId($id){
+        $conexion = conexion("root", "");
+
+        $consulta = $conexion->prepare("SELECT * FROM especialista WHERE Cedula = :cedula");
+        $consulta->execute(array(':cedula' => $id));
+        $resultado = $consulta->fetchAll();
+        return $resultado;
+    }
+    function editarDatos($id, $datos){
+        $conexion = conexion("root", "");
+
+        $consulta = $conexion->prepare("UPDATE especialista SET Nombre = :nombre, Apellidos = :apellidos, Contraseña = :pass, Telefono = :telefono WHERE Cedula = :cedula");
+        $consulta->execute(array(
+            ':nombre'=> $datos[0],
+            ':apellidos'=> $datos[1],
+            ':pass' => $datos[2],
+            ':telefono' => $datos[3],
+            ':cedula' =>$id
+        ));
+    }
+    function closeSession(){
+        session_unset();
+        session_destroy();
+        
+    }
 }
 
 
