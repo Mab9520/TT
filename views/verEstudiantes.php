@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel=StyleSheet href="../style/style.css" type="text/CSS">
+    <link rel=StyleSheet href="../css/style.css" type="text/CSS">
     <link rel=StyleSheet href="style/responsiveCelular.css" type="text/CSS">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -31,6 +31,12 @@
 </div>
 <div class="title">
     <h1>Información de estudiantes que quieren contactarlo</h1>
+    <h3> Bienvenido(a) <?php 
+      require("../includes/funciones.php");
+
+      session_start();
+      verificarSesion();
+      echo $_SESSION['Nombre']; ?></h3> 
 </div>
 
 <div class="container">
@@ -41,9 +47,11 @@
                 <th>Nombre</th>
             </thead>
             <?php
-            require_once("../includes/autoload.php");
-            $usuario = new Especialista();
-            $userts = $usuario ->verEstudiantes();
+            
+            
+            require("../clases/Especialista.php");
+            $userts = Especialista::verEstudiantes();
+            
             
             foreach($userts as $row){?>
                 <tr>
@@ -62,8 +70,7 @@
       <?php
         if (isset($_GET['id'])) {
             // Create the query
-                $usuario = new Especialista();
-                $usuario->verInfoEstudiantes();
+                Especialista::verInfoEstudiantes();
             if (empty($row)) {
                 $result = "No se encontraron resultados !!";
             }else{

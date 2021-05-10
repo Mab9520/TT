@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel=StyleSheet href="../style/style.css" type="text/CSS">
+    <link rel=StyleSheet href="../css/style.css" type="text/CSS">
     <link rel=StyleSheet href="style/responsiveCelular.css" type="text/CSS">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -14,27 +14,18 @@
 </head>
 <body>
 <div class ="encabezado">
-    <nav class="navegacion" id="navegacion">
-        <ul>
-            <li><a href="../views/principalEstudiante.php"><i class="fal fa-home-heart"></i>Página principal</a></li>
-            <li><a href="../views/verEspecialistas.php"><i class="fal fa-head-side-medical"></i>Especialistas</a></li>
-            <li><a href="../views/realizarTest.php"><i class="fal fa-question-circle"></i>Realizar test</a></li>
-            <li><a href="../views/editarDatosEstudiante.php"><i class="fal fa-user-edit"></i>Editar datos</a></li>
-            <li class="cerrarSesion"><a href="../includes/logout.php">Cerrar sesion</a></li>
-        </ul>
-    </nav>
-
-    <div class="menuNavegacion" id="menuNavegacion">
-        <div class="menu">
-        </div>
-    </div>
-</div>
+    <?php require('headerEstu.php');?>
 <div class="title">
     <h1>Bienvenido</h1>
 
 
 
-      <h3> Bienvenido(a) <?php echo $_SESSION['correo'] ?> </h3> 
+      <h3> Bienvenido(a) <?php 
+      require("../includes/funciones.php");
+
+      session_start();
+      verificarSesion();
+      echo $_SESSION['Nombre']; ?></h3> 
 </div>
 
 <div class="container" >
