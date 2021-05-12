@@ -104,8 +104,8 @@ $events = $req->fetchAll();
 					<div class="col-sm-10">
 					  <select name="color" class="form-control" id="color">
 									  <option value="">Seleccionar</option>
-						  <option style="color:#0071c5;" value="#0071c5">&#9724; Online</option>
-						  <option style="color:#FF0000;" value="#FF0000">&#9724; Presencial</option>
+						  <option style="color:#0071c5;" value="Online">&#9724; Online</option>
+						  <option style="color:#FF0000;" value="Presencial">&#9724; Presencial</option>
 						  
 						</select>
 					</div>
