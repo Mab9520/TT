@@ -49,10 +49,12 @@ class Especialista {
 
 
     public function verInfoEstudiantes(){
+        $conexion = conexion("root", "");
+        
         $result ='';
         $row = null;
         $sql = "SELECT * FROM estudiante WHERE id =?";
-        $execute = $this->conexion->prepare($sql);
+        $execute = $conexion->prepare($sql);
         $results = $execute->execute(array($_GET['id']));
         $row = $execute->fetch();
         ?>
