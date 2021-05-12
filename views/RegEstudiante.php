@@ -47,13 +47,13 @@ require("../includes/funciones.php");
 require("../clases/Estudiante.php");
 $error = "";
 if(isset($_POST['registrar'])){
-
+    $contraseña = hash('sha512', $_POST['pass']);
     $datos = array(
         $_POST['nombre'],
         $_POST['apellidos'],
         $_POST['instituto'],
         $_POST['correo'],
-        $_POST['pass'],
+        $contraseña,
         $_POST['telefono']
     );
 
@@ -62,7 +62,7 @@ if(isset($_POST['registrar'])){
         <script>swal("Completa los campos");</script>
     <?php
     } else{
-        //$datos = limpiar($datos);
+        $datos = limpiarEst($datos);
             if(empty(Estudiante::verificar($datos[3]))){
                 Estudiante::Registrar($datos);
                 ?>

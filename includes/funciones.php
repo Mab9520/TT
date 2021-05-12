@@ -22,10 +22,22 @@
         return $vacio;
     }
 
-    function limpiar($datos){
-        $tamaño = $datos;
+    function limpiarEst($datos){
+        $tamaño = count($datos);
         for($contador = 0; $contador <$tamaño; $contador++){
             if($contador != 4){
+                $datos[$contador] = htmlspecialchars($datos[$contador]);
+                $datos[$contador] = trim($datos[$contador]);
+                $datos[$contador] = stripcslashes($datos[$contador]);
+            }
+        }
+        return $datos;
+    }
+
+    function limpiarEsp($datos){
+        $tamaño = count($datos);
+        for($contador = 0; $contador <$tamaño; $contador++){
+            if($contador != 3){
                 $datos[$contador] = htmlspecialchars($datos[$contador]);
                 $datos[$contador] = trim($datos[$contador]);
                 $datos[$contador] = stripcslashes($datos[$contador]);
