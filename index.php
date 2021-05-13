@@ -15,11 +15,6 @@
     <title>Herramienta de apoyo al psicólogo</title>
 </head>
 <body>
-<<<<<<< HEAD
-    
-    //Holaaa
-=======
->>>>>>> ab1818604718e7108b738da9ec25b47255cf8946
     <div class="title">
         <h1>Bienvenido</h1>
         <h2>Herramienta de apoyo al psicólogo en la evaluación de la ansiedad en jóvenes universitarios.</h2> 

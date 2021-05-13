@@ -1,15 +1,20 @@
 <?php
 // Conexion a la base de datos
-require_once('bdd.php');
+session_start();
+require("includes/funciones.php");
+verificarSesion();
+//require("views/headerEsp.php");
+
+$conexion = conexion("root", "");
 if (isset($_POST['delete']) && isset($_POST['id'])){
 	
 	
 	$id = $_POST['id'];
 	
 	$sql = "DELETE FROM events WHERE id = $id";
-	$query = $bdd->prepare( $sql );
+	$query = $conexion->prepare( $sql );
 	if ($query == false) {
-	 print_r($bdd->errorInfo());
+	 print_r($conexion->errorInfo());
 	 die ('Erreur prepare');
 	}
 	$res = $query->execute();
@@ -27,9 +32,9 @@ if (isset($_POST['delete']) && isset($_POST['id'])){
 	$sql = "UPDATE events SET  title = '$title', color = '$color' WHERE id = $id ";
 
 	
-	$query = $bdd->prepare( $sql );
+	$query = $conexion->prepare( $sql );
 	if ($query == false) {
-	 print_r($bdd->errorInfo());
+	 print_r($conexion->errorInfo());
 	 die ('Erreur prepare');
 	}
 	$sth = $query->execute();

@@ -1,10 +1,14 @@
 <?php
-require_once('bdd.php');
+session_start();
+require("includes/funciones.php");
+verificarSesion();
+//require("views/headerEsp.php");
 
+ $conexion = conexion("root", "");
+ $idesp = $_SESSION['id'];
+$sql = "SELECT id, title, start, end, color FROM events WHERE id_especialista = $idesp ";
 
-$sql = "SELECT id, title, start, end, color FROM events ";
-
-$req = $bdd->prepare($sql);
+$req = $conexion->prepare($sql);
 $req->execute();
 
 $events = $req->fetchAll();
@@ -21,8 +25,9 @@ $events = $req->fetchAll();
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-
+	<link rel=StyleSheet href="css/style.css" type="text/CSS">
     <title>Agenda</title>
+	
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -51,12 +56,34 @@ $events = $req->fetchAll();
 </head>
 
 <body>
-
+<div class = "title"><h1>Agenda de citas</h1>
+	<h1><?php echo $_SESSION['Nombre']; ?></h1></div>
+<div class ="encabezado">
+    <nav class="navegacion" id="navegacion">
+        <ul>
+            <li><a href="views/principalEspecialista.php"><i class="fal fa-home-heart"></i>Página principal</a></li>
+            <li><a href="views/verEstudiantes.php"><i class="fal fa-head-side-medical"></i>Solicitudes</a></li>
+            <li><a href="AgendaVista.php"><i class="fal fa-question-circle"></i>Agenda</a></li>
+            <li><a href="views/AgendaCitas.php"><i class="fal fa-question-circle"></i>Mis estudiantes</a></li>
+            <li><a href="views/editarDatosEspecialista.php"><i class="fal fa-user-edit"></i>Editar datos</a></li>
+            <li class="cerrarSesion"><a href="includes/logout.php">Cerrar sesion</a></li>
+        </ul>
+    </nav>
+	
+    <div class="menuNavegacion" id="menuNavegacion">
+		
+        <div class="menu">
+			
+        </div>
+		
+    </div>
+	
+</div>
     <!-- Navigation -->
-    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+   <!-- <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
+            <!-- <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
@@ -66,14 +93,15 @@ $events = $req->fetchAll();
                 <a class="navbar-brand" href="#">Calendario</a>
             </div>
         </div>
-    </nav>
+    </nav>!-->
 
 
     <div class="container">
 
         <div class="row">
             <div class="col-lg-12 text-center">
-                <h1>Agenda de citas</h1>
+			
+                
                 <div id="calendar" class="col-centered">
                 </div>
             </div>
@@ -317,7 +345,8 @@ $events = $req->fetchAll();
 	});
 
 </script>
-
+<script src="js/navegacion.js"></script>
+    <script src="js/dinamica.js"></script>
 </body>
 
 </html>

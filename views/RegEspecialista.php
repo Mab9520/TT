@@ -1,91 +1,81 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel=StyleSheet href="../css/style.css" type="text/CSS">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Syne+Mono&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <title>Login</title>
+    <title>Registro especialista</title>
 </head>
 <body>
-    <div class="container">
-            <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" id="iniciar_sesion">
-            <div class="contenedor_inputs">
-            <h2>Ingresa a la herramienta</h2> 
-            <input type="text" name="usuario" class="content_entradas" placeholder="Usuario"><br>
-            <input type="password" name="pass" class="content_entradas" placeholder="Contraseña"><br>
-            <select name="tipoUsuario">
-                <option value="Iniciar sesion como">Iniciar sesion como</option>
-                <option value="Especialista">Especialista</option>
-                <option value="Estudiante">Estudiante</option>
-                </select><br>
-            <input type="submit" name="ingresar" value="Ingresar" class="botones"></div>
-            <a href="../index.php">Ir al inicio</a>
-            </form>
+    
+<div class ="encabezado">
+    <a href="../index.php"><i class="fas fa-arrow-alt-circle-left"></i></a>
+</div>
+
+<div class = "title"><h1>Registro especialista</h1></div>
+<div class = "content" class="texto-encima">
+    <img src="../images/psico.png" alt="" class="imgFondo">
+    <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method = "POST" class="encima" >
+    <p><input class = "content_entradas" type="text"  placeholder="Nombre" name = "nombre"></p><br>
+    <p><input class = "content_entradas" type="text"  placeholder="Apellidos" name = "apellidos"></p><br>
+    <p><input class = "content_entradas" type="email"  placeholder="Correo Electronico" name = "correo"></p><br>
+    <p> <input class = "content_entradas" type="password"  placeholder="Contraseña" name = "pass"></p><br>
+    <p> <input class = "content_entradas" type="number"  placeholder="Cedula profesional" name = "cedula"></p><br>
+    <p> <input class = "content_entradas" type="text"  placeholder="Especialidad" name = "especialidad"></p><br>
+    <p> <input class = "content_entradas" type="text"  placeholder="Sexo M/F" name = "sexo"></p><br>
+    <p><input class = "botones" id="agregarTelefono" type="button" value="Agregar telefono" ></p><br>
+    <p><input class = "campoTelefono" id="campoTelefono" type="tel" placeholder="Telefono" name = "telefono" ></p><br> 
+    <p><input class = "botones" type="submit" value="Registrar" name = "registrar"></p><br>
+    <p><a href="login.views.php">Iniciar sesion</a></p>
+    </form>
+    <?php if(!empty($error)): ?>
+        <p class="error"><?php echo $error; ?></p>
+        <?php endif; ?>
     </div>
+    <script src="../js/ocultaCampos.js"></script>
 </body>
 </html>
 
 <?php
-session_start();
+
 require("../includes/funciones.php");
-require("../clases/Estudiante.php");
 require("../clases/Especialista.php");
+$error = "";
+if(isset($_POST['registrar'])){
 
-if(isset($_POST['ingresar'])){
-    if($_POST['tipoUsuario'] =='Iniciar sesion como'){?>
-    <script>swal("Selecciona el tipo de usuario de tu registro");</script>
+    $datos = array(
+        $_POST['nombre'],
+        $_POST['apellidos'],
+        $_POST['correo'],
+        $_POST['pass'],
+        $_POST['cedula'],
+        $_POST['especialidad'],
+        $_POST['sexo'],
+        $_POST['telefono']
+    );
 
-<?php
-        
-    }else if($_POST['tipoUsuario'] == 'Estudiante'){
-        //$contraseña = hash('sha512', $_POST['pass']);
-        $datos = array($_POST['usuario'], $_POST['pass']);//$contraseña);
-
-        if(datosVacios($datos) == false){
-            
-            if(strpos($datos[0], " ") == false){
-                $resultados = Estudiante::verificar($datos[0]);
-
-                if(empty($resultados) == false){
-
-                    if($datos[1] == $resultados[0]['Contraseña']){
-                        $_SESSION['id'] = $resultados[0]["id"];
-                        $_SESSION['Nombre'] = $resultados[0]["Nombre"];
-                        header("location: principalEstudiante.php");
-                    }
-                    else{?>
-                    <script>swal("Usuario o contraseña incorrectos");</script>
-                    <?php
-
-                    }
-                }
+    if(empty($_POST['nombre']) || empty($_POST['apellidos'])  || empty($_POST['correo']) || empty($_POST['pass']) || empty($_POST['cedula']) || empty($_POST['especialidad']) || empty($_POST['sexo'])){
+        ?> 
+        <script>swal("Completa los campos");</script>
+    <?php
+    } else{
+            if(empty(Especialista::verificarVacio($datos[4]))){
+                Especialista::Registrar($datos);
+                ?>
+                <script>swal("OK", "Te has registrado exitosamente!")</script>
+                <?php
             }
-        }
-        
-    } else if($_POST['tipoUsuario'] == 'Especialista'){
-        $datos = array($_POST['usuario'], $_POST['pass']);
-        if(datosVacios($datos) == false){
-
-            if(strpos($datos[0], " ") == false){
-                $resultados = Especialista::verificar($datos[0]);
-
-                if(empty($resultados) == false){
-
-                    if($datos[1] == $resultados[0]['Contraseña']){
-                        $_SESSION['id'] = $resultados[0]["Cedula"];
-                        $_SESSION['Nombre'] = $resultados[0]["Nombre"];
-                        header("location: principalEspecialista.php");
-                    }
-                    else{?>
-                    <script>swal("Usuario o contraseña incorrectos");</script>
-                    <?php
-
-                    }
-                }
+            else{?> 
+            <script>swal("Este usuario ya existe");</script>
+            <?php
             }
-        }
     }
+    
 }
 ?>
