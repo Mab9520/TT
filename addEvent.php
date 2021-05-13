@@ -1,7 +1,10 @@
 <?php
+require("includes/funciones.php");
 
+session_start();
+verificarSesion();
 // Conexion a la base de datos
-require_once('bdd.php');
+$conexion = conexion("root", "");
 
 if (isset($_POST['title']) && isset($_POST['start']) && isset($_POST['end']) && isset($_POST['color'])){
 	
@@ -9,14 +12,14 @@ if (isset($_POST['title']) && isset($_POST['start']) && isset($_POST['end']) && 
 	$start = $_POST['start'];
 	$end = $_POST['end'];
 	$color = $_POST['color'];
-
-	$sql = "INSERT INTO events(title, start, end, color) values ('$title', '$start', '$end', '$color')";
+	$idesp = $_SESSION['id'];
+	$sql = "INSERT INTO events(title, start, end, color, id_especialista) values ('$title', '$start', '$end', '$color', '$idesp')";
 	
 	echo $sql;
 	
-	$query = $bdd->prepare( $sql );
+	$query = $conexion->prepare( $sql );
 	if ($query == false) {
-	 print_r($bdd->errorInfo());
+	 print_r($conexion->errorInfo());
 	 die ('Erreur prepare');
 	}
 	$sth = $query->execute();
