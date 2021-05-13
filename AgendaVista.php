@@ -1,8 +1,9 @@
 <?php
+
 session_start();
 require("includes/funciones.php");
 verificarSesion();
-//require("views/headerEsp.php");
+
 
  $conexion = conexion("root", "");
  $idesp = $_SESSION['id'];
