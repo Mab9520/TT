@@ -45,15 +45,16 @@ class Estudiante{
         $row = $execute->fetch();
         ?>
         <table class="informacion">
-        <thead><th colspan="2"><?php echo $row['Nombre']; echo " "; echo $row['Apellidos']?></th></thead>
-        <tr><td>Correo electrónico</td>
-        <td><?php echo $row['Correo'];?></td></tr>
-        <tr><td>Telefono</td>
-        <td><?php echo $row['Telefono'];?></td></tr>
-        <tr><td>Cedula profesional</td>
-        <td><?php echo $row['Cedula'];?></td></tr>
-        <td colspan="2"><input type="submit" value="Enviar solicitud"></td>
-        </table>
+            <thead><th colspan="2"><?php echo $row['Nombre']; echo " "; echo $row['Apellidos']?></th></thead>
+            <tr><td>Correo electrónico</td>
+            <td><?php echo $row['Correo'];?></td></tr>
+            <tr><td>Telefono</td>
+            <td><?php echo $row['Telefono'];?></td></tr>
+            <tr><td>Cedula profesional</td>
+            <td><?php echo $row['Cedula'];?></td></tr>
+            <td colspan="2"><a href="?agregar=<?php echo $_GET['Cedula']?>"><input type="submit" value="Enviar solicitud" name="solicitar"></a></td>
+            </table>
+        
     <?php   
     }
 
@@ -90,9 +91,8 @@ class Estudiante{
         
         session_unset();
         session_destroy();
-        
-    
 }
+
 
 }
 ?>

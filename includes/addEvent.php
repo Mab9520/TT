@@ -1,5 +1,5 @@
 <?php
-require("includes/funciones.php");
+require("funciones.php");
 
 session_start();
 verificarSesion();

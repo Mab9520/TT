@@ -1,7 +1,8 @@
 <?php
 
 session_start();
-require("includes/funciones.php");
+require("../includes/funciones.php");
+
 verificarSesion();
 
 
@@ -26,25 +27,25 @@ $events = $req->fetchAll();
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-	<link rel=StyleSheet href="css/style.css" type="text/CSS">
+	<link rel=StyleSheet href="../css/style.css" type="text/CSS">
     <title>Agenda</title>
 	
 
     <!-- Bootstrap Core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
 	
 	<!-- FullCalendar -->
-	<link href='css/fullcalendar.css' rel='stylesheet' />
+	<link href='../css/fullcalendar.css' rel='stylesheet' />
 
 
     <!-- Custom CSS -->
     <style>
     body {
-        padding-top: 70px;
+        
         
     }
 	#calendar {
-		max-width: 800px;
+		max-width: 500px;
 	}
 	.col-centered{
 		float: none;
@@ -56,48 +57,10 @@ $events = $req->fetchAll();
 
 </head>
 
-<body>
-<div class = "title"><h1>Agenda de citas</h1>
-	<h1><?php echo $_SESSION['Nombre']; ?></h1></div>
-<div class ="encabezado">
-    <nav class="navegacion" id="navegacion">
-        <ul>
-            <li><a href="views/principalEspecialista.php"><i class="fal fa-home-heart"></i>Página principal</a></li>
-            <li><a href="views/verEstudiantes.php"><i class="fal fa-head-side-medical"></i>Solicitudes</a></li>
-            <li><a href="AgendaVista.php"><i class="fal fa-question-circle"></i>Agenda</a></li>
-            <li><a href="views/AgendaCitas.php"><i class="fal fa-question-circle"></i>Mis estudiantes</a></li>
-            <li><a href="views/editarDatosEspecialista.php"><i class="fal fa-user-edit"></i>Editar datos</a></li>
-            <li class="cerrarSesion"><a href="includes/logout.php">Cerrar sesion</a></li>
-        </ul>
-    </nav>
-	
-    <div class="menuNavegacion" id="menuNavegacion">
-		
-        <div class="menu">
-			
-        </div>
-		
-    </div>
-	
-</div>
-    <!-- Navigation -->
-   <!-- <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-        <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <!-- <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="#">Calendario</a>
-            </div>
-        </div>
-    </nav>!-->
-
-
+<body><?php require('headerEsp.php') ?>
+<div class = "title"><h1>Agenda de citas</h1></div>
     <div class="container">
+	
 
         <div class="row">
             <div class="col-lg-12 text-center">
@@ -114,7 +77,7 @@ $events = $req->fetchAll();
 		<div class="modal fade" id="ModalAdd" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 		  <div class="modal-dialog" role="document">
 			<div class="modal-content">
-			<form class="form-horizontal" method="POST" action="addEvent.php">
+			<form class="form-horizontal" method="POST" action="../includes/addEvent.php">
 			
 			  <div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -168,7 +131,7 @@ $events = $req->fetchAll();
 		<div class="modal fade" id="ModalEdit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 		  <div class="modal-dialog" role="document">
 			<div class="modal-content">
-			<form class="form-horizontal" method="POST" action="editEventTitle.php">
+			<form class="form-horizontal" method="POST" action="../includes/editEventTitle.php">
 			  <div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 				<h4 class="modal-title" id="myModalLabel">Modificar Cita</h4>
@@ -229,16 +192,16 @@ $events = $req->fetchAll();
     <!-- /.container -->
 
     <!-- jQuery Version 1.11.1 -->
-    <script src="js/jquery.js"></script>
+    <script src="../js/jquery.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
 	
 	<!-- FullCalendar -->
-	<script src='js/moment.min.js'></script>
-	<script src='js/fullcalendar/fullcalendar.min.js'></script>
-	<script src='js/fullcalendar/fullcalendar.js'></script>
-	<script src='js/fullcalendar/locale/es.js'></script>
+	<script src='../js/moment.min.js'></script>
+	<script src='../js/fullcalendar/fullcalendar.min.js'></script>
+	<script src='../js/fullcalendar/fullcalendar.js'></script>
+	<script src='../js/fullcalendar/locale/es.js'></script>
 	
 	
 	<script>
@@ -346,8 +309,8 @@ $events = $req->fetchAll();
 	});
 
 </script>
-<script src="js/navegacion.js"></script>
-    <script src="js/dinamica.js"></script>
+<script src="../js/navegacion.js"></script>
+    <script src="../js/dinamica.js"></script>
 </body>
 
 </html>

@@ -2,7 +2,7 @@
 
 // Conexion a la base de datos
 session_start();
-require("includes/funciones.php");
+require("funciones.php");
 verificarSesion();
 //require("views/headerEsp.php");
 $conexion = conexion("root", "");

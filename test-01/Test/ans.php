@@ -1,9 +1,25 @@
-
 <?php
+session_start();
 
-include("con_db.php");
+require("../../includes/funciones.php");
+verificarSesion();
+require("../../clases/Estudiante.php");
+require("../../views/headerEstu.php");
 
+$usuario = Estudiante::usuarioPorId($_SESSION['id']);
+$conexion = conexion("root", "");
+?>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8"/>
+<link rel=StyleSheet href="../../css/style.css" type="text/CSS">
+<title>Panel Control</title>
+</head>
+<body>
+	<?php
 
+		$id_estudiante = $_SESSION['id'];
 		$pregunta1 = $_POST['Pregunta1'];
 		$pregunta2 = $_POST['Pregunta2'];
 		$pregunta3 = $_POST['Pregunta3'];
@@ -25,37 +41,6 @@ include("con_db.php");
 		$pregunta19 = $_POST['Pregunta19'];
 		$pregunta20 = $_POST['Pregunta20'];
 		$pregunta21 = $_POST['Pregunta21'];
-
-		$consulta = $conex->prepare("INSERT INTO datos (pre1, pre2, pre3, pre4, pre5, pre6, pre7, pre8, pre9, pre10, pre11, pre12, pre13, pre14, pre15, pre16, pre17, pre18, pre19, pre20, pre21) VALUES(:pregunta1, :pregunta2, :pregunta3, :pregunta4, :pregunta5, :pregunta6, :pregunta7, :pregunta8, :pregunta9, :pregunta10, :pregunta11, :pregunta12, :pregunta13, :pregunta14, :pregunta15, :pregunta16, :pregunta17, :pregunta18, :pregunta19, :pregunta20, :pregunta21)");
-
-		$consulta->bindParam(':pregunta1', $pregunta1);
-		$consulta->bindParam(':pregunta2', $pregunta2);
-		$consulta->bindParam(':pregunta3', $pregunta3);
-		$consulta->bindParam(':pregunta4', $pregunta4);
-		$consulta->bindParam(':pregunta5', $pregunta5);
-		$consulta->bindParam(':pregunta6', $pregunta6);
-		$consulta->bindParam(':pregunta7', $pregunta7);
-		$consulta->bindParam(':pregunta8', $pregunta8);
-		$consulta->bindParam(':pregunta9', $pregunta9);
-		$consulta->bindParam(':pregunta10', $pregunta10);
-		$consulta->bindParam(':pregunta11', $pregunta11);
-		$consulta->bindParam(':pregunta12', $pregunta12);
-		$consulta->bindParam(':pregunta13', $pregunta13);
-		$consulta->bindParam(':pregunta14', $pregunta14);
-		$consulta->bindParam(':pregunta15', $pregunta15);
-		$consulta->bindParam(':pregunta16', $pregunta16);
-		$consulta->bindParam(':pregunta17', $pregunta17);
-		$consulta->bindParam(':pregunta18', $pregunta18);
-		$consulta->bindParam(':pregunta19', $pregunta19);
-		$consulta->bindParam(':pregunta20', $pregunta20);
-		$consulta->bindParam(':pregunta21', $pregunta21);
-
-		if ($consulta->execute()){
-			echo "Datos Guardados Correctamente....<br>";
-		}else{
-			echo "No se ha podido Guardar Datos...";
-		}
-
 		
 		$mensaje = "";
 		
@@ -146,7 +131,6 @@ include("con_db.php");
 	{
 		$puntos = $puntos + 3;
 	}
-
 	if($pregunta6 == "0")
 	{
 		$puntos = $puntos + 0;
@@ -163,7 +147,6 @@ include("con_db.php");
 	{
 		$puntos = $puntos + 3;
 	}
-
 	if($pregunta7 == "0")
 	{
 		$puntos = $puntos + 0;
@@ -180,7 +163,6 @@ include("con_db.php");
 	{
 		$puntos = $puntos + 3;
 	}
-
 	if($pregunta8 == "0")
 	{
 		$puntos = $puntos + 0;
@@ -197,7 +179,6 @@ include("con_db.php");
 	{
 		$puntos = $puntos + 3;
 	}
-
 	if($pregunta9 == "0")
 	{
 		$puntos = $puntos + 0;
@@ -214,7 +195,6 @@ include("con_db.php");
 	{
 		$puntos = $puntos + 3;
 	}
-
 	if($pregunta10 == "0")
 	{
 		$puntos = $puntos + 0;
@@ -231,7 +211,6 @@ include("con_db.php");
 	{
 		$puntos = $puntos + 3;
 	}
-
 	if($pregunta11 == "0")
 	{
 		$puntos = $puntos + 0;
@@ -248,8 +227,6 @@ include("con_db.php");
 	{
 		$puntos = $puntos + 3;
 	}
-
-
 	if($pregunta12 == "0")
 	{
 		$puntos = $puntos + 0;
@@ -266,7 +243,6 @@ include("con_db.php");
 	{
 		$puntos = $puntos + 3;
 	}
-
 	if($pregunta13 == "0")
 	{
 		$puntos = $puntos + 0;
@@ -283,7 +259,6 @@ include("con_db.php");
 	{
 		$puntos = $puntos + 3;
 	}
-
 	if($pregunta14 == "0")
 	{
 		$puntos = $puntos + 0;
@@ -300,7 +275,6 @@ include("con_db.php");
 	{
 		$puntos = $puntos + 3;
 	}
-
 	if($pregunta15 == "0")
 	{
 		$puntos = $puntos + 0;
@@ -334,7 +308,6 @@ include("con_db.php");
 	{
 		$puntos = $puntos + 3;
 	}
-
 	if($pregunta17 == "0")
 	{
 		$puntos = $puntos + 0;
@@ -351,7 +324,6 @@ include("con_db.php");
 	{
 		$puntos = $puntos + 3;
 	}
-
 	if($pregunta18 == "0")
 	{
 		$puntos = $puntos + 0;
@@ -385,7 +357,6 @@ include("con_db.php");
 	{
 		$puntos = $puntos + 3;
 	}
-
 	if($pregunta20 == "0")
 	{
 		$puntos = $puntos + 0;
@@ -402,7 +373,6 @@ include("con_db.php");
 	{
 		$puntos = $puntos + 3;
 	}
-
 	if($pregunta21 == "0")
 	{
 		$puntos = $puntos + 0;
@@ -420,21 +390,58 @@ include("con_db.php");
 		$puntos = $puntos + 3;
 	}
 
+	$consulta = $conexion->prepare("INSERT INTO datos (id_estudiante, pre1, pre2, pre3, pre4, pre5, pre6, pre7, pre8, pre9, pre10, pre11, pre12, pre13, pre14, pre15, pre16, pre17, pre18, pre19, pre20, pre21, puntos) VALUES(:id_estudiante, :pregunta1, :pregunta2, :pregunta3, :pregunta4, :pregunta5, :pregunta6, :pregunta7, :pregunta8, :pregunta9, :pregunta10, :pregunta11, :pregunta12, :pregunta13, :pregunta14, :pregunta15, :pregunta16, :pregunta17, :pregunta18, :pregunta19, :pregunta20, :pregunta21, :puntos)");
+
+		$consulta->bindParam(':id_estudiante', $id_estudiante);
+		$consulta->bindParam(':pregunta1', $pregunta1);
+		$consulta->bindParam(':pregunta2', $pregunta2);
+		$consulta->bindParam(':pregunta3', $pregunta3);
+		$consulta->bindParam(':pregunta4', $pregunta4);
+		$consulta->bindParam(':pregunta5', $pregunta5);
+		$consulta->bindParam(':pregunta6', $pregunta6);
+		$consulta->bindParam(':pregunta7', $pregunta7);
+		$consulta->bindParam(':pregunta8', $pregunta8);
+		$consulta->bindParam(':pregunta9', $pregunta9);
+		$consulta->bindParam(':pregunta10', $pregunta10);
+		$consulta->bindParam(':pregunta11', $pregunta11);
+		$consulta->bindParam(':pregunta12', $pregunta12);
+		$consulta->bindParam(':pregunta13', $pregunta13);
+		$consulta->bindParam(':pregunta14', $pregunta14);
+		$consulta->bindParam(':pregunta15', $pregunta15);
+		$consulta->bindParam(':pregunta16', $pregunta16);
+		$consulta->bindParam(':pregunta17', $pregunta17);
+		$consulta->bindParam(':pregunta18', $pregunta18);
+		$consulta->bindParam(':pregunta19', $pregunta19);
+		$consulta->bindParam(':pregunta20', $pregunta20);
+		$consulta->bindParam(':pregunta21', $pregunta21);
+		$consulta->bindParam(':puntos', $puntos);
+
+
+		if ($consulta->execute()){
+			echo "Datos Guardados Correctamente....<br>";
+		}else{
+			echo "No se ha podido Guardar Datos...";
+		}
 
 
 	if(($puntos == 0) || ($puntos <= 21))
 	{
 		$mensaje="Ansiedad muy baja";
+		$img= "<img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgnmpHqY8TdHNEg6qeO0ttO-kZ6mrF0jpHvG6By7LQ5h4OyLdVx9Ie_cFo__gIYp8U-PY&usqp=CAU' border='0' width='300' height='300'>";
 	} else if (($puntos == 22) || ($puntos <= 35))
 	{
 		$mensaje="Ansiedad Moderada";
+		$img= "<img src='https://pbs.twimg.com/media/EQ74g1wW4AEptSV.jpg' border='0' width='300' height='300'>";
 	} else if (($puntos == 36) || ($puntos <= 63))
 	{
 		$mensaje="Ansiedad Severa";
+		$img= "<img src='https://holatelcel.com/wp-content/uploads/2020/09/cheems-memes-3.jpg' border='0' width='300' height='300'>";
+
 	}
-	echo "Resultado: $puntos puntos <br> $mensaje <br>";
-	
+	echo "Resultado: $puntos puntos <br> $mensaje <br><br><br> $img ";
 ?>
+</body>
+</html>
 
 
 

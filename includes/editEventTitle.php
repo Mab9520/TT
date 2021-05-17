@@ -1,7 +1,7 @@
 <?php
 // Conexion a la base de datos
 session_start();
-require("includes/funciones.php");
+require("funciones.php");
 verificarSesion();
 //require("views/headerEsp.php");
 
@@ -44,7 +44,7 @@ if (isset($_POST['delete']) && isset($_POST['id'])){
 	}
 
 }
-header('Location: AgendaVista.php');
+header('Location: ../views/AgendaVista.php');
 
 	
 ?>

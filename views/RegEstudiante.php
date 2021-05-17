@@ -47,13 +47,13 @@ require("../includes/funciones.php");
 require("../clases/Estudiante.php");
 $error = "";
 if(isset($_POST['registrar'])){
-    $contraseña = hash('sha512', $_POST['pass']);
+    //$contraseña = hash('sha512', $_POST['pass']);
     $datos = array(
         $_POST['nombre'],
         $_POST['apellidos'],
         $_POST['instituto'],
         $_POST['correo'],
-        $contraseña,
+        $_POST['pass'],
         $_POST['telefono']
     );
 

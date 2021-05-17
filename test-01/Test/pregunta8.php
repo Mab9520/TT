@@ -1,6 +1,18 @@
+<?php
+session_start();
+require("../../includes/funciones.php");
+verificarSesion();
+
+ $conexion = conexion("root", "");
+ 
+ echo $_SESSION['Nombre'];
+ require("../../views/headerEstu.php");
+
+ ?>
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel=StyleSheet href="../../css/style.css" type="text/CSS">
 </head>
 <body>
 
