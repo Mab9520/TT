@@ -58,6 +58,21 @@
                 Estudiante::verInfoEspecialistas();
             if (empty($row)) {
                 $result = "No se encontraron resultados !!";
+            }else{
+                ?>  
+            <form method="POST"> 
+            <table class="informacion">
+            <thead><th colspan="2"><?php echo $row['Nombre']; echo " "; echo $row['Apellidos']?></th></thead>
+            <tr><td>Correo electrónico</td>
+            <td><?php echo $row['Correo'];?></td></tr>
+            <tr><td>Telefono</td>
+            <td><?php echo $row['Telefono'];?></td></tr>
+            <tr><td>Cedula profesional</td>
+            <td><?php echo $row['Cedula'];?></td></tr>
+            <td colspan="2"><a href="?agregar=<?php echo $_GET['Cedula']?>"><input type="submit" value="Enviar solicitud" name="solicitar"></a></td>
+            </table>
+            </form> 
+            <?php
             }
         }    
 
@@ -78,4 +93,3 @@ require("../clases/pacientes.php");
                 <?php
             }
             ?>
-

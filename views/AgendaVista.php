@@ -2,7 +2,7 @@
 
 session_start();
 require("../includes/funciones.php");
-
+require("../clases/pacientes.php");
 verificarSesion();
 
 
@@ -88,7 +88,16 @@ $events = $req->fetchAll();
 				  <div class="form-group">
 					<label for="title" class="col-sm-2 control-label">Información de la cita</label>
 					<div class="col-sm-10">
-					  <input type="text" name="title" class="form-control" id="title" placeholder="Agregue información sobre la cita">
+					<select name="title" class="form-control" id="title" placeholder="Agregue información sobre la cita">
+                	<option value="Iniciar sesion como">Seleccionar paciente</option>
+                	<?php
+						$paciente = pacientes::verPacientes($_SESSION['id']);
+						foreach($paciente as $row){?>
+									<option value=""><a href="?id=<?php echo $row['id']; ?> " ><?php echo $row['Nombre']; echo " ";echo $row['Apellidos'];?></a></option>
+						<?php
+						}
+						?>
+                	</select><br>
 					</div>
 				  </div>
 				  <div class="form-group">
@@ -141,7 +150,16 @@ $events = $req->fetchAll();
 				  <div class="form-group">
 					<label for="title" class="col-sm-2 control-label">Información de la cita</label>
 					<div class="col-sm-10">
-					  <input type="text" name="title" class="form-control" id="title" placeholder="Agregue información sobre la cita">
+					<select name="title" class="form-control" id="title" placeholder="Agregue información sobre la cita">
+                	<option value="Iniciar sesion como">Seleccionar paciente</option>
+                	<?php
+						$paciente = pacientes::verPacientes($_SESSION['id']);
+						foreach($paciente as $row){?>
+									<option value=""><a href="?id=<?php echo $row['id']; ?> " ><?php echo $row['Nombre']; echo " ";echo $row['Apellidos'];?></a></option>
+						<?php
+						}
+						?>
+                	</select><br>
 					</div>
 				  </div>
 				  <div class="form-group">

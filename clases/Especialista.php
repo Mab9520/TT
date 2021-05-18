@@ -254,6 +254,15 @@ function verTest(){
 
     }
 
+    function seleccionarPaciente(){
+        $conexion = conexion("root", "");
+
+        $sql= "SELECT * FROM estudiante";
+        $execute = $conexion->query($sql);
+        $request = $execute->fetchall(PDO::FETCH_ASSOC);
+        return $request; 
+    }
+
 
 
 
