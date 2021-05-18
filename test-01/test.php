@@ -4,7 +4,6 @@ require("../includes/funciones.php");
 verificarSesion();
 
  $conexion = conexion("root", "");
- $idesp = $_SESSION['id'];
  echo $_SESSION['Nombre'];
  require("../views/headerEstu.php");
 

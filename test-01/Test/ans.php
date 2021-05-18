@@ -1,23 +1,40 @@
+
 <?php
 session_start();
-
 require("../../includes/funciones.php");
 verificarSesion();
 require("../../clases/Estudiante.php");
-require("../../views/headerEstu.php");
+
 
 $usuario = Estudiante::usuarioPorId($_SESSION['id']);
-$conexion = conexion("root", "");
+
+echo $_SESSION['Nombre'];
 ?>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8"/>
-<link rel=StyleSheet href="../../css/style.css" type="text/CSS">
 <title>Panel Control</title>
 </head>
 <body>
-	<?php
+<nav class="navegacion" id="navegacion">
+        <ul>
+            <li><a href="../../views/principalEstudiante.php"><i class="fal fa-home-heart"></i>Página principal</a></li>
+            <li><a href="../../views/verEspecialistas.php"><i class="fal fa-head-side-medical"></i>Especialistas</a></li>
+            <li><a href="../../test-01/test.php"><i class="fal fa-question-circle"></i>Realizar test</a></li>
+            <li><a href="../../test-01/test.php">test</a></li>
+            <li><a href="../../views/editarDatosEstudiante.php"><i class="fal fa-user-edit"></i>Editar datos</a></li>
+            <li class="cerrarSesion"><a href="../../includes/logout.php">Cerrar sesion</a></li>
+        </ul>
+    </nav>
+
+    <div class="menuNavegacion" id="menuNavegacion">
+        <div class="menu">
+        </div>
+    </div>
+</div>
+	<?php 
+		$conexion = conexion("root", "");
 
 		$id_estudiante = $_SESSION['id'];
 		$pregunta1 = $_POST['Pregunta1'];
@@ -46,7 +63,7 @@ $conexion = conexion("root", "");
 		
 		$puntos = 0;
 
-	if($pregunta1 == "0")
+if($pregunta1 == "0")
 	{
 		$puntos = $puntos + 0;
 	}
@@ -131,6 +148,7 @@ $conexion = conexion("root", "");
 	{
 		$puntos = $puntos + 3;
 	}
+
 	if($pregunta6 == "0")
 	{
 		$puntos = $puntos + 0;
@@ -147,6 +165,7 @@ $conexion = conexion("root", "");
 	{
 		$puntos = $puntos + 3;
 	}
+
 	if($pregunta7 == "0")
 	{
 		$puntos = $puntos + 0;
@@ -163,6 +182,7 @@ $conexion = conexion("root", "");
 	{
 		$puntos = $puntos + 3;
 	}
+
 	if($pregunta8 == "0")
 	{
 		$puntos = $puntos + 0;
@@ -179,6 +199,7 @@ $conexion = conexion("root", "");
 	{
 		$puntos = $puntos + 3;
 	}
+
 	if($pregunta9 == "0")
 	{
 		$puntos = $puntos + 0;
@@ -195,6 +216,7 @@ $conexion = conexion("root", "");
 	{
 		$puntos = $puntos + 3;
 	}
+
 	if($pregunta10 == "0")
 	{
 		$puntos = $puntos + 0;
@@ -211,6 +233,7 @@ $conexion = conexion("root", "");
 	{
 		$puntos = $puntos + 3;
 	}
+
 	if($pregunta11 == "0")
 	{
 		$puntos = $puntos + 0;
@@ -227,6 +250,8 @@ $conexion = conexion("root", "");
 	{
 		$puntos = $puntos + 3;
 	}
+
+
 	if($pregunta12 == "0")
 	{
 		$puntos = $puntos + 0;
@@ -243,6 +268,7 @@ $conexion = conexion("root", "");
 	{
 		$puntos = $puntos + 3;
 	}
+
 	if($pregunta13 == "0")
 	{
 		$puntos = $puntos + 0;
@@ -259,6 +285,7 @@ $conexion = conexion("root", "");
 	{
 		$puntos = $puntos + 3;
 	}
+
 	if($pregunta14 == "0")
 	{
 		$puntos = $puntos + 0;
@@ -275,6 +302,7 @@ $conexion = conexion("root", "");
 	{
 		$puntos = $puntos + 3;
 	}
+
 	if($pregunta15 == "0")
 	{
 		$puntos = $puntos + 0;
@@ -308,6 +336,7 @@ $conexion = conexion("root", "");
 	{
 		$puntos = $puntos + 3;
 	}
+
 	if($pregunta17 == "0")
 	{
 		$puntos = $puntos + 0;
@@ -324,6 +353,7 @@ $conexion = conexion("root", "");
 	{
 		$puntos = $puntos + 3;
 	}
+
 	if($pregunta18 == "0")
 	{
 		$puntos = $puntos + 0;
@@ -357,6 +387,7 @@ $conexion = conexion("root", "");
 	{
 		$puntos = $puntos + 3;
 	}
+
 	if($pregunta20 == "0")
 	{
 		$puntos = $puntos + 0;
@@ -373,6 +404,7 @@ $conexion = conexion("root", "");
 	{
 		$puntos = $puntos + 3;
 	}
+
 	if($pregunta21 == "0")
 	{
 		$puntos = $puntos + 0;
@@ -389,8 +421,8 @@ $conexion = conexion("root", "");
 	{
 		$puntos = $puntos + 3;
 	}
-
 	$consulta = $conexion->prepare("INSERT INTO datos (id_estudiante, pre1, pre2, pre3, pre4, pre5, pre6, pre7, pre8, pre9, pre10, pre11, pre12, pre13, pre14, pre15, pre16, pre17, pre18, pre19, pre20, pre21, puntos) VALUES(:id_estudiante, :pregunta1, :pregunta2, :pregunta3, :pregunta4, :pregunta5, :pregunta6, :pregunta7, :pregunta8, :pregunta9, :pregunta10, :pregunta11, :pregunta12, :pregunta13, :pregunta14, :pregunta15, :pregunta16, :pregunta17, :pregunta18, :pregunta19, :pregunta20, :pregunta21, :puntos)");
+
 
 		$consulta->bindParam(':id_estudiante', $id_estudiante);
 		$consulta->bindParam(':pregunta1', $pregunta1);
@@ -440,6 +472,7 @@ $conexion = conexion("root", "");
 	}
 	echo "Resultado: $puntos puntos <br> $mensaje <br><br><br> $img ";
 ?>
+
 </body>
 </html>
 
