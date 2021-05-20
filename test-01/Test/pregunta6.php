@@ -17,6 +17,8 @@ verificarSesion();
 	<title>Document</title>
 </head>
 <body>
+
+<h2>Test de Ansiedad de Beck</h2>
 <form action="pregunta7.php" method="POST">
 	<input type="hidden" name="Pregunta1" value=<?php echo $_POST['Pregunta1']; ?>>
 	<input type="hidden" name="Pregunta2" value=<?php echo $_POST['Pregunta2']; ?>>

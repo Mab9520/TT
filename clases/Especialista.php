@@ -124,7 +124,7 @@ function verTest(){
         ?></td>
         </tr>
         <tr>
-        <td>3.- Con temblor en las piernas.</td>
+        <td>4.- Incapaz de relajarse.</td>
         <td><?php if ($mostrar['pre4'] == 0){
             echo "No";
         }elseif ($mostrar['pre4'] == 1) {
@@ -138,7 +138,7 @@ function verTest(){
         ?></td>
         </tr>
         <tr>
-        <td>3.- Con temblor en las piernas.</td>
+        <td>5.- Con temor a que ocurra lo peor.</td>
         <td><?php if ($mostrar['pre3'] == 0){
             echo "No";
         }elseif ($mostrar['pre3'] == 1) {
@@ -151,37 +151,264 @@ function verTest(){
 
         ?></td>
         </tr>
+        <tr>
+        <td>6.- Mareado, o que se le va la cabeza.</td>
+        <td><?php if ($mostrar['pre1'] == 0){
+            echo "No";
+        }elseif ($mostrar['pre1'] == 1) {
+            echo "Leve";
+        }elseif ($mostrar['pre1'] == 2) {
+            echo "Moderado";
+        }elseif ($mostrar['pre1'] == 3) {
+            echo "Bastante";
+        }
+
+        ?></td>
+        </tr>
+        <tr>
+        <td>7.- Con latidos del corazón fuertes y acelerados.</td>
+        <td><?php if ($mostrar['pre1'] == 0){
+            echo "No";
+        }elseif ($mostrar['pre1'] == 1) {
+            echo "Leve";
+        }elseif ($mostrar['pre1'] == 2) {
+            echo "Moderado";
+        }elseif ($mostrar['pre1'] == 3) {
+            echo "Bastante";
+        }
+
+        ?></td>
+        </tr>
+        <tr>
+        <td>8.- Inestable.</td>
+        <td><?php if ($mostrar['pre1'] == 0){
+            echo "No";
+        }elseif ($mostrar['pre1'] == 1) {
+            echo "Leve";
+        }elseif ($mostrar['pre1'] == 2) {
+            echo "Moderado";
+        }elseif ($mostrar['pre1'] == 3) {
+            echo "Bastante";
+        }
+
+        ?></td>
+        </tr>
+        <tr>
+        <td>9.- Atemorizado o asustado.</td>
+        <td><?php if ($mostrar['pre1'] == 0){
+            echo "No";
+        }elseif ($mostrar['pre1'] == 1) {
+            echo "Leve";
+        }elseif ($mostrar['pre1'] == 2) {
+            echo "Moderado";
+        }elseif ($mostrar['pre1'] == 3) {
+            echo "Bastante";
+        }
+
+        ?></td>
+        </tr>
+        <tr>
+        <td>10.- Nervioso.</td>
+        <td><?php if ($mostrar['pre1'] == 0){
+            echo "No";
+        }elseif ($mostrar['pre1'] == 1) {
+            echo "Leve";
+        }elseif ($mostrar['pre1'] == 2) {
+            echo "Moderado";
+        }elseif ($mostrar['pre1'] == 3) {
+            echo "Bastante";
+        }
+
+        ?></td>
+        </tr>
+
+        <tr>
+        <td>11.- Con sensación de bloqueo.</td>
+        <td><?php if ($mostrar['pre1'] == 0){
+            echo "No";
+        }elseif ($mostrar['pre1'] == 1) {
+            echo "Leve";
+        }elseif ($mostrar['pre1'] == 2) {
+            echo "Moderado";
+        }elseif ($mostrar['pre1'] == 3) {
+            echo "Bastante";
+        }
+
+        ?></td>
+        </tr>
+        <tr>
+        <td>12.- Con temblores en las manos.</td>
+        <td><?php if ($mostrar['pre1'] == 0){
+            echo "No";
+        }elseif ($mostrar['pre1'] == 1) {
+            echo "Leve";
+        }elseif ($mostrar['pre1'] == 2) {
+            echo "Moderado";
+        }elseif ($mostrar['pre1'] == 3) {
+            echo "Bastante";
+        }
+
+        ?></td>
+        </tr>
+        <tr>
+        <td>13.- Inquieto, inseguro.</td>
+        <td><?php if ($mostrar['pre1'] == 0){
+            echo "No";
+        }elseif ($mostrar['pre1'] == 1) {
+            echo "Leve";
+        }elseif ($mostrar['pre1'] == 2) {
+            echo "Moderado";
+        }elseif ($mostrar['pre1'] == 3) {
+            echo "Bastante";
+        }
+
+        ?></td>
+        </tr>
+        <tr>
+        <td>14.- Con miedo a perder el control.</td>
+        <td><?php if ($mostrar['pre1'] == 0){
+            echo "No";
+        }elseif ($mostrar['pre1'] == 1) {
+            echo "Leve";
+        }elseif ($mostrar['pre1'] == 2) {
+            echo "Moderado";
+        }elseif ($mostrar['pre1'] == 3) {
+            echo "Bastante";
+        }
+
+        ?></td>
+        </tr>
+        <tr>
+        <td>15.- Con sensación de ahogo.</td>
+        <td><?php if ($mostrar['pre1'] == 0){
+            echo "No";
+        }elseif ($mostrar['pre1'] == 1) {
+            echo "Leve";
+        }elseif ($mostrar['pre1'] == 2) {
+            echo "Moderado";
+        }elseif ($mostrar['pre1'] == 3) {
+            echo "Bastante";
+        }
+
+        ?></td>
+        </tr>
+        <tr>
+        <td>16.- Con temor a morir.</td>
+        <td><?php if ($mostrar['pre1'] == 0){
+            echo "No";
+        }elseif ($mostrar['pre1'] == 1) {
+            echo "Leve";
+        }elseif ($mostrar['pre1'] == 2) {
+            echo "Moderado";
+        }elseif ($mostrar['pre1'] == 3) {
+            echo "Bastante";
+        }
+
+        ?></td>
+        </tr>
+        <tr>
+        <td>17.- Con miedo.</td>
+        <td><?php if ($mostrar['pre1'] == 0){
+            echo "No";
+        }elseif ($mostrar['pre1'] == 1) {
+            echo "Leve";
+        }elseif ($mostrar['pre1'] == 2) {
+            echo "Moderado";
+        }elseif ($mostrar['pre1'] == 3) {
+            echo "Bastante";
+        }
+
+        ?></td>
+        </tr>
+        <tr>
+        <td>18.- Con problemas digestivos.</td>
+        <td><?php if ($mostrar['pre1'] == 0){
+            echo "No";
+        }elseif ($mostrar['pre1'] == 1) {
+            echo "Leve";
+        }elseif ($mostrar['pre1'] == 2) {
+            echo "Moderado";
+        }elseif ($mostrar['pre1'] == 3) {
+            echo "Bastante";
+        }
+
+        ?></td>
+        </tr>
+        <tr>
+        <td>19.- Con desvanecimientos.</td>
+        <td><?php if ($mostrar['pre1'] == 0){
+            echo "No";
+        }elseif ($mostrar['pre1'] == 1) {
+            echo "Leve";
+        }elseif ($mostrar['pre1'] == 2) {
+            echo "Moderado";
+        }elseif ($mostrar['pre1'] == 3) {
+            echo "Bastante";
+        }
+
+        ?></td>
+        </tr>
+        <tr>
+        <td>20.- Con rubor facial.</td>
+        <td><?php if ($mostrar['pre1'] == 0){
+            echo "No";
+        }elseif ($mostrar['pre1'] == 1) {
+            echo "Leve";
+        }elseif ($mostrar['pre1'] == 2) {
+            echo "Moderado";
+        }elseif ($mostrar['pre1'] == 3) {
+            echo "Bastante";
+        }
+
+        ?></td>
+        </tr>
+        <tr>
+        <td>21.- Con sudores, fríos o calientes.</td>
+        <td><?php if ($mostrar['pre1'] == 0){
+            echo "No";
+        }elseif ($mostrar['pre1'] == 1) {
+            echo "Leve";
+        }elseif ($mostrar['pre1'] == 2) {
+            echo "Moderado";
+        }elseif ($mostrar['pre1'] == 3) {
+            echo "Bastante";
+        }
+
+        ?></td>
+        </tr>
+        
         </table><?php
 }
 	
-    function verResultados(){
-        $conexion = conexion("root", "");
-        $id_estudiante = $_GET['id'];
-		$result= $conexion->query("SELECT * from datos WHERE id_estudiante = '$id_estudiante'");
-		$mostrar= $result->fetch();
+function verResultados(){
+    $conexion = conexion("root", "");
+    $id_estudiante = $_GET['id'];
+    $result= $conexion->query("SELECT * from datos WHERE id_estudiante = '$id_estudiante'");
+    $mostrar= $result->fetch();
 
-	if ($mostrar['id_estudiante'] == "") {
-		echo "No se ha realizado aun el Test";
-	}else { 
-		$puntos = $mostrar['puntos'];
-		if(($puntos == 0) || ($puntos <= 3))
-	{
-		$mensaje="Ansiedad muy baja";
-		$img= "<img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgnmpHqY8TdHNEg6qeO0ttO-kZ6mrF0jpHvG6By7LQ5h4OyLdVx9Ie_cFo__gIYp8U-PY&usqp=CAU' border='0' width='300' height='300'>";
-	} else if (($puntos == 4) || ($puntos <= 7))
-	{
-		$mensaje="Ansiedad Moderada";
-		$img= "<img src='https://pbs.twimg.com/media/EQ74g1wW4AEptSV.jpg' border='0' width='300' height='300'>";
-	} else if (($puntos == 8) || ($puntos <= 15))
-	{
-		$mensaje="Ansiedad Severa";
-		$img= "<img src='https://holatelcel.com/wp-content/uploads/2020/09/cheems-memes-3.jpg' border='0' width='300' height='300'>";
+if ($mostrar['id_estudiante'] == "") {
+    echo "No se ha realizado aun el Test";
+}else { 
+    $puntos = $mostrar['puntos'];
+    if(($puntos == 0) || ($puntos <= 21))
+{
+    $mensaje="Ansiedad muy baja";
+    $img= "<img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgnmpHqY8TdHNEg6qeO0ttO-kZ6mrF0jpHvG6By7LQ5h4OyLdVx9Ie_cFo__gIYp8U-PY&usqp=CAU' border='0' width='300' height='300'>";
+} else if (($puntos == 4) || ($puntos <= 35))
+{
+    $mensaje="Ansiedad Moderada";
+    $img= "<img src='https://pbs.twimg.com/media/EQ74g1wW4AEptSV.jpg' border='0' width='300' height='300'>";
+} else if (($puntos == 8) || ($puntos <= 63))
+{
+    $mensaje="Ansiedad Severa";
+    $img= "<img src='https://holatelcel.com/wp-content/uploads/2020/09/cheems-memes-3.jpg' border='0' width='300' height='300'>";
 
-	}
-	echo "Resultado: $puntos puntos <br> $mensaje <br><br><br> $img ";
-	
-	}
-    }
+}
+echo "Resultado: $puntos puntos <br> $mensaje <br><br><br> $img ";
+
+}
+}
+    
 
     function usuarioPorId($id){
         $conexion = conexion("root", "");

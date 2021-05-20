@@ -9,7 +9,7 @@ require("../clases/pacientes.php");
 require("../views/headerEsp.php");
 
 $usuario = Estudiante::usuarioPorId($_GET['id']);
-$conexion = conexion("root", "");
+//$conexion = conexion("root", "");
 
 if(isset($_POST['aceptarEstudiante'])){
     //metodo para aceptar al estudiante
@@ -29,7 +29,8 @@ if(isset($_POST['rechazarEstudiante'])){
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel=StyleSheet href="../css/style.css" type="text/CSS">
-    <title>Document</title>
+    <link rel=StyleSheet href="../css/style.css" type="text/CSS">
+    <title>Perfil</title>   
 </head>
 <body>
 <div class="title">
@@ -38,32 +39,56 @@ if(isset($_POST['rechazarEstudiante'])){
 
       echo $_SESSION['Nombre']; ?></h3> 
 </div>
+
+<div class="container">
     <div id="perfil">
-    <ul>
-        <li>
-            <h3><?php echo $usuario[0]['Nombre']; echo " "; echo $usuario[0]['Apellidos'];?></h3>
-            <ul>
-                <li>Correo: <span><?php echo $usuario[0]['Correo']; ?></span></li>
-                <li>Numero de telefono: <span><?php echo $usuario[0]['Telefono']; ?></span></li>
-                <li>Instituto: <span><?php echo $usuario[0]['Instituto']; ?></span></li>
-            </ul>
-        </li>
+        <h1><?php echo $usuario[0]['Nombre']; echo " "; echo $usuario[0]['Apellidos'];?></h1>
+        <h2>Correo: <span><?php echo $usuario[0]['Correo']; ?></span></h2>
+        <h2>Numero de telefono: <span><?php echo $usuario[0]['Telefono']; ?></span></h2>
+        <h2>Instituto: <span><?php echo $usuario[0]['Instituto']; ?></span></h2>     
         <form action="" method="POST">
-        <li><input type="submit" value="Aceptar" name="aceptarEstudiante"></li>
-        <li><input type="submit" value="Rechazar" name="rechazarEstudiante"></li></form>
-        <li><h3>Visualizacion de las respuestas del test de ansiedad de Beck</h3>
-        <?php 
-			Especialista::verTest();
-		?>
-			</li>
-            <li><h3>Visualizacion de los resultados del test</h3>
+        <input type="submit" value="Aceptar" name="aceptarEstudiante">
+        <input type="submit" value="Rechazar" name="rechazarEstudiante"></form>
+        <div>
+        <a href="../subir/subirActividadEsp.php?id=<?php echo $usuario[0]['id'];?>"><input type="submit" value="Subir actividadx" name="aceptarEstudiante"></a>
+    </div>
+    </div>
+    
+    
+    
+
+    <div class="flip-card">
+        <div class="flip-card-inner">
+            <div class = "flip-card-front">
+                <h1>Resultados del test</h1>
+                <img src="../images/test.png" alt="Avatar" >
+            </div>
+            <div class="flip-card-back">
+            <h3>Visualizacion de los resultados del test</h3>
             <?php 
 			Especialista::verResultados();
   ?>
-            
-            </li>
-    </ul>
-    
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+<div class="flip-card">
+        <div class="flip-card-inner">
+            <div class="flip-card-front">
+                <h1>Test de ansiedad</h1> 
+                <img src="../images/test.png" alt="Avatar" >
+            </div>
+            <div class="flip-card-back">
+            <h3>Visualizacion de las respuestas del test de ansiedad de Beck</h3>
+            <?php 
+			Especialista::verTest();
+		?>
+            </div>
+        </div>
+    </div>
+
 </div>
 </body>
 <script src = "../js/navegacion.js"></script>

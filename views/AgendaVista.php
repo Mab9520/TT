@@ -328,7 +328,7 @@ $events = $req->fetchAll();
 
 </script>
 <script src="../js/navegacion.js"></script>
-    <script src="../js/dinamica.js"></script>
+    
 </body>
 
 </html>

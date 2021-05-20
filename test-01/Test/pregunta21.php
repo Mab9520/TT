@@ -45,6 +45,7 @@ verificarSesion();
 	<input type="hidden" name="Pregunta20" value=<?php echo $_POST['Pregunta20']; ?>>
 
 <h4>21.- Con sudores, fríos o calientes.</h4>
+
 <input type="radio" name="Pregunta21" value="0">No
 <input type="radio" name="Pregunta21" value="1">Leve
 <input type="radio" name="Pregunta21" value="2">Moderado
