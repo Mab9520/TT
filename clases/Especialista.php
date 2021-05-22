@@ -490,6 +490,17 @@ echo "Resultado: $puntos puntos <br> $mensaje <br><br><br> $img ";
         return $request; 
     }
 
+    function verSeguimiento($id){
+        $conexion = conexion("root", "");
+
+        $sql = "SELECT*FROM files WHERE id_estudiante = ':id' AND status = '1'";
+        $consulta->execute(array(
+            ':id' => $id
+            ':status' => '1'
+        ));
+        $row = $consulta->fetch();
+    }
+
 
 
 

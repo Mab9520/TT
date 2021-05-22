@@ -82,7 +82,13 @@ class Estudiante{
         session_unset();
         session_destroy();
 }
-
+    function completarActividad($id){
+        $conexion = conexion("root", "");
+        $result= $conexion->prepare("UPDATE files SET status = 1 WHERE id = :id");
+        $consulta->execute(array(
+            ':id' => $id   
+));
+    }
 
 }
 ?>
