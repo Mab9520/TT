@@ -25,6 +25,8 @@
     <p><input class = "content_entradas" type="text"  placeholder="Instituto" name = "instituto"></p><br>
     <p><input class = "content_entradas" type="email"  placeholder="Correo Electronico" name = "correo"></p><br>
     <p> <input class = "content_entradas" type="password"  placeholder="Contraseña" name = "pass"></p><br>
+    <p>Verifica tu contraseña</p>
+    <p> <input class = "content_entradas" type="password"  placeholder="Contraseña" name = "pass2"></p><br>
     <p><input class = "botones" id="agregarTelefono" type="button" value="Agregar telefono"></p><br>
     <p><input class = "campoTelefono" id="campoTelefono" type="tel" placeholder="Telefono" name = "telefono"></p><br> 
     <p><input class = "botones" type="submit" value="Registrar"  name = "registrar"></p><br>
@@ -47,13 +49,14 @@ require("../includes/funciones.php");
 require("../clases/Estudiante.php");
 $error = "";
 if(isset($_POST['registrar'])){
-    //$contraseña = hash('sha512', $_POST['pass']);
+    $pass=sha1($_POST['pass']);
+    $correo = $_POST['correo'];
     $datos = array(
         $_POST['nombre'],
         $_POST['apellidos'],
         $_POST['instituto'],
-        $_POST['correo'],
-        $_POST['pass'],
+        $correo,
+        $pass,
         $_POST['telefono']
     );
 
@@ -64,10 +67,16 @@ if(isset($_POST['registrar'])){
     } else{
         $datos = limpiarEst($datos);
             if(empty(Estudiante::verificar($datos[3]))){
-                Estudiante::Registrar($datos);
-                ?>
-                <script>swal("OK", "Te has registrado exitosamente!")</script>
+                if($_POST['pass'] == $_POST['pass2'] ){
+                    Estudiante::registrar($datos);?>
+                <script>swal( "Te has registrado exitosamente!")</script>
                 <?php
+                } else {
+                    ?>
+                <script>swal("Las contraseñas no coinciden")</script>
+                <?php
+                } 
+                
             }
             else{?> 
             <script>swal("Este usuario ya existe");</script>

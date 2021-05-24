@@ -4,7 +4,8 @@ class Estudiante{
     
     function registrar($datos){//registra el usuario
         $conexion = conexion("root", "");
-
+        
+        $correo = $_POST['correo'];
         $consulta = $conexion->prepare("INSERT INTO estudiante (Nombre, Apellidos, Instituto, Correo, Contraseña, Telefono, rol_id) VALUES (:nombre, :apellidos, :instituto, :correo, :pass, :telefono, 2)");
         $consulta->execute(array(
             ':nombre'=> $datos[0],
@@ -14,6 +15,9 @@ class Estudiante{
             ':pass' => $datos[4],
             ':telefono' => $datos[5]
         ));
+
+        include "../includes/mail.php";
+
     }
     function verificar($correo){  //verifica que el usuario no exista
         $conexion = conexion("root", "");

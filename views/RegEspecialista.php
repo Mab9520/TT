@@ -26,6 +26,8 @@
     <p><input class = "content_entradas" type="text"  placeholder="Apellidos" name = "apellidos"></p><br>
     <p><input class = "content_entradas" type="email"  placeholder="Correo Electronico" name = "correo"></p><br>
     <p> <input class = "content_entradas" type="password"  placeholder="Contraseña" name = "pass"></p><br>
+    <p>Verifica tu contraseña</p>
+    <p> <input class = "content_entradas" type="password"  placeholder="Contraseña" name = "pass2"></p><br>
     <p> <input class = "content_entradas" type="number"  placeholder="Cedula profesional" name = "cedula"></p><br>
     <p> <input class = "content_entradas" type="text"  placeholder="Especialidad" name = "especialidad"></p><br>
     <p> <input class = "content_entradas" type="text"  placeholder="Sexo M/F" name = "sexo"></p><br>
@@ -48,12 +50,13 @@ require("../includes/funciones.php");
 require("../clases/Especialista.php");
 $error = "";
 if(isset($_POST['registrar'])){
-
+    $pass=sha1($_POST['pass']);
+    $correo = $_POST['correo'];
     $datos = array(
         $_POST['nombre'],
         $_POST['apellidos'],
-        $_POST['correo'],
-        $_POST['pass'],
+        $correo,
+        $pass,
         $_POST['cedula'],
         $_POST['especialidad'],
         $_POST['sexo'],
@@ -66,10 +69,15 @@ if(isset($_POST['registrar'])){
     <?php
     } else{
             if(empty(Especialista::verificarVacio($datos[4]))){
-                Especialista::Registrar($datos);
-                ?>
-                <script>swal("OK", "Te has registrado exitosamente!")</script>
+                if($_POST['pass'] == $_POST['pass2'] ){
+                    Especialista::registrar($datos);?>
+                <script>swal( "Te has registrado exitosamente!")</script>
                 <?php
+                } else {
+                    ?>
+                <script>swal("Las contraseñas no coinciden")</script>
+                <?php
+                } 
             }
             else{?> 
             <script>swal("Este usuario ya existe");</script>

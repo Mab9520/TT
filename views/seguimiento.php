@@ -7,26 +7,22 @@
     <title>Document</title>
 </head>
 <body>
-    <?php 
+    
+</body>
+</html>
+<?php 
     session_start();
 
     require("../includes/funciones.php");
     verificarSesion();
     require("../clases/Especialista.php");
-    require("../clases/Estudiante.php");
     require("../clases/pacientes.php");
     require("../views/headerEsp.php");
     
-    $id = $_GET['id'];
-    $actividades = Especialista::verSeguimiento($id);
-
-    foreach($actividades as $row){
-        echo $row['url'];
-           
+    echo $_GET['id'];
     
-    }
-    ?>
 
-?>
-</body>
-</html>
+ 
+    
+
+    ?>

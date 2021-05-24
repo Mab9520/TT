@@ -4,6 +4,7 @@ class Especialista {
     function registrar($datos){//registra el usuario
         $conexion = conexion("root", "");
 
+        $correo = $_POST['correo'];
         $consulta = $conexion->prepare("INSERT INTO especialista (Nombre, Apellidos, Correo, Contraseña, Cedula, Especialidad, Sexo, Telefono, id_rol) VALUES (:nombre, :apellidos, :correo, :pass, :cedula, :especialidad, :sexo, :telefono, 1)");
         $consulta->execute(array(
             ':nombre'=> $datos[0],
@@ -15,6 +16,7 @@ class Especialista {
             ':sexo' => $datos[6],
             ':telefono' => $datos[7]
         ));
+        include "../includes/mail.php";
     }
     function verificar($correo){  //verifica que el usuario no exista
         $conexion = conexion("root", "");
@@ -490,15 +492,15 @@ echo "Resultado: $puntos puntos <br> $mensaje <br><br><br> $img ";
         return $request; 
     }
 
-    function verSeguimiento($id){
+    function verSeguimiento(){
         $conexion = conexion("root", "");
-
-        $sql = "SELECT*FROM files WHERE id_estudiante = ':id' AND status = '1'";
-        $consulta->execute(array(
-            ':id' => $id
-            ':status' => '1'
-        ));
-        $row = $consulta->fetch();
+        
+        $result ='';
+        $row = null;
+        $sql = "SELECT * FROM";
+        $execute = $conexion->prepare($sql);
+        $results = $execute->execute(array($_GET['id']));
+       
     }
 
 
