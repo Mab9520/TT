@@ -13,74 +13,38 @@
     <title>Estudiantes</title>
 </head>
 <body>
-<div class ="encabezado">
-    <nav class="navegacion" id="navegacion">
-        <ul>
-            <li><a href="../views/principalEspecialista.php"><i class="fal fa-home-heart"></i>Página principal</a></li>
-            <li><a href="../views/verEstudiantes.php"><i class="fal fa-head-side-medical"></i>Estudiantes</a></li>
-            <li><a href="../views/AgendaCitas.php"><i class="fal fa-question-circle"></i>Agenda</a></li>
-            <li><a href="../views/editarDatosEspecialista.php"><i class="fal fa-user-edit"></i>Editar datos</a></li>
-            <li class="cerrarSesion"><a href="../includes/logout.php">Cerrar sesion</a></li>
-        </ul>
-    </nav>
-
-    <div class="menuNavegacion" id="menuNavegacion">
-        <div class="menu">
-        </div>
-    </div>
-</div>
 <div class="title">
     <h1>Información de estudiantes que quieren contactarlo</h1>
     <h3> Bienvenido(a) <?php 
-      require("../includes/funciones.php");
-
       session_start();
+      require("../includes/funciones.php");
+      require("../clases/Especialista.php");
+      require("../clases/Estudiante.php");
+      require("headerEsp.php");
+      //require("../clases/pacientes.php");
       verificarSesion();
       echo $_SESSION['Nombre']; ?></h3> 
 </div>
 
 <div class="container">
-<form action="" method = "POST">
+<h1>Solicitudes</h1>
     <h2>Seleccione de la lista el estudiante del que quiera consultar los datos</h2>
         <table class="listaNombres">
-            <thead>
-                <th>Nombre</th>
-            </thead>
+            <ul>
             <?php
-            
-            
-            require("../clases/Especialista.php");
-            $userts = Especialista::verEstudiantes();
-            
-            
-            foreach($userts as $row){?>
-                <tr>
-                   <ul>
-                        <td><li><a href="?id=<?php echo $row['id']; ?> " ><?php echo $row['Nombre']; echo " ";echo $row['Apellidos'];?></a></li></td>
-                    </ul>
-                    
-                </tr>
-            <?php
+            require("../clases/pacientes.php");            
+            $solicitud = pacientes::solicitudes($_SESSION['id']);
+            if(count($solicitud) > 0){
+                echo "Usted tiene: ".count($solicitud) ." solicitudes";
+                foreach($solicitud as $solicitudes):?>
+                    <li><a href="perfilEstudiante.php?id=<?php echo $solicitudes['id'] ?>"><?php echo $solicitudes['Nombre']; echo " "; echo $solicitudes['Apellidos'];?></a></li>
+                    <?php endforeach; 
+            }else{
+                echo "no hay solicitudes";
             }
             ?>
-        </table>
-        
-        </form>        
-        
-      <?php
-        if (isset($_GET['id'])) {
-            // Create the query
-                Especialista::verInfoEstudiantes();
-            if (empty($row)) {
-                $result = "No se encontraron resultados !!";
-            }else{
-                ?>    
-          
-            <?php
-            }
-        }    
-
-      ?>
+            </ul>
+            
 </div>
 
     <script src="../js/navegacion.js"></script>

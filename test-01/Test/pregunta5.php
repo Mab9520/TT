@@ -1,3 +1,20 @@
+<?php
+session_start();
+require("../../includes/funciones.php");
+verificarSesion();
+
+ $conexion = conexion("root", "");
+ echo $_SESSION['Nombre'];
+ require("..//../views/headerEstu.php");
+
+?>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+</head>
+<body>
+
 <html>
 <head>
 <meta charset="UTF-8">

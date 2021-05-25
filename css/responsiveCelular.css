@@ -5,6 +5,7 @@
     .title{
         font-size: .7em;
         color: aliceblue;
+        text-align: left;
     }
     .title h2{
         visibility: visible;

@@ -21,7 +21,7 @@
     </div>
 
 <div  id="inicioSesionIndex">
-    <a href="views/login.views.php"><input class="botones" type="submit" value="Iniciar sesión" name="iniciaSesion"></a>
+    <a href="views/login.php"><input class="botones" type="submit" value="Iniciar sesión" name="iniciaSesion"></a>
     
 
 </div>

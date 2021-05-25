@@ -38,7 +38,7 @@
     </div>
     <div class="flip-card-back">
         <p>Realizar mi test de ansiedad</p>
-        <a href = '../views/Test.php'"><img src="../images/testb.png" alt="test"></a>
+        <a href = '../test-01/test.php'"><img src="../images/testb.png" alt="test"></a>
     </div>
   </div>
 </div>
@@ -52,7 +52,7 @@
         </div>
         <div class="flip-card-back">
         <p>Ver mis actividades</p>
-        <a href = '../views/Actividades.php'"><img src="../images/actividadesb.png" alt=""></a>
+        <a href = '../subir/ArchivosEstudiantes.php'"><img src="../images/actividadesb.png" alt=""></a>
         </div>
     </div>
 </div>

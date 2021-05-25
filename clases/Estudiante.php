@@ -4,7 +4,8 @@ class Estudiante{
     
     function registrar($datos){//registra el usuario
         $conexion = conexion("root", "");
-
+        
+        $correo = $_POST['correo'];
         $consulta = $conexion->prepare("INSERT INTO estudiante (Nombre, Apellidos, Instituto, Correo, Contraseña, Telefono, rol_id) VALUES (:nombre, :apellidos, :instituto, :correo, :pass, :telefono, 2)");
         $consulta->execute(array(
             ':nombre'=> $datos[0],
@@ -14,6 +15,9 @@ class Estudiante{
             ':pass' => $datos[4],
             ':telefono' => $datos[5]
         ));
+
+        include "../includes/mail.php";
+
     }
     function verificar($correo){  //verifica que el usuario no exista
         $conexion = conexion("root", "");
@@ -44,16 +48,7 @@ class Estudiante{
         $results = $execute->execute(array($_GET['id']));
         $row = $execute->fetch();
         ?>
-        <table class="informacion">
-        <thead><th colspan="2"><?php echo $row['Nombre']; echo " "; echo $row['Apellidos']?></th></thead>
-        <tr><td>Correo electrónico</td>
-        <td><?php echo $row['Correo'];?></td></tr>
-        <tr><td>Telefono</td>
-        <td><?php echo $row['Telefono'];?></td></tr>
-        <tr><td>Cedula profesional</td>
-        <td><?php echo $row['Cedula'];?></td></tr>
-        <td colspan="2"><input type="submit" value="Enviar solicitud"></td>
-        </table>
+        
     <?php   
     }
 
@@ -90,9 +85,14 @@ class Estudiante{
         
         session_unset();
         session_destroy();
-        
-    
 }
+    function completarActividad($id){
+        $conexion = conexion("root", "");
+        $result= $conexion->prepare("UPDATE files SET status = 1 WHERE id = :id");
+        $consulta->execute(array(
+            ':id' => $id   
+));
+    }
 
 }
 ?>
