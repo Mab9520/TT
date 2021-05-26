@@ -32,7 +32,7 @@
     <div class="flip-card-front">
     <img src="../images/est.png" alt="Ver estudiantes" >
     <h1>Estudiantes</h1>
-    <p>En esta sección usted podrá ver a los estudiantes que ha aceptado para su seguimiento</p>
+    <p>En esta sección usted podrá ver a los estudiantes que ha aceptado para su seguimiento.</p>
     </div>
     <div class="flip-card-back">
         <p>Consultar estudiantes</p>
