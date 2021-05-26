@@ -16,13 +16,12 @@
 <body>
 <div class="title">
     <h1>Bienvenido</h1>
-    <?php
-    session_start();
-    require("../includes/funciones.php");
-    
-    verificarSesion();
-    echo $_SESSION['Nombre'];
-    ?>
+    <?php 
+      require("../includes/funciones.php");
+
+      session_start();
+      verificarSesion();
+      echo $_SESSION['Nombre']; ?>
    
 </div>
 <?php require('headerEsp.php') ?>

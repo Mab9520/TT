@@ -2,7 +2,7 @@
 
 class Pacientes{
     //Funcion que nos permite agregar amigos
-    function solicitar($est_enviador, $esp_receptor){
+    public static function solicitar($est_enviador, $esp_receptor){
 
         $conexion = conexion("root", ""); //conexion de bd
         $consulta = $conexion->prepare("INSERT INTO pacientes
@@ -26,7 +26,7 @@ class Pacientes{
 
     }
 //verificar si un amigo es amigo de otro
-    function verificar($est_enviador, $esp_receptor){
+    public static function verificar($est_enviador, $esp_receptor){
         $conexion = conexion("root", "");
         $consulta = $conexion->prepare("SELECT * FROM pacientes WHERE (est_enviador = :est_enviador AND esp_receptor = :esp_receptor) OR (est_enviador = :esp_receptor AND est_receptor = :est_enviador)");
         $consulta->execute(array(
@@ -39,7 +39,7 @@ class Pacientes{
         return $resultados;
     }
 //obtenemos los pacientes de un especialista
-    function codPacientes($cedula){//id del usuario del que queremos obtener los amigos
+    public static function codPacientes($cedula){//id del usuario del que queremos obtener los amigos
         $conexion = conexion("root", "");
         $consulta = $conexion->prepare("SELECT group_concat(est_enviador, ',' , esp_receptor) AS pacientes FROM pacientes WHERE (est_enviador = :id or esp_receptor = :Cedula) AND status = 1 ");
         $consulta->execute(array(
@@ -50,7 +50,7 @@ class Pacientes{
         return $resultados;
     }
 //muestra las solicitudes del usuario logeado
-    function solicitudes($cedula){//codigo del usuario del que veremos las solicitudes
+    public static function solicitudes($cedula){//codigo del usuario del que veremos las solicitudes
         $conexion = conexion("root", "");
         $consulta = $conexion->prepare("SELECT E.id, E.Nombre, E.Apellidos, P.est_enviador from estudiante E INNER JOIN pacientes P on E.id = P.est_enviador WHERE P.esp_receptor = :Cedula and status != 1");
         $consulta->execute(array(
@@ -62,7 +62,7 @@ class Pacientes{
         
     }
 
-    function aceptarSolicitud($id){
+    public static function aceptarSolicitud($id){
         $conexion = conexion("root", "");
         $consulta = $conexion->prepare("UPDATE pacientes SET status = 1 WHERE est_enviador = :id");
         $consulta->execute(array(
@@ -70,7 +70,7 @@ class Pacientes{
         ));
     }
     
-    function eliminarSolicitud($id){
+    public static function eliminarSolicitud($id){
         $conexion = conexion("root", "");
         $consulta = $conexion->prepare("DELETE FROM pacientes WHERE est_enviador = :id");
         $consulta->execute(array(
@@ -78,7 +78,7 @@ class Pacientes{
         ));
     }
 
-    function cantidadPacientes($cedula){
+    public static function cantidadPacientes($cedula){
         $conexion = conexion("root", "");
         $consulta = $conexion->prepare("SELECT count(*) FROM pacientes WHERE (est_enviador = :id or esp_receptor = :Cedula) AND status = 1 ");
         $consulta->execute(array(
@@ -89,7 +89,7 @@ class Pacientes{
         return $resultados;
     }
 
-    function verPacientes($cedula){
+    public static function verPacientes($cedula){
         $conexion = conexion("root", "");
         $consulta = $conexion->prepare("SELECT E.id, E.Nombre, E.Apellidos, P.est_enviador from estudiante E INNER JOIN pacientes P on E.id = P.est_enviador WHERE P.esp_receptor = :Cedula and status = 1");
         $consulta->execute(array(
@@ -100,7 +100,7 @@ class Pacientes{
         return $resultados;
     }
 
-    function verInfoPacientes($cedula){
+    public static function verInfoPacientes($cedula){
         $conexion = conexion("root", "");
         $result ='';
         $row = null;

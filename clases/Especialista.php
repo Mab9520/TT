@@ -1,11 +1,11 @@
 <?php
 class Especialista {
 
-    function registrar($datos){//registra el usuario
+    public static function registrar($datos){//registra el usuario
         $conexion = conexion("root", "");
 
         $correo = $_POST['correo'];
-        $consulta = $conexion->prepare("INSERT INTO especialista (Nombre, Apellidos, Correo, Contraseña, Cedula, Especialidad, Sexo, Telefono, id_rol) VALUES (:nombre, :apellidos, :correo, :pass, :cedula, :especialidad, :sexo, :telefono, 1)");
+        $consulta = $conexion->prepare("INSERT INTO especialista (Nombre, Apellidos, Correo, Contraseña, Cedula, Especialidad, Sexo, Telefono, rol_id, confirmado , codigo) VALUES (:nombre, :apellidos, :correo, :pass, :cedula, :especialidad, :sexo, :telefono, 1, :confirmado, :codigo)");
         $consulta->execute(array(
             ':nombre'=> $datos[0],
             ':apellidos'=> $datos[1],
@@ -14,11 +14,12 @@ class Especialista {
             ':cedula' => $datos[4],
             ':especialidad' =>$datos[5],
             ':sexo' => $datos[6],
-            ':telefono' => $datos[7]
+            ':telefono' => $datos[7],
+            ':confirmado' => $datos[8],
+            ':codigo' => $datos[9]
         ));
-        include "../includes/mail.php";
     }
-    function verificar($correo){  //verifica que el usuario no exista
+    public static function verificar($correo){  //verifica que el usuario no exista
         $conexion = conexion("root", "");
 
         $consulta = $conexion->prepare("SELECT * FROM especialista WHERE Correo = :correo");
@@ -29,7 +30,7 @@ class Especialista {
         return $resultado;
     }
 
-    function verificarVacio($cedula){  //verifica que el usuario no exista
+    public static function verificarVacio($cedula){  //verifica que el usuario no exista
         $conexion = conexion("root", "");
 
         $consulta = $conexion->prepare("SELECT * FROM especialista WHERE Cedula = :cedula");
@@ -40,7 +41,7 @@ class Especialista {
         return $resultado;
     }
 
-    public function verEstudiantes(){
+    public static function verEstudiantes(){
         $conexion = conexion("root", "");
 
         $sql= "SELECT * FROM estudiante";
@@ -50,7 +51,7 @@ class Especialista {
     }
 
 
-    public function verInfoEstudiantes(){
+    public static function verInfoEstudiantes(){
         $conexion = conexion("root", "");
         $result ='';
         $row = null;
@@ -74,7 +75,7 @@ class Especialista {
     <?php   
 }
 
-function verTest(){
+public static function verTest(){
     $conexion = conexion("root", "");
     $result= $conexion->query("SELECT * from datos");
 
@@ -382,7 +383,7 @@ function verTest(){
         </table><?php
 }
 	
-function verResultados(){
+public static function verResultados(){
     $conexion = conexion("root", "");
     $id_estudiante = $_GET['id'];
     $result= $conexion->query("SELECT * from datos WHERE id_estudiante = '$id_estudiante'");
@@ -412,7 +413,7 @@ echo "Resultado: $puntos puntos <br> $mensaje <br><br><br> $img ";
 }
     
 
-    function usuarioPorId($id){
+    public static function usuarioPorId($id){
         $conexion = conexion("root", "");
 
         $consulta = $conexion->prepare("SELECT * FROM especialista WHERE Cedula = :cedula");
@@ -420,7 +421,7 @@ echo "Resultado: $puntos puntos <br> $mensaje <br><br><br> $img ";
         $resultado = $consulta->fetchAll();
         return $resultado;
     }
-    function editarDatos($id, $datos){
+    public static function editarDatos($id, $datos){
         $conexion = conexion("root", "");
 
         $consulta = $conexion->prepare("UPDATE especialista SET Nombre = :nombre, Apellidos = :apellidos, Contraseña = :pass, Telefono = :telefono WHERE Cedula = :cedula");
@@ -432,13 +433,13 @@ echo "Resultado: $puntos puntos <br> $mensaje <br><br><br> $img ";
             ':cedula' =>$id
         ));
     }
-    function closeSession(){
+    public static function closeSession(){
         session_unset();
         session_destroy();
         
     }
 
-    function visualizarTest(){
+    public static function visualizarTest(){
         $conexion = conexion("root", "");
         
         $result ='';

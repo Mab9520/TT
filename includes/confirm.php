@@ -3,7 +3,7 @@ if(isset($_GET['email'] )){
     $email = $_GET['email'] ;
    
 }else{
-    header('Location: ../../index.php');
+    header('Location: ../index.php');
 }
 
 ?>

@@ -52,6 +52,10 @@ $error = "";
 if(isset($_POST['registrar'])){
     $pass=sha1($_POST['pass']);
     $correo = $_POST['correo'];
+    $confirmado = 'no';
+    include "../includes/mail.php";
+    $codigo = $codigoran;
+
     $datos = array(
         $_POST['nombre'],
         $_POST['apellidos'],
@@ -60,7 +64,9 @@ if(isset($_POST['registrar'])){
         $_POST['cedula'],
         $_POST['especialidad'],
         $_POST['sexo'],
-        $_POST['telefono']
+        $_POST['telefono'],
+        $confirmado,
+        $codigo
     );
 
     if(empty($_POST['nombre']) || empty($_POST['apellidos'])  || empty($_POST['correo']) || empty($_POST['pass']) || empty($_POST['cedula']) || empty($_POST['especialidad']) || empty($_POST['sexo'])){
@@ -68,6 +74,7 @@ if(isset($_POST['registrar'])){
         <script>swal("Completa los campos");</script>
     <?php
     } else{
+        $datos = limpiarEsp($datos);
             if(empty(Especialista::verificarVacio($datos[4]))){
                 if($_POST['pass'] == $_POST['pass2'] ){
                     Especialista::registrar($datos);?>

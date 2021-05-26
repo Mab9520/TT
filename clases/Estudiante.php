@@ -2,27 +2,25 @@
 
 class Estudiante{
     
-    function registrar($datos){//registra el usuario
+    public static function registrar($datos){//registra el usuario
         $conexion = conexion("root", "");
-        
-        $correo = $_POST['correo'];
-        $consulta = $conexion->prepare("INSERT INTO estudiante (Nombre, Apellidos, Instituto, Correo, Contraseña, Telefono, rol_id) VALUES (:nombre, :apellidos, :instituto, :correo, :pass, :telefono, 2)");
+        //$correo = $_POST['correo'];
+        $consulta = $conexion->prepare("INSERT INTO estudiante (Nombre, Apellidos, Instituto, Correo, Contraseña, Telefono, rol_id, confirmado , codigo) VALUES (:nombre, :apellidos, :instituto, :correo, :pass, :telefono, 2, :confirmado, :codigo)");
         $consulta->execute(array(
             ':nombre'=> $datos[0],
             ':apellidos'=> $datos[1],
             ':instituto' => $datos[2],
             ':correo' => $datos[3],
             ':pass' => $datos[4],
-            ':telefono' => $datos[5]
+            ':telefono' => $datos[5],
+            ':confirmado' => $datos[6],
+            ':codigo' => $datos[7]
         ));
-
-        include "../includes/mail.php";
-
     }
-    function verificar($correo){  //verifica que el usuario no exista
+   public static function verificar($correo){  //verifica que el usuario no exista
         $conexion = conexion("root", "");
 
-        $consulta = $conexion->prepare("SELECT * FROM estudiante WHERE Correo = :correo");
+        $consulta = $conexion->prepare("SELECT * FROM estudiante WHERE correo = :correo");
         $consulta->execute(array(':correo' => $correo));
         $resultado = $consulta->fetchAll();
         return $resultado;
@@ -30,7 +28,7 @@ class Estudiante{
     
     
 
-    public function verEspecialistas(){
+    public static function verEspecialistas(){
             $conexion = conexion("root", "");
     
             $sql= "SELECT * FROM especialista";
@@ -39,7 +37,7 @@ class Estudiante{
             return $request;           
     }
 
-    public function verInfoEspecialistas(){
+    public static function verInfoEspecialistas(){
         $conexion = conexion("root", "");
         $result ='';
         $row = null;
@@ -52,7 +50,7 @@ class Estudiante{
     <?php   
     }
 
-    function usuarioPorId($id){
+    public static function usuarioPorId($id){
         $conexion = conexion("root", "");
 
         $consulta = $conexion->prepare("SELECT * FROM estudiante WHERE id = :id");
@@ -60,7 +58,7 @@ class Estudiante{
         $resultado = $consulta->fetchAll();
         return $resultado;
     }
-    function editarDatos($id, $datos){
+    public static function editarDatos($id, $datos){
         $conexion = conexion("root", "");
 
         $consulta = $conexion->prepare("UPDATE estudiante SET Nombre = :nombre, Apellidos = :apellidos, Contraseña = :pass, Telefono = :telefono WHERE id = :id");
@@ -73,7 +71,7 @@ class Estudiante{
         ));
     }
 
-    public function eliminarDatos($id){
+    public static function eliminarDatos($id){
         $conexion = conexion("root", "");
         $consulta = $conexion->prepare("DELETE FROM estudiante WHERE id = :id");
         $consulta->execute(array(
@@ -81,12 +79,12 @@ class Estudiante{
         ));
         
     }
-    function cerrarSesion(){
+    public static function cerrarSesion(){
         
         session_unset();
         session_destroy();
 }
-    function completarActividad($id){
+    public static function completarActividad($id){
         $conexion = conexion("root", "");
         $result= $conexion->prepare("UPDATE files SET status = 1 WHERE id = :id");
         $consulta->execute(array(

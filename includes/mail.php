@@ -7,7 +7,7 @@ $para  = $correo . ', '; // atención a la coma
 $título = 'Gracias por registrarte';
 
 //aleatoria
-$codigo = rand(1000,9999);
+$codigoran = rand(1000,9999);
 
 // mensaje
 $mensaje = '
@@ -19,11 +19,11 @@ $mensaje = '
 <body>
   <p>tu codigo de verificacion es :!</p>
   <p> <a 
-     href="http://localhost/ttmain/views/registro/confirm.php?email='.$correo.'">
+     href="http://localhost/tt/includes/confirm.php?email='.$correo.'">
 
     Verificar cuenta </a> 
     </p>
- <h2>'.$codigo.'</h2>
+ <h2>'.$codigoran.'</h2>
   
 </body>
 </html>
