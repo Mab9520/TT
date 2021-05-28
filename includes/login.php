@@ -22,11 +22,11 @@
 ?>
 <?php
     if ($mostrar['rol_id'] == 2) {
-        $_SESSION['id'] = $mostrar['rol_id'];
+        $_SESSION['id'] = $mostrar['id'];;
         $_SESSION['Nombre'] = $mostrar['Nombre'];
         header("location: http://localhost/tt/views/principalEstudiante.php");
     }elseif ($mostrar1['rol_id'] == 1) {
-        $_SESSION['id'] = $mostrar1['rol_id'];
+        $_SESSION['id'] = $mostrar1['Cedula'];
         $_SESSION['Nombre'] = $mostrar1['Nombre'];
         header("location: http://localhost/tt/views/principalEspecialista.php");
     }else {

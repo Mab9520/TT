@@ -1,14 +1,16 @@
 
 <?php
+
 session_start();
+include("../../includes/conexion.php");
 require("../../includes/funciones.php");
 verificarSesion();
 require("../../clases/Estudiante.php");
 
-
 $usuario = Estudiante::usuarioPorId($_SESSION['id']);
 
-echo $_SESSION['Nombre'];
+echo $_SESSION['id'];
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -34,7 +36,7 @@ echo $_SESSION['Nombre'];
     </div>
 </div>
 	<?php 
-		$conexion = conexion("root", "");
+		
 
 		$id_estudiante = $_SESSION['id'];
 		$pregunta1 = $_POST['Pregunta1'];
@@ -421,6 +423,7 @@ if($pregunta1 == "0")
 	{
 		$puntos = $puntos + 3;
 	}
+
 	$consulta = $conexion->prepare("INSERT INTO datos (id_estudiante, pre1, pre2, pre3, pre4, pre5, pre6, pre7, pre8, pre9, pre10, pre11, pre12, pre13, pre14, pre15, pre16, pre17, pre18, pre19, pre20, pre21, puntos) VALUES(:id_estudiante, :pregunta1, :pregunta2, :pregunta3, :pregunta4, :pregunta5, :pregunta6, :pregunta7, :pregunta8, :pregunta9, :pregunta10, :pregunta11, :pregunta12, :pregunta13, :pregunta14, :pregunta15, :pregunta16, :pregunta17, :pregunta18, :pregunta19, :pregunta20, :pregunta21, :puntos)");
 
 
