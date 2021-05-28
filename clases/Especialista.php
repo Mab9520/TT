@@ -6,7 +6,7 @@ class Especialista {
 
         $correo = $_POST['correo'];
         $consulta = $conexion->prepare("INSERT INTO especialista (Nombre, Apellidos, Correo, Contraseña, Cedula, Especialidad, Sexo, Telefono, rol_id, confirmado , codigo) VALUES (:nombre, :apellidos, :correo, :pass, :cedula, :especialidad, :sexo, :telefono, 1, :confirmado, :codigo)");
-        $consulta->execute(array(
+        if ($consulta->execute(array(
             ':nombre'=> $datos[0],
             ':apellidos'=> $datos[1],
             ':correo' => $datos[2],
@@ -17,7 +17,11 @@ class Especialista {
             ':telefono' => $datos[7],
             ':confirmado' => $datos[8],
             ':codigo' => $datos[9]
-        ));
+        ))) {
+            echo "Datos Guardados Correctamente....<br>";}
+            else{
+            echo "No se ha podido Guardar Datos...";
+        }
     }
     public static function verificar($correo){  //verifica que el usuario no exista
         $conexion = conexion("root", "");
