@@ -48,7 +48,7 @@ while ($row = $sel->fetch(PDO::FETCH_ASSOC)) {
                     <table class="table mt-2">
                         <thead>
                             <tr>
-                                <th scope="col">#</th>
+                                
                                 <th scope="col">Titulo</th>
                                 <th scope="col">Descripción</th>
                                 <th scope="col">Archivos</th>
@@ -57,7 +57,7 @@ while ($row = $sel->fetch(PDO::FETCH_ASSOC)) {
                         <tbody>
                             <?php foreach ($res as $val) { ?>
                                 <tr>
-                                    <td><?php echo $val['id'] ?> </td>
+                                    
                                     <td><?php echo $val['title'] ?></td>
                                     <td><?php echo $val['description'] ?></td>
                                     <td>

@@ -70,7 +70,7 @@
             <td><?php echo $row['Telefono'];?></td></tr>
             <tr><td>Cedula profesional</td>
             <td><?php echo $row['Cedula'];?></td></tr>
-            <td colspan="2"><a href="?agregar=<?php echo $_GET['Cedula']?>"><input type="submit" value="Enviar solicitud" name="solicitar"></a></td>
+            <td colspan="2"><a href="?agregar=<?php echo $_GET['id']?>"><input type="submit" value="Enviar solicitud" name="solicitar"></a></td>
             </table>
             </form> 
             <?php

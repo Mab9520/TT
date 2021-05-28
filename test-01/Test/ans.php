@@ -454,6 +454,7 @@ if($pregunta1 == "0")
 
 		if ($consulta->execute()){
 			echo "Datos Guardados Correctamente....<br>";
+			
 		}else{
 			echo "No se ha podido Guardar Datos...";
 		}

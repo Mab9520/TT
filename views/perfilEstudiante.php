@@ -51,7 +51,7 @@ if(isset($_POST['rechazarEstudiante'])){
         <input type="submit" value="Rechazar" name="rechazarEstudiante"></form>
         <div>
         <a href="../subir/subirActividadEsp.php?id=<?php echo $usuario[0]['id'];?>"><input type="submit" value="Subir actividad" name="aceptarEstudiante"></a>
-        <a href="seguimiento.php?id=<?php echo $usuario[0]['id'];?>"><input type="submit" value="Seguimiento" name="aceptarEstudiante">Seguimiento</a>
+        <a href="Seguimiento.php?id=<?php echo $usuario[0]['id'];?>"><input type="submit" value="Seguimiento" name="aceptarEstudiante">Seguimiento</a>
     </div>
     </div>
 
