@@ -1,7 +1,7 @@
 <?php
 class Especialista {
 
-    public static function registrar($datos){//registra el usuario
+    public static function registrar($datos){//registra el usuario   
         $conexion = conexion("root", "");
 
         $correo = $_POST['correo'];
@@ -17,13 +17,31 @@ class Especialista {
             ':telefono' => $datos[7],
             ':confirmado' => $datos[8],
             ':codigo' => $datos[9]
-        ))) {
-            echo "Datos Guardados Correctamente....<br>";}
-            else{
-            echo "No se ha podido Guardar Datos...";
+        ))) {//si se registra correctamente se muestra este mensaje
+            ?>
+        <script>
+            Swal.fire({
+                title: 'Se han registrado los datos correctamente',
+                text: 'Te hemos enviado un código de verificación, revisa tu correo',
+                icon: 'success',
+                confirmButtonText: 'Ok'
+            });
+        </script>
+        <?php
+        } else{
+            //si hay error muestra este mensaje
+            ?>
+        <script>
+            Swal.fire({
+                title: 'Ha ocurrido un error en su registro, inténtelo nuevamente',
+                icon: 'success',
+                confirmButtonText: 'Ok'
+            });
+        </script>
+        <?php
         }
     }
-    public static function verificar($correo){  //verifica que el usuario no exista
+    public static function verificar($correo){  //verifica que el usuario no exista en la base de datos mediante el correo
         $conexion = conexion("root", "");
 
         $consulta = $conexion->prepare("SELECT * FROM especialista WHERE Correo = :correo");
@@ -34,7 +52,7 @@ class Especialista {
         return $resultado;
     }
 
-    public static function verificarVacio($cedula){  //verifica que el usuario no exista
+    public static function verificarVacio($cedula){  //verifica que el usuario no exista mediante la cedula
         $conexion = conexion("root", "");
 
         $consulta = $conexion->prepare("SELECT * FROM especialista WHERE Cedula = :cedula");
@@ -45,7 +63,7 @@ class Especialista {
         return $resultado;
     }
 
-    public static function verEstudiantes(){
+    public static function verEstudiantes(){ //Muestra los estudiantes que han enviado solicitud al especialista
         $conexion = conexion("root", "");
 
         $sql= "SELECT * FROM estudiante";
@@ -55,7 +73,7 @@ class Especialista {
     }
 
 
-    public static function verInfoEstudiantes(){
+    public static function verInfoEstudiantes(){//Muestra la información de los estudiantes en una tabla
         $conexion = conexion("root", "");
         $result ='';
         $row = null;
@@ -64,7 +82,8 @@ class Especialista {
         $results = $execute->execute(array($_GET['id']));
         $row = $execute->fetch();
         ?>
-        <table class="informacion">
+        
+        <table class="informacion" style=" width: 18rem; text-align:center;  border-radius: 20px;">
         <thead><th colspan="2"><?php echo $row['Nombre']; echo " "; echo $row['Apellidos']?></th></thead>
         <tr><td>Correo</td>
         <td><?php echo $row['Correo'];?></td></tr>
@@ -73,13 +92,13 @@ class Especialista {
         <tr><td>Instituto</td>
         <td><?php echo $row['Instituto'];?></td></tr>
         <tr><td colspan="2"><a href="">Seguimiento de actividades</a></td></tr>
-        <tr><td colspan="2"><a href = "perfilEstudiante.php?id=<?php echo $row['id'] ?>"><input type="submit" value="Ver Perfil"></a></td></tr>
-        <tr><td colspan="2"><a onclick= "location.href = 'Seguimiento.php'"><input type="submit" value="Agendar cita"></a></td></tr>
+        <tr><td colspan="2"><a href = "perfilEstudiantePrivado.php?id=<?php echo $row['id'] ?>"><input class="btn" type="submit" value="Ver Perfil"></a></td></tr>
+        <tr><td colspan="2"><a onclick= "location.href = 'AgendaVista.php'"><input class="btn" type="submit" value="Agendar cita"></a></td></tr>
         </table>
     <?php   
 }
 
-public static function verTest(){
+public static function verTest(){//Muestra el test del estudiante
     $conexion = conexion("root", "");
     $result= $conexion->query("SELECT * from datos");
 
@@ -387,7 +406,7 @@ public static function verTest(){
         </table><?php
 }
 	
-public static function verResultados(){
+public static function verResultados(){//Muestra los resultados del test y los cheems
     $conexion = conexion("root", "");
     $id_estudiante = $_GET['id'];
     $result= $conexion->query("SELECT * from datos WHERE id_estudiante = '$id_estudiante'");
@@ -417,7 +436,7 @@ echo "Resultado: $puntos puntos <br> $mensaje <br><br><br> $img ";
 }
     
 
-    public static function usuarioPorId($id){
+    public static function usuarioPorId($id){ //busca el especialista mediante el id que jalamos de la url con un get
         $conexion = conexion("root", "");
 
         $consulta = $conexion->prepare("SELECT * FROM especialista WHERE Cedula = :cedula");
@@ -425,70 +444,48 @@ echo "Resultado: $puntos puntos <br> $mensaje <br><br><br> $img ";
         $resultado = $consulta->fetchAll();
         return $resultado;
     }
-    public static function editarDatos($id, $datos){
+    public static function editarDatos($id, $datos){// Edita los datos 
         $conexion = conexion("root", "");
 
         $consulta = $conexion->prepare("UPDATE especialista SET Nombre = :nombre, Apellidos = :apellidos, Contraseña = :pass, Telefono = :telefono WHERE Cedula = :cedula");
-        $consulta->execute(array(
+        if($consulta->execute(array(
             ':nombre'=> $datos[0],
             ':apellidos'=> $datos[1],
             ':pass' => $datos[2],
             ':telefono' => $datos[3],
             ':cedula' =>$id
-        ));
+        ))){
+            ?>
+        <script>
+            Swal.fire({
+                title: 'Se han editado los datos!',
+                icon: 'success',
+                confirmButtonText: 'Ok'
+            }).then( () =>{
+                location.href = "editarDatosEspecialista.php";
+            });
+        </script>
+        <?php
+    } else{
+        ?>
+            <script>
+        		Swal.fire({
+            	title: 'No se han podido actualizar los datos, inténtelo nuevamente',
+            	icon: 'error',
+            	confirmButtonText: 'Aceptar'
+        		});
+    		</script>
+            <?php
+        }
     }
-    public static function closeSession(){
+
+    public static function closeSession(){ //Cierra y destruye la sesion
         session_unset();
         session_destroy();
         
     }
 
-    public static function visualizarTest(){
-        $conexion = conexion("root", "");
-        
-        $result ='';
-        $row = null;
-        $sql = "SELECT * FROM datos WHERE id =?";
-        $execute = $conexion->prepare($sql);
-        $results = $execute->execute(array($_GET['id']));
-
-        while($mostrar= $result->fetch()){
-            ?>
-   
-           <table>
-               <tr>
-               <td>Estudiante:</td>
-               <td><?php echo $mostrar['id_estudiante'] ?></td>
-               </tr>
-               <td>ID:</td>
-               <td><?php echo $mostrar['id'] ?></td>
-               
-   
-           </table>
-           <br>
-           <table border="1" >
-               <tr>
-               <td>1.- Torpe o entumecido.</td>
-               <td><?php echo $mostrar['pre1'] ?></td>
-               </tr>
-               <tr>
-               <td>2.- Acalorado.</td>
-               <td><?php echo $mostrar['pre2'] ?></td>
-               </tr>
-               <tr>
-               <td>3.- Con temblor en las piernas.</td>
-               <td><?php echo $mostrar['pre3'] ?></td>
-               </tr>
-               </table>
-               <p>----------------------------------------------</p>
-           
-       <?php 
-       }
-    }
-
-    }
-
-    function seleccionarPaciente(){
+    function seleccionarPaciente(){ //Creo que este no sirve xD
         $conexion = conexion("root", "");
 
         $sql= "SELECT * FROM estudiante";
@@ -497,7 +494,7 @@ echo "Resultado: $puntos puntos <br> $mensaje <br><br><br> $img ";
         return $request; 
     }
 
-    function verSeguimiento(){
+    function verSeguimiento(){//Creo que este tampoco sirve :v
         $conexion = conexion("root", "");
         
         $result ='';

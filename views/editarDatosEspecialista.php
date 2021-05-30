@@ -6,19 +6,7 @@ require("headerEsp.php");
 verificarSesion();
 
     $usuario = Especialista::usuarioPorId($_SESSION['id']);
-    if(isset($_POST['editar'])){
-        $datos = array(
-            $_POST['nombre'],
-            $_POST['apellidos'],
-            sha1($_POST['pass']),
-            $_POST['telefono']           
-        );
-            Especialista::editarDatos($_SESSION['id'], $datos);
-            ?>
-            <script>swal("Datos editados correctamente");</script>
-            <?php
-            
-    } 
+
 
 ?>
 
@@ -28,35 +16,90 @@ verificarSesion();
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <link rel=StyleSheet href="../css/style.css" type="text/CSS">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Syne+Mono&display=swap" rel="stylesheet">
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <title>Registro especialista</title>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <title>Editar mis datos</title>
 </head>
 <body>
-    
 
-<div class = "title"><h1>Registro especialista</h1></div>
-<div class = "content" class="texto-encima">
-    <img src="../images/psico.png" alt="" class="imgFondo">
-    <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method = "POST" class="encima" >
-    <p><input class = "content_entradas" type="text" name = "nombre"  value="<?php echo $usuario[0]['Nombre']; ?>"></p><br>
-    <p><input class = "content_entradas" type="text" name = "apellidos"  value="<?php echo $usuario[0]['Apellidos']; ?>"></p><br>
-    <p> <input placeholder="Contraseña" class = "content_entradas" type="password" name = "pass"  value=""></p><br>
-    <p><input class = "botones" id="agregarTelefono" type="button" value="Agregar telefono" ></p><br>
-    <p><input class = "campoTelefono" id="campoTelefono" type="tel" name = "telefono"  value="<?php echo $usuario[0]['Telefono']; ?>"></p><br> 
-    <p><input class = "botones" type="submit" value="Editar" name = "editar"></p><br>
-    <p><a href="principalEspecialista.php">Regresar al inicio</a></p>
-    </form>
-    <?php if(!empty($error)): ?>
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-lg-12">
+                <p>Editar mis datos</p>
+            </div>
+        </div>
+            <div class="col-12 col-lg-12">
+                <img class="imgFondo" src="../images/psico.png" alt="">
+                <div class="col-12 col-lg-12 encima text-center">
+                    <form method = "post">
+                        <p><input class = "form-control" type="text"  name = "nombre" value="<?php echo $usuario[0]['Nombre']; ?>" ></p>
+                        <p><input class = "form-control" type="text"   name ="apellidos" value="<?php echo $usuario[0]['Apellidos']; ?>"></p>
+                        <p> <input  class = "form-control" type="password" name = "pass" placeholder="Contraseña"/></p>
+                        <p><input class = "btn" id="agregarTelefono" type="button" value="Agregar telefono"></p>
+                        <p><input class = "form-control campoTelefono" id="campoTelefono" type="tel" name = "telefono" value="<?php echo $usuario[0]['Telefono']; ?>"></p>
+                        <p><input class = "btn" type="submit" name="editar" value="Editar"></p>
+                        <p><input class = "btn" type="submit" name="eliminar" value="Eliminar cuenta"></p>
+                    
+                        </form>    
+                        
+                        <?php if(!empty($error)): ?>
         <p class="error"><?php echo $error; ?></p>
         <?php endif; ?>
-    </div>
-    <script src="../js/ocultaCampos.js"></script>
-    <script src="../js/navegacion.js"></script>
+                </div> 
+            </div>
+        </div>
+    
+    
 
+
+        <script src="../js/ocultaCampos.js"></script>
+        <script src="../js/navegacion.js"></script>
 </body>
 </html>
+<?php
+if(isset($_POST['editar'])){
+    $pass=sha1($_POST['pass']);
+    $datos = array(
+        $_POST['nombre'],
+        $_POST['apellidos'],
+        $pass,
+        $_POST['telefono']           
+    );
+        Especialista::editarDatos($_SESSION['id'], $datos);
+        ?>
+        <script>
+            Swal.fire({
+                title: 'Se han editado los datos!',
+                icon: 'success',
+                confirmButtonText: 'Ok'
+            }).then( () =>{
+                location.href = "editarDatosEspecialista.php";
+            });
+        </script>
+        <?php
+}else
+
+if(isset($_POST['eliminar'])){  
+    ?>
+    <script>
+        Swal.fire({
+            title: '¿Desea eliminar su cuenta?',
+            icon: 'warning',
+            confirmButtonText: 'ok'
+        }).then( () =>{
+            location.href = "../index.php";
+        });
+    </script>
+    <?php
+    Especialista::eliminarDatos($_SESSION['id']);
+    Especialista::cerrarSesion();
+        
+        
+        
+}
+?>

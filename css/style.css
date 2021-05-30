@@ -37,13 +37,13 @@ body{
     border: none;
     margin: .5rem;
     color: white;
-    background: rgb(14, 167, 128);
+    background: rgb(83, 83, 83);
     border-radius: 3px;
     font-size: .8rem;
     cursor: pointer;
 }
 .btn:hover{
-    background: rgb(11, 68, 51);
+    background: rgb(149, 153, 152);
     transition: .5s;
 }
 
@@ -95,7 +95,9 @@ body{
     height: 29.5em;
     width:auto;
 }
-
+.respuesta{
+    padding: 5%;
+}
 
 .flip-card {
   width: 20em;
@@ -146,7 +148,7 @@ body{
 }
 i{
     color: rgb(255, 255, 255);
-    font-size: 1.5em;
+    font-size: 2rem;
 }
  i:hover{
     color: rgb(0, 0, 0);
@@ -157,7 +159,7 @@ i{
     display: flex;
     width: 80%;
     height: 80%;
-    opacity: 70%;
+    opacity: 80%;
     position: relative;
     margin: auto;
     top: 20%;
@@ -208,9 +210,6 @@ i{
     margin: auto;
 }
 
-
-
-
 .resultados{
     display: flex;
     flex-direction:row;
@@ -230,24 +229,24 @@ i{
     margin-top: 5%;
     text-align: center
 }
-.listaNombres{
-    margin-top: 5%;
-}
-.listaNombres li{
-    padding: .3em;
-}
-.listaNombres a{
-    text-decoration: none;
+.lista{
+    padding: 1rem;
+    margin: 2rem;
+    width: 15rem;
+    height:5rem;
+    overflow: scroll;
+    overflow-x: hidden
 }
 
+
 .informacion{
-    background-color: #EFF2F7;
-    border: 3px solid #C0CCDA;
+    background-color: #9b9da0;
     text-align: center;
 }
 
 .informacion td{
-    background-color: #FFFFFF;
-    border-top: 3px solid #C0CCDA;
+    background-color: #ffffff;
+    border: 3px solid #C0CCDA;
+    padding: .5rem;
     
 }

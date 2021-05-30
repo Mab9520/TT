@@ -8,7 +8,6 @@ and open the template in the editor.
 
 require("../includes/funciones.php");
 require("../clases/pacientes.php");
-require("../views/headerEstu.php");
 session_start();
 verificarSesion();
 //Conexion a la base de datos
@@ -26,11 +25,45 @@ while ($row = $sel->fetch(PDO::FETCH_ASSOC)) {
 
 <html>
     <head>
-        <meta charset="UTF-8">
-        <title></title>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link rel=StyleSheet href="../css/style.css" type="text/CSS">
+
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Syne+Mono&display=swap" rel="stylesheet">
+
     </head>
     <body>
+    <div class="container">
+    <div class="row">
+        <div class="col-10 col-lg-10 text-center">
+            <h1>Bienvenido</h1>
+        </div>
+        <div class="col-2 col-lg-2 text-center">
+        <nav class="nav">
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Menu</a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="../views/principalEspecialista.php">Página principal</a></li>
+                <li><a class="dropdown-item" href="../views/verEstudiantes.php">Solicitudes</a></li>
+                <li><a class="dropdown-item" href="../views/AgendaVista.php">Agenda</a></li>
+                <li><a class="dropdown-item" href="../views/misEstudiantes.php">Mis estudiantes</a></li>
+                <li><a class="dropdown-item" href="../views/editarDatosEspecialista.php">Editar datos</a></li>
+                <li class="dropdown-item cerrarSesion"><a href="../includes/logout.php">Cerrar sesion</a></li>
+            </ul>
+          </li>
+    </nav>
+        </div>
+    </div>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
         <div class="container">
             <div class="row justify-content-md-center">
                 <div class="col-md-auto">

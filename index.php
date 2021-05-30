@@ -24,7 +24,7 @@
             <p>Herramienta de apoyo al psicólogo en la evaluación de la ansiedad en jóvenes universitarios</p>
         </div>
         <div class="col-12 col-lg-12">
-            <a href="views/login.php"><input class="btn" type="submit" value="Iniciar sesión" name="iniciaSesion"></a>
+            <a href="views/login.views.php"><input class="btn" type="submit" value="Iniciar sesión" name="iniciaSesion"></a>
         </div>
         <div class="col-12 col-lg-6">
             <div class="flip-card">

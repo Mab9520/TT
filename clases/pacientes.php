@@ -17,12 +17,38 @@ class Pacientes{
         :esp_receptor, 
         :status /*indica cuando se ha aceptado una solicitud*/, 
         :solicitud/*indica cuando se ha enviado una solicitud*/)");
-        $consulta->execute(array(
+        if($consulta->execute(array(
                        ':est_enviador' => $est_enviador,
                        ':esp_receptor' => $esp_receptor,
                        ':status' => '',
                        ':solicitud' => 1      
-        ));
+        ))){
+            ?>
+            <script>
+                Swal.fire({
+                    title: 'Se ha enviado la solicitud!',
+                    icon: 'success',
+                    text: 'Espera a recibir una notificación para saber si el especialista te acepta',
+                    confirmButtonText: 'Ok'
+                }).then( () =>{
+                    location.href = "principalEstudiante.php";
+                });
+            </script>
+    <?php
+                }
+                else{
+                    ?>
+                    <script>
+                        Swal.fire({
+                            title: 'No se ha podido enviar la solicitud',
+                            icon: 'error',
+                            text: 'Intentalo nuevamente',
+                            confirmButtonText: 'Ok'
+                        });
+                    </script>
+            <?php
+    
+                }
 
     }
 //verificar si un amigo es amigo de otro
@@ -62,23 +88,47 @@ class Pacientes{
         
     }
 
-    public static function aceptarSolicitud($id){
+    public static function aceptarSolicitud($id){ //Acepta la solicitud del estudiante y coloca el status en 1 como aceptado, muestra el mensaje del script
         $conexion = conexion("root", "");
         $consulta = $conexion->prepare("UPDATE pacientes SET status = 1 WHERE est_enviador = :id");
-        $consulta->execute(array(
+        if($consulta->execute(array(
                        ':id' => $id   
-        ));
+        ))){
+            ?>
+        <script>
+            Swal.fire({
+                title: 'Se ha aceptado al estudiante!',
+                icon: 'success',
+                confirmButtonText: 'Ok'
+            }).then( () =>{
+                location.href = "misEstudiantes.php";
+            });
+        </script>
+    <?php
+        }
     }
     
-    public static function eliminarSolicitud($id){
+    public static function eliminarSolicitud($id){ //Rechaza la solicitud del estudiante y la elimina de la base de datos, muestra el mensaje del script
         $conexion = conexion("root", "");
         $consulta = $conexion->prepare("DELETE FROM pacientes WHERE est_enviador = :id");
-        $consulta->execute(array(
+        if($consulta->execute(array(
                        ':id' => $id   
-        ));
+        ))){
+            ?>
+        <script>
+            Swal.fire({
+                title: 'Se ha rechazado la solicitud!',
+                icon: 'success',
+                confirmButtonText: 'Ok'
+            }).then( () =>{
+                location.href = "verEstudiantes.php";
+            });
+        </script>
+    <?php
+        } 
     }
 
-    public static function cantidadPacientes($cedula){
+    public static function cantidadPacientes($cedula){//hace un conteo de los estudiantes aceptados
         $conexion = conexion("root", "");
         $consulta = $conexion->prepare("SELECT count(*) FROM pacientes WHERE (est_enviador = :id or esp_receptor = :Cedula) AND status = 1 ");
         $consulta->execute(array(
@@ -89,7 +139,7 @@ class Pacientes{
         return $resultados;
     }
 
-    public static function verPacientes($cedula){
+    public static function verPacientes($cedula){ //obtiene el nombre, apellidos, id de la tabla estudiante ligados a la cedula del especialista en un INNER JOIN de la tabla paciente 
         $conexion = conexion("root", "");
         $consulta = $conexion->prepare("SELECT E.id, E.Nombre, E.Apellidos, P.est_enviador from estudiante E INNER JOIN pacientes P on E.id = P.est_enviador WHERE P.esp_receptor = :Cedula and status = 1");
         $consulta->execute(array(
@@ -100,7 +150,7 @@ class Pacientes{
         return $resultados;
     }
 
-    public static function verInfoPacientes($cedula){
+    public static function verInfoPacientes($cedula){ //obtiene los datos de los pacientes y los muestra 
         $conexion = conexion("root", "");
         $result ='';
         $row = null;

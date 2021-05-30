@@ -1,4 +1,5 @@
 <?php
+//Edicion y eliminacion de las citas
 // Conexion a la base de datos
 session_start();
 require("funciones.php");
@@ -7,7 +8,7 @@ verificarSesion();
 
 $conexion = conexion("root", "");
 if (isset($_POST['delete']) && isset($_POST['id'])){
-	
+	//Elimina la cita
 	
 	$id = $_POST['id'];
 	
@@ -24,7 +25,7 @@ if (isset($_POST['delete']) && isset($_POST['id'])){
 	}
 	
 }elseif (isset($_POST['title']) && isset($_POST['color']) && isset($_POST['id'])){
-	
+	//Edita el titulo de la cita
 	$id = $_POST['id'];
 	$title = $_POST['title'];
 	$color = $_POST['color'];

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 
 <?php
+
 include('../includes/funciones.php');
 $conexion = conexion("root", "");
 
@@ -28,20 +29,29 @@ while ($rowesp = $selesp->fetch(PDO::FETCH_ASSOC)) {
 ?>
 
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title></title>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    </head>
-    <body>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link rel=StyleSheet href="../css/style.css" type="text/CSS">
+
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Syne+Mono&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <title>Registro especialista</title>
+</head>
+    <body> <h1>Seguimiento</h1>
         <div class="container">
             <div class="row justify-content-md-center">
                 <div class="col-md-auto">
-                    <h1>Seguimiento</h1>
+                   
                 </div>
             </div>
             <div class="row justify-content-md-center">
-                <div class="col-8">
+                <div class="col-8 col-lg-12">
 
                     <table class="table mt-2">
                         <thead>

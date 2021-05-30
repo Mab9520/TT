@@ -1,5 +1,5 @@
 <?php
-
+//Edita una cita en la agenda
 // Conexion a la base de datos
 session_start();
 require("funciones.php");

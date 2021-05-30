@@ -1,4 +1,5 @@
 <?php
+//Aqui agregamos la cita
 require("funciones.php");
 
 session_start();

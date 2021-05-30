@@ -1,4 +1,5 @@
 <?php
+ // funcion para completar la actividad subiendo un archivo 
 require("../includes/funciones.php");
 session_start();
 verificarSesion();

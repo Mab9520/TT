@@ -1,4 +1,6 @@
 <?php
+
+//Unicamente cierra sesion, se usa en el header
 session_start();
 
 require('funciones.php');

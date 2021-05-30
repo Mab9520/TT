@@ -1,5 +1,7 @@
 <?php
+//Funciones generales de los usuarios
 
+//Funcion para conexion
     function conexion($usuario, $pass){
         try{
             $conexion = new PDO('mysql:host=localhost;dbname=tt', $usuario, $pass);
@@ -21,7 +23,7 @@
 
         return $vacio;
     }
-
+//Funcion para limpiar de codigo malicioso la contraseña del estudiante para evitar inyecciones sql
     function limpiarEst($datos){
         $tamaño = count($datos);
         for($contador = 0; $contador <$tamaño; $contador++){
@@ -33,7 +35,7 @@
         }
         return $datos;
     }
-
+//Funcion para limpiar de codigo malicioso la contraseña del especialista para evitar inyecciones sql
     function limpiarEsp($datos){
         $tamaño = count($datos);
         for($contador = 0; $contador <$tamaño; $contador++){
@@ -45,13 +47,13 @@
         }
         return $datos;
     }
-
+//Verifica que exista una sesion activa, si no esta verificada nos lleva directamente al index
     function verificarSesion(){
         if(!isset($_SESSION['id'])){
             header('location: ../index.php');
         }
     }
-   
+//Nombre del archivo
     function file_name($string) {
 
         // Tranformamos todo a minusculas

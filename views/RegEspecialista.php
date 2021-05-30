@@ -4,44 +4,50 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <link rel=StyleSheet href="../css/style.css" type="text/CSS">
+
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Syne+Mono&display=swap" rel="stylesheet">
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <title>Registro especialista</title>
 </head>
 <body>
-    
-<div class ="encabezado">
-    <a href="../index.php"><i class="fas fa-arrow-alt-circle-left"></i></a>
-</div>
-
-<div class = "title"><h1>Registro especialista</h1></div>
-<div class = "content" class="texto-encima">
-    <img src="../images/psico.png" alt="" class="imgFondo">
-    <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method = "POST" class="encima" >
-    <p><input class = "content_entradas" type="text"  placeholder="Nombre" name = "nombre"></p><br>
-    <p><input class = "content_entradas" type="text"  placeholder="Apellidos" name = "apellidos"></p><br>
-    <p><input class = "content_entradas" type="email"  placeholder="Correo Electronico" name = "correo"></p><br>
-    <p> <input class = "content_entradas" type="password"  placeholder="Contraseña" name = "pass"></p><br>
-    <p>Verifica tu contraseña</p>
-    <p> <input class = "content_entradas" type="password"  placeholder="Contraseña" name = "pass2"></p><br>
-    <p> <input class = "content_entradas" type="number"  placeholder="Cedula profesional" name = "cedula"></p><br>
-    <p> <input class = "content_entradas" type="text"  placeholder="Especialidad" name = "especialidad"></p><br>
-    <p> <input class = "content_entradas" type="text"  placeholder="Sexo M/F" name = "sexo"></p><br>
-    <p><input class = "botones" id="agregarTelefono" type="button" value="Agregar telefono" ></p><br>
-    <p><input class = "campoTelefono" id="campoTelefono" type="tel" placeholder="Telefono" name = "telefono" ></p><br> 
-    <p><input class = "botones" type="submit" value="Registrar" name = "registrar"></p><br>
-    <p><a href="login.views.php">Iniciar sesion</a></p>
-    </form>
-    <?php if(!empty($error)): ?>
-        <p class="error"><?php echo $error; ?></p>
-        <?php endif; ?>
+<div class="col-12 col-lg-12">
+                <a href="../index.php"><i class="fas fa-arrow-alt-circle-left"></i></a>
+            </div>
+    <div class="container">
+        <div class="row">
+            
+            <div class="col-12 col-lg-12">
+                <p>Registro especialista</p>
+            </div>
+        </div>
+        <div class="col-12 col-lg-12">
+            <img class="imgFondo" src="../images/psico.png" alt="">
+            <div class="col-12 col-lg-12 encima2">
+                <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method = "POST" >
+                    <p></p><input class = "form-control" type="text"  placeholder="Nombre" name = "nombre"></p>
+                    <p><input class = "form-control" type="text"  placeholder="Apellidos" name = "apellidos"></p>
+                    <p><input class = "form-control" type="email"  placeholder="Correo Electronico" name = "correo"></p>
+                    <p> <input class = "form-control" type="password"  placeholder="Contraseña" name = "pass"></p>
+                    <p>Verifica tu contraseña</p>
+                    <p> <input class = "form-control" type="password"  placeholder="Contraseña" name = "pass2"></p>
+                    <p> <input class = "form-control" type="number"  placeholder="Cedula profesional" name = "cedula"></p>
+                    <p> <input class = "form-control" type="text"  placeholder="Especialidad" name = "especialidad"></p>
+                    <p> <input class = "form-control type="text"  placeholder="Sexo M/F" name = "sexo"></p>
+                    <p><input class = "btn" id="agregarTelefono" type="button" value="Agregar telefono" ></p>
+                    <p><input class = "form-control campoTelefono" id="campoTelefono" type="tel" placeholder="Telefono" name = "telefono" ></p>
+                    <p><input class = "btn" type="submit" value="Registrar" name = "registrar"></p>
+                    <p><a href="login.views.php">Iniciar sesion</a></p>
+                </form>
+            </div>
+        </div>
     </div>
-    <script src="../js/ocultaCampos.js"></script>
 </body>
+</html>
 </html>
 
 <?php
@@ -77,18 +83,28 @@ if(isset($_POST['registrar'])){
         $datos = limpiarEsp($datos);
             if(empty(Especialista::verificarVacio($datos[4]))){
                 if($_POST['pass'] == $_POST['pass2'] ){
-                    Especialista::registrar($datos);?>
-                <script>swal( "Te has registrado exitosamente!")</script>
-                <?php
+                    Especialista::registrar($datos);
                 } else {
                     ?>
-                <script>swal("Las contraseñas no coinciden")</script>
+                <script>
+                    Swal.fire({
+                    title: 'Las contraseñas no coinciden',
+                    icon: 'error',
+                    confirmButtonText: 'Ok'
+                    });
+                </script>
                 <?php
                 } 
             }
-            else{?> 
-            <script>swal("Este usuario ya existe");</script>
-            <?php
+            else{?>
+                <script>
+                    Swal.fire({
+                    title: 'Este usuario ya existe',
+                    icon: 'error',
+                    confirmButtonText: 'Ok'
+                    });
+                </script>
+                <?php
             }
     }
     

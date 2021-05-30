@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Syne+Mono&display=swap" rel="stylesheet">
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <title>Registro estudiante</title>
 </head>
@@ -79,26 +79,42 @@ if(isset($_POST['registrar'])){
     );
 
     if(empty($_POST['nombre']) || empty($_POST['apellidos']) || empty($_POST['instituto']) || empty($_POST['correo']) || empty($_POST['pass'])){
-        ?> 
-        <script>swal("Completa los campos");</script>
-    <?php
+        ?>
+        <script>
+            Swal.fire({
+            title: 'Completa los campos',
+            icon: 'warning',
+            confirmButtonText: 'Aceptar'
+            });
+        </script>
+        <?php
     } else{
         $datos = limpiarEst($datos);
             if(empty(Estudiante::verificar($datos[3]))){
                 if($_POST['pass'] == $_POST['pass2'] ){
-                    Estudiante::registrar($datos);?>
-                <script>swal( "Te has registrado exitosamente!")</script>
-                <?php
+                    Estudiante::registrar($datos);
                 } else {
                     ?>
-                <script>swal("Las contraseñas no coinciden")</script>
-                <?php
+            <script>
+        		Swal.fire({
+            	title: 'Las contraseñas no coinciden',
+            	icon: 'error',
+            	confirmButtonText: 'Aceptar'
+        		});
+    		</script>
+            <?php
                 } 
                 
             }
-            else{?> 
-            <script>swal("Este usuario ya existe");</script>
-            <?php
+            else{?>
+                <script>
+                    Swal.fire({
+                    title: 'Este usuario ya existe',
+                    icon: 'error',
+                    confirmButtonText: 'Aceptar'
+                    });
+                </script>
+                <?php
             }
     }
     

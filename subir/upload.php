@@ -2,7 +2,7 @@
 require("../includes/funciones.php");
 session_start();
 verificarSesion();
-
+//funcion para cargar archivos, se usa en los modales
 // Conexion a la base de datos
 $conexion = conexion("root", "");
 $id = $_GET['id'];

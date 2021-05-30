@@ -1,4 +1,5 @@
 <?php 
+//Vista de la confirmacion del correo en el registro
 if(isset($_GET['email'] )){
     $email = $_GET['email'] ;
    
@@ -17,11 +18,12 @@ if(isset($_GET['email'] )){
     <title>Verifiar Cuenta</title>
     <!-- CSS only -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+<link rel=StyleSheet href="../css/style.css" type="text/CSS">
 </head>
 <body>
     <div class="container">
         <div class="row justify-content-md-center" style="margin-top:15%">
-            <form class="col-3" action="verificar.php" method="POST">
+            <form class="col-12" action="verificar.php" method="POST">
                 <h2>Verificar Cuenta</h2>
                 <div class="mb-3">
                     <label for="c" class="form-label">Código de Verificación</label>

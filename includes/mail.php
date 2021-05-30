@@ -1,4 +1,5 @@
 <?php
+//Encio de los correos vista
 // Varios destinatarios
 $para  = $correo . ', '; // atención a la coma
 //$para = 'wez@example.com' . ', ';
@@ -19,7 +20,7 @@ $mensaje = '
 <body>
   <p>tu codigo de verificacion es :!</p>
   <p> <a 
-     href="http://localhost/tt/includes/confirm.php?email='.$correo.'">
+     href="http://localhost/TT/includes/confirm.php?email='.$correo.'">
 
     Verificar cuenta </a> 
     </p>
