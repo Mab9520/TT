@@ -431,9 +431,9 @@ if ($mostrar['id_estudiante'] == "") {
 
 }
 echo "Resultado: $puntos puntos <br> $mensaje <br><br><br> $img ";
+}
+}
 
-}
-}
     
 
     public static function usuarioPorId($id){ //busca el especialista mediante el id que jalamos de la url con un get
@@ -504,8 +504,4 @@ echo "Resultado: $puntos puntos <br> $mensaje <br><br><br> $img ";
         $results = $execute->execute(array($_GET['id']));
        
     }
-
-
-
-
-?>
+}
