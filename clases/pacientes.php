@@ -99,7 +99,7 @@ class Pacientes{
             Swal.fire({
                 title: 'Se ha aceptado al estudiante!',
                 icon: 'success',
-                confirmButtonText: 'Ok'
+                confirmButtonText: 'Aceptar'
             }).then( () =>{
                 location.href = "misEstudiantes.php";
             });
@@ -119,7 +119,7 @@ class Pacientes{
             Swal.fire({
                 title: 'Se ha rechazado la solicitud!',
                 icon: 'success',
-                confirmButtonText: 'Ok'
+                confirmButtonText: 'Aceptar'
             }).then( () =>{
                 location.href = "verEstudiantes.php";
             });
