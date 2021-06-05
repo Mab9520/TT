@@ -10,7 +10,7 @@ require("../includes/funciones.php");
 require("../clases/pacientes.php");
 session_start();
 verificarSesion();
-require("../views/headerEstu.php");
+
 //Conexion a la base de datos
 $conexion = conexion("root", "");
 
@@ -18,7 +18,6 @@ $conexion = conexion("root", "");
 $tmp = array();
 $res = array();
 $id_estudiante = $_SESSION['id'];
-echo $id_estudiante;
 $sel = $conexion->query("SELECT * FROM files WHERE id_estudiante = '$id_estudiante'");
 while ($row = $sel->fetch(PDO::FETCH_ASSOC)) {
     $tmp = $row;
@@ -29,18 +28,48 @@ while ($row = $sel->fetch(PDO::FETCH_ASSOC)) {
 <html>
     <head>
         <meta charset="UTF-8">
-        <title></title>
+        
+        <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+        <link rel="stylesheet" href="../css/style.css">
+        <title>Nueva actividad</title>
     </head>
     <body>
+    <div class="container encabezado">
+    <div class="row">
+        <div class="col-10 col-lg-10 text-center">
+            <div class="">
+                <h1>Bienvenido</h1>
+                <h2><?php echo $_SESSION['Nombre']; ?></h2>
+            </div>
+        </div>
+
+        <div class="col-2 col-lg-2 text-center">
+            <nav class="nav">
+                <li class="nav-item dropdown">
+                <a class="nav-link" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-bars"></i></a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="../views/principalEstudiante.php">Página principal</a></li>
+                        <li><a class="dropdown-item" href="../views/verEspecialistas.php">Especialistas</a></li>
+                        <li><a class="dropdown-item" href="../test-01/test.php">Realizar test</a></li>
+                        <li><a class="dropdown-item" href="../views/editarDatosEstudiante.php">Editar datos</a></li>
+                        <li><a class="dropdown-item" href="../includes/logout.php">Cerrar sesion</a></li>
+                    </ul>
+                </li>
+            </nav>
+        </div>
+    </div>
+</div>
         <div class="container">
-            <div class="row justify-content-md-center">
-                <div class="col-md-auto">
-                    <h1>Ver Archivos</h1>
+            <div class="row">
+                <div class="col-12">
+                    <h1>Mis actividades</h1>
                 </div>
             </div>
+        </div>
+        <div class="container">
             <div class="row justify-content-md-center">
-                <div class="col-8">
+                <div class="col-12">
                     <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
                         Nuevo
                     </button> -->
@@ -157,4 +186,6 @@ while ($row = $sel->fetch(PDO::FETCH_ASSOC)) {
         </script>
 
     </body>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
 </html>

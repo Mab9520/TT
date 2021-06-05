@@ -15,16 +15,18 @@
     <title>Registro especialista</title>
 </head>
 <body>
-<div class="col-12 col-lg-12">
+    <div class="container encabezado">
+        <div class="row">
+            <div class="col-12 col-lg-12">
                 <a href="../index.php"><i class="fas fa-arrow-alt-circle-left"></i></a>
             </div>
-    <div class="container">
-        <div class="row">
-            
-            <div class="col-12 col-lg-12">
-                <p>Registro especialista</p>
+            <div class="col-12 text-center col-lg-12">
+                <h2>Registrate como especialista</h2>
             </div>
+            
         </div>
+    </div>
+    <div class="container">
         <div class="col-12 col-lg-12">
             <img class="imgFondo" src="../images/psico.png" alt="">
             <div class="col-12 col-lg-12 encima2">
@@ -38,10 +40,9 @@
                     <p> <input class = "form-control" type="number"  placeholder="Cedula profesional" name = "cedula"></p>
                     <p> <input class = "form-control" type="text"  placeholder="Especialidad" name = "especialidad"></p>
                     <p> <input class = "form-control type="text"  placeholder="Sexo M/F" name = "sexo"></p>
-                    <p><input class = "btn" id="agregarTelefono" type="button" value="Agregar telefono" ></p>
-                    <p><input class = "form-control campoTelefono" id="campoTelefono" type="tel" placeholder="Telefono" name = "telefono" ></p>
+                    <p>Opcional:</p>
+                    <p><input class = "form-control telefono" type="tel"  placeholder="Teléfono" name = "telefono"></p>
                     <p><input class = "btn" type="submit" value="Registrar" name = "registrar"></p>
-                    <p><a href="login.views.php">Iniciar sesion</a></p>
                 </form>
             </div>
         </div>

@@ -16,20 +16,22 @@
     <title>Registro estudiante</title>
 </head>
 <body>
-
-    <div class="container">
+    <div class="container encabezado">
         <div class="row">
             <div class="col-12 col-lg-12">
                 <a href="../index.php"><i class="fas fa-arrow-alt-circle-left"></i></a>
             </div>
-            <div class="col-12 col-lg-12">
-                <p>Registrate como estudiante</p>
+            <div class="col-12 text-center col-lg-12">
+                <h2>Registrate como estudiante</h2>
             </div>
+            
         </div>
+    </div>
+    <div class="container">
             <div class="col-12 col-lg-12">
                 <img class="imgFondo" src="../images/est.png" alt="">
-                <div class="col-12 col-lg-12 encima">
-                    <form  action="<?php echo $_SERVER['PHP_SELF'] ?>" method = "POST">
+                <div class="col-12  col-lg-12 encima">
+                    <form class="text-center" action="<?php echo $_SERVER['PHP_SELF'] ?>" method = "POST">
                         <p><input class = "form-control" type="text"  placeholder="Nombre" name = "nombre"></p>
                         <p><input class = "form-control" type="text"  placeholder="Apellidos" name ="apellidos"></p>
                         <p><input class = "form-control" type="text"  placeholder="Instituto" name = "instituto"></p>
@@ -37,10 +39,9 @@
                         <p> <input class = "form-control" type="password"  placeholder="Contraseña" name = "pass"></p>
                         <p>Verifica tu contraseña</p>
                         <p> <input class = "form-control" type="password"  placeholder="Contraseña" name = "pass2"></p>
-                        <p><input class = "btn" id="agregarTelefono" type="button" value="Agregar telefono"></p>
-                        <p><input class = "form-control campoTelefono" id="campoTelefono" type="tel" placeholder="Telefono" name = "telefono"></p>
+                        <p>Opcional:</p>
+                        <p><input class = "form-control telefono" type="tel"  placeholder="Teléfono" name = "telefono"></p>
                         <p><input class = "btn" type="submit" value="Registrar"  name = "registrar"></p>
-                            <p><a href="login.views.php">Iniciar sesion</a></p>
                         </form>
                 </div> 
             </div>
@@ -51,7 +52,6 @@
         <p class="error"><?php echo $error; ?></p>
         <?php endif; ?>
 </body>
-<script src="../js/ocultaCampos.js"></script>
 </html>
 
 <?php

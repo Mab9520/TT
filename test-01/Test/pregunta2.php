@@ -17,31 +17,33 @@ verificarSesion();
     <title>Document</title>
 </head>
 <body>
+<div class="container encabezado">
+        <div class="row">
+            <div class="col-12">
+                <h1>Test de Ansiedad de Beck</h1>
+            </div>
+        </div>
+    </div>
     <div class="container text-center">
         <div class="row">
             <div class="col-12">
-                <h2>Test de Ansiedad de Beck</h2>
+                <h2>2.- Acalorado.</h2>
             </div>
+            
             <div class="col-12">
-                <h1>2.- Acalorado.</h1>
-            </div>
-
-            <div class="col-12 ">
                 <form action="pregunta3.php" method="POST">
                     <input type="hidden" name="Pregunta1" value= <?php echo $_POST['Pregunta1']; ?> >
                     <div class="row">
-                        <div class="col-12 col-lg-6 respuesta">
+                        <div class="col-12 col-lg-12 respuesta">
                             <input type="radio" name="Pregunta2" value="0">No
                         </div>
-                        <div class="col-12 col-lg-6 respuesta">
+                        <div class="col-12 col-lg-12 respuesta">
                             <input type="radio" name="Pregunta2 " value="1">Leve 
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-12 col-lg-6 respuesta">
+                        <div class="col-12 col-lg-12 respuesta">
                             <input type="radio" name="Pregunta2" value="2">Moderado
                         </div>
-                        <div class="col-12 col-lg-6 respuesta">
+                        <div class="col-12 col-lg-12 respuesta">
                             <input type="radio" name="Pregunta2" value="3">Bastante
                         </div>
                     </div>

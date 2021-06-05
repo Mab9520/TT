@@ -1,5 +1,4 @@
 <?php
-session_start();
 require("../includes/funciones.php");
 require("../clases/Especialista.php");
 require("headerEsp.php");
@@ -30,7 +29,7 @@ verificarSesion();
     <div class="container">
         <div class="row">
             <div class="col-12 col-lg-12">
-                <p>Editar mis datos</p>
+                <h1>Editar mis datos</h1>
             </div>
         </div>
             <div class="col-12 col-lg-12">
@@ -40,9 +39,10 @@ verificarSesion();
                         <p><input class = "form-control" type="text"  name = "nombre" value="<?php echo $usuario[0]['Nombre']; ?>" ></p>
                         <p><input class = "form-control" type="text"   name ="apellidos" value="<?php echo $usuario[0]['Apellidos']; ?>"></p>
                         <p> <input  class = "form-control" type="password" name = "pass" placeholder="Contraseña"/></p>
-                        <p><input class = "btn" id="agregarTelefono" type="button" value="Agregar telefono"></p>
-                        <p><input class = "form-control campoTelefono" id="campoTelefono" type="tel" name = "telefono" value="<?php echo $usuario[0]['Telefono']; ?>"></p>
-                        <p><input class = "btn" type="submit" name="editar" value="Editar"></p>
+                        <p>Opcional:</p>
+                        <p><input class = "form-control telefono" type="tel"  placeholder="Teléfono" name = "telefono"></p>
+                        
+                        <p><input class = "btn" type="submit" name="editar" value="Guardar cambios"></p>
                         <p><input class = "btn" type="submit" name="eliminar" value="Eliminar cuenta"></p>
                     
                         </form>    

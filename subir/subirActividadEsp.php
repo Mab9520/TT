@@ -38,15 +38,16 @@ while ($row = $sel->fetch(PDO::FETCH_ASSOC)) {
 
     </head>
     <body>
-    <div class="container">
+    <div class="container encabezado">
     <div class="row">
         <div class="col-10 col-lg-10 text-center">
             <h1>Bienvenido</h1>
+            <h2><?php echo $_SESSION['Nombre']; ?></h2>
         </div>
         <div class="col-2 col-lg-2 text-center">
         <nav class="nav">
         <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Menu</a>
+        <a class="nav-link" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-bars"></i></a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <li><a class="dropdown-item" href="../views/principalEspecialista.php">Página principal</a></li>
                 <li><a class="dropdown-item" href="../views/verEstudiantes.php">Solicitudes</a></li>
@@ -80,9 +81,9 @@ while ($row = $sel->fetch(PDO::FETCH_ASSOC)) {
                         <thead>
                             <tr>
                                 
-                                <th scope="col">titulo</th>
-                                <th scope="col">descripcion</th>
-                                <th scope="col">Acciones</th>
+                                <th scope="col">Actividad</th>
+                                <th scope="col">Comentarios adicionales</th>
+                                <th scope="col">Visualizar</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -107,7 +108,7 @@ while ($row = $sel->fetch(PDO::FETCH_ASSOC)) {
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Nuevo archivo</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Nueva actividad</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -120,7 +121,7 @@ while ($row = $sel->fetch(PDO::FETCH_ASSOC)) {
                                 <input type="text" class="form-control" id="title" name="title">
                             </div>
                             <div class="form-group">
-                                <label for="description">Descripcion</label>
+                                <label for="description">Comentarios</label>
                                 <input type="text" class="form-control" id="description" name="description">
                             </div>
                             <div class="form-group">

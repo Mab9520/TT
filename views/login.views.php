@@ -15,9 +15,14 @@
     <title>Registro especialista</title>
 </head>
 <body>
-    <div class="col-12">
+    <div class="container encabezado">
+        <div class="row">
+           <div class="col-12">
             <a href="../index.php"><i class="fas fa-arrow-alt-circle-left"></i></a>
-            </div>
+            </div> 
+        </div>
+    </div>
+    
     <div class="container">
         <div class="row">
             
@@ -34,7 +39,7 @@
                         <p><input placeholder="Contraseña" type="password" class="form-control" id="exampleInputPassword1" name="pass"></p>
                     </div>
                         <p><a href="./restablecer.php">Olvidé mi contraseña</a></p>
-                        <p><button type="submit" class="btn">Submit</button></p>
+                        <p><button type="submit" class="btn">Iniciar sesion</button></p>
                 </form>
             </div> 
         </div>

@@ -1,12 +1,12 @@
 <?php
-session_start();
 
+require("../views/headerEsp.php");
 require("../includes/funciones.php");
 verificarSesion();
 require("../clases/Especialista.php");
 require("../clases/Estudiante.php");
 require("../clases/pacientes.php");
-require("../views/headerEsp.php");
+
 $usuario = Estudiante::usuarioPorId($_GET['id']);
 //$conexion = conexion("root", "");
 

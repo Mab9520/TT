@@ -3,6 +3,7 @@
 <?php
 
 include('../includes/funciones.php');
+require('headerEsp.php');
 $conexion = conexion("root", "");
 
 $tmp = array();
@@ -43,15 +44,17 @@ while ($rowesp = $selesp->fetch(PDO::FETCH_ASSOC)) {
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <title>Registro especialista</title>
 </head>
-    <body> <h1>Seguimiento</h1>
+    <body> 
         <div class="container">
-            <div class="row justify-content-md-center">
-                <div class="col-md-auto">
-                   
+            <div class="row">
+                <div class="col-12">
+                    <h1>Seguimiento</h1>
                 </div>
             </div>
+        </div>
+        <div class="container">
             <div class="row justify-content-md-center">
-                <div class="col-8 col-lg-12">
+                <div class="col-12 col-lg-12">
 
                     <table class="table mt-2">
                         <thead>
@@ -59,7 +62,7 @@ while ($rowesp = $selesp->fetch(PDO::FETCH_ASSOC)) {
                               
                                 <th scope="col">Actividad del especialista</th>
                                 <th scope="col">Actividad del estudiante</th>
-                                <th scope="col">Descripción</th>
+                                <th scope="col">Comentarios adicionales</th>
                             </tr>
                         </thead>
                         <tbody>

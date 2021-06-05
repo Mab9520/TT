@@ -1,6 +1,5 @@
   
 <?php
-
 session_start();
 require("../includes/funciones.php");
 require("../clases/pacientes.php");
@@ -62,9 +61,13 @@ $events = $req->fetchAll();
 </head>
 
 <body>
-	<div class="col-12">
-	<a href="principalEspecialista.php"><i class="fas fa-arrow-alt-circle-left"></i></a>
+<div class="container encabezado">
+	<div class="row">
+		<div class="col-12">
+			<a href="principalEspecialista.php"><i class="fas fa-arrow-alt-circle-left"></i></a>
+		</div>
 	</div>
+</div>
     <div class="container">
         <div class="row">
             <div class="col-12 text-center">

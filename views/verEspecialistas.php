@@ -1,9 +1,8 @@
 <?php
 require("../includes/funciones.php");
-
-      session_start();
+require("headerEstu.php");
       verificarSesion();
-    require("headerEstu.php");
+    
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -32,7 +31,7 @@ require("../includes/funciones.php");
             $userts = Estudiante::verEspecialistas();
             foreach($userts as $row){?>
                 <tr>
-                   <ul>
+                   <ul class="list-group">
                         <td><li><a href="?id=<?php echo $row['Cedula']; ?> " ><?php echo $row['Nombre']; echo " ";echo $row['Apellidos'];?></a></li></td>
                     </ul>
                     

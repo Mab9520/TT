@@ -1,5 +1,4 @@
 <?php 
-      session_start();
       require("../includes/funciones.php");
       require("../clases/Especialista.php");
       require("../clases/Estudiante.php");

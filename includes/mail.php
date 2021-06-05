@@ -15,6 +15,7 @@ $mensaje = '
 <html>
 <head>
     <meta charset="UTF8" />
+    <link rel=StyleSheet href="../css/style.css" type="text/CSS">
   <title>Gracias por registrarte</title>
 </head>
 <body>

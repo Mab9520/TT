@@ -15,14 +15,17 @@
     <title>Herramienta de apoyo al psicólogo</title>
 </head>
 <body>
+    <div class="container encabezado">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h1>Bienvenido</h1>
+                <h2>Herramienta de apoyo al psicólogo en la evaluación de la ansiedad en jóvenes universitarios</h2>
+            </div>
+        </div>
+    </div>
 <div class="container d-flex align-items-center justify-content-center">
     <div class="row text-center">
-        <div class="col-12 col-lg-12">
-            <p class="h1">Bienvenido</p> 
-        </div>
-        <div class="col-12 col-lg-12">
-            <p>Herramienta de apoyo al psicólogo en la evaluación de la ansiedad en jóvenes universitarios</p>
-        </div>
+        
         <div class="col-12 col-lg-12">
             <a href="views/login.views.php"><input class="btn" type="submit" value="Iniciar sesión" name="iniciaSesion"></a>
         </div>

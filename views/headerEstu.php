@@ -1,3 +1,8 @@
+<?php
+session_start();
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,18 +14,19 @@
     <title>Document</title>
 </head>
 <body>
-<div class="container">
+<div class="container encabezado">
     <div class="row">
         <div class="col-10 col-lg-10 text-center">
             <div class="">
                 <h1>Bienvenido</h1>
+                <h2><?php echo $_SESSION['Nombre']; ?></h2>
             </div>
         </div>
 
         <div class="col-2 col-lg-2 text-center">
             <nav class="nav">
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Menu</a>
+                <a class="nav-link" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-bars"></i></a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <li><a class="dropdown-item" href="principalEstudiante.php">Página principal</a></li>
                         <li><a class="dropdown-item" href="verEspecialistas.php">Especialistas</a></li>

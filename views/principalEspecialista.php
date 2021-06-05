@@ -23,10 +23,10 @@
                         <div class="flip-card-front">
                             <img src="../images/est.png" alt="Ver estudiantes" >
                             <p>Estudiantes</p>
-                            <p>En esta sección usted podrá ver a los estudiantes que han solicitado un seguimiento</p>
+                            <p>En esta sección usted podrá ver a los estudiantes que ha aceptado para su seguimiento</p>
                         </div>
                         <div class="flip-card-back">
-                            <p>Ver solicitudes de estudiantes</p>
+                            <p>Consultar estudiantes</p>
                             <a href = '../views/verEstudiantes.php'"><img src="../images/testb.png" alt="test"></a>
                         </div>
                     </div>
@@ -42,7 +42,7 @@
                         </div>
                         <div class="flip-card-back">
                             <p>Consultar agenda</p>
-                            <a href = '../views/AgendaVista.php'"><img src="../images/agen.png" alt=""></a>
+                            <a href = '../views/Agenda.php'"><img src="../images/agen.png" alt=""></a>
                         </div>
                     </div>
                 </div>

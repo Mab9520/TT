@@ -1,9 +1,9 @@
 <?php
-session_start();
 require("../includes/funciones.php");
 require("../clases/Estudiante.php");
+require('../views/headerEstu.php');
 verificarSesion();
-require('headerEstu.php');
+
     $usuario = Estudiante::usuarioPorId($_SESSION['id']);
     
 
@@ -25,29 +25,33 @@ require('headerEstu.php');
 </head>
 
 <body>
-<div class="container text-center">
-
+<?php  ?>
+<div class="container encabezado">
     <div class="row">
-            <div class="col-12 col-lg-12">
-                <p>Editar mis datos</p>
-            </div>
+        <div class="col-12 col-lg-12">
+            <h1>Editar mis datos</h1>
         </div>
+    </div>
+</div>
+    <div class="container">
+        
             <div class="col-12 col-lg-12">
                 <img class="imgFondo" src="../images/est.png" alt="">
-                <div class="col-12 col-lg-12 encima">
+                <div class="col-12 col-lg-12 encima text-center">
                     <form method = "post">
                         <p><input class = "form-control" type="text"  name = "nombre" value="<?php echo $usuario[0]['Nombre']; ?>" ></p>
                         <p><input class = "form-control" type="text"   name ="apellidos" value="<?php echo $usuario[0]['Apellidos']; ?>"></p>
-                        <p> <input  placeholder="Contraseña" class = "form-control" type="password" name = "pass" value=""/></p><br>
-                        <p><input class = "btn" id="agregarTelefono" type="button" value="Agregar telefono"></p>
-                        <p><input class = "form-control campoTelefono" id="campoTelefono" type="tel" name = "telefono" value="<?php echo $usuario[0]['Telefono']; ?>"></p>
-                        <p><input class = "btn" type="submit" name="editar" value="Editar"></p>
+                        <p> <input class = "form-control" placeholder="Contraseña"  type="password" name = "pass"/></p>
+                        <p>Opcional:</p>
+                        <p><input class = "form-control telefono" type="tel"  placeholder="Teléfono" name = "telefono"></p>
+                        
+                        <p><input class = "btn" type="submit" name="editar" value="Guardar cambios"></p>
                         <p><input class = "btn" type="submit" name="eliminar" value="Eliminar cuenta"></p>
                     
                         </form>
                 </div> 
             </div>
-        </>
+        </div>
     
     
     <?php if(!empty($error)): ?>
@@ -56,28 +60,37 @@ require('headerEstu.php');
 </body>
 </html>
 <?php
-
 if(isset($_POST['editar'])){
-    $pass=sha1($_POST['pass']);
     $datos = array(
         $_POST['nombre'],
         $_POST['apellidos'],
-        $pass,
+        $_POST['pass'],
         $_POST['telefono']           
     );
         Estudiante::editarDatos($_SESSION['id'], $datos);
-    }else
+        ?>
+        <script>
+        //    Swal.fire({
+          //      title: 'Se han editado los datos!',
+            //    icon: 'success',
+              //  confirmButtonText: 'Cool'
+            //}).then( () =>{
+              //  location.href = "editarDatosEstudiante.html";
+            //});
+        </script>
+        <?php
+}else
 
-    if(isset($_POST['eliminar'])){  
+if(isset($_POST['eliminar'])){  
     ?>
     <script>
-        Swal.fire({
-            title: '“Ha seleccionado eliminar su cuenta, ¿Está seguro?”',
-            icon: 'warning',
-            confirmButtonText: 'ok'
-        }).then( () =>{
-            location.href = "../index.php";
-        });
+        //Swal.fire({
+          //  title: 'Se han editado los datos!',
+            //icon: 'success',
+            //confirmButtonText: 'Cool'
+        //}).then( () =>{
+          //  location.href = "editarDatosEstudiante.html";
+        //});
     </script>
     <?php
     Estudiante::eliminarDatos($_SESSION['id']);

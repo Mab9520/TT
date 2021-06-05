@@ -165,13 +165,13 @@ public static function verTest(){//Muestra el test del estudiante
         </tr>
         <tr>
         <td>5.- Con temor a que ocurra lo peor.</td>
-        <td><?php if ($mostrar['pre3'] == 0){
+        <td><?php if ($mostrar['pre5'] == 0){
             echo "No";
-        }elseif ($mostrar['pre3'] == 1) {
+        }elseif ($mostrar['pre5'] == 1) {
             echo "Leve";
-        }elseif ($mostrar['pre3'] == 2) {
+        }elseif ($mostrar['pre5'] == 2) {
             echo "Moderado";
-        }elseif ($mostrar['pre3'] == 3) {
+        }elseif ($mostrar['pre5'] == 3) {
             echo "Bastante";
         }
 
@@ -179,13 +179,13 @@ public static function verTest(){//Muestra el test del estudiante
         </tr>
         <tr>
         <td>6.- Mareado, o que se le va la cabeza.</td>
-        <td><?php if ($mostrar['pre1'] == 0){
+        <td><?php if ($mostrar['pre6'] == 0){
             echo "No";
-        }elseif ($mostrar['pre1'] == 1) {
+        }elseif ($mostrar['pre6'] == 1) {
             echo "Leve";
-        }elseif ($mostrar['pre1'] == 2) {
+        }elseif ($mostrar['pre6'] == 2) {
             echo "Moderado";
-        }elseif ($mostrar['pre1'] == 3) {
+        }elseif ($mostrar['pre6'] == 3) {
             echo "Bastante";
         }
 
@@ -193,13 +193,13 @@ public static function verTest(){//Muestra el test del estudiante
         </tr>
         <tr>
         <td>7.- Con latidos del corazón fuertes y acelerados.</td>
-        <td><?php if ($mostrar['pre1'] == 0){
+        <td><?php if ($mostrar['pre7'] == 0){
             echo "No";
-        }elseif ($mostrar['pre1'] == 1) {
+        }elseif ($mostrar['pre7'] == 1) {
             echo "Leve";
-        }elseif ($mostrar['pre1'] == 2) {
+        }elseif ($mostrar['pre7'] == 2) {
             echo "Moderado";
-        }elseif ($mostrar['pre1'] == 3) {
+        }elseif ($mostrar['pre7'] == 3) {
             echo "Bastante";
         }
 
@@ -207,13 +207,13 @@ public static function verTest(){//Muestra el test del estudiante
         </tr>
         <tr>
         <td>8.- Inestable.</td>
-        <td><?php if ($mostrar['pre1'] == 0){
+        <td><?php if ($mostrar['pre8'] == 0){
             echo "No";
-        }elseif ($mostrar['pre1'] == 1) {
+        }elseif ($mostrar['pre8'] == 1) {
             echo "Leve";
-        }elseif ($mostrar['pre1'] == 2) {
+        }elseif ($mostrar['pre8'] == 2) {
             echo "Moderado";
-        }elseif ($mostrar['pre1'] == 3) {
+        }elseif ($mostrar['pre8'] == 3) {
             echo "Bastante";
         }
 
@@ -221,13 +221,13 @@ public static function verTest(){//Muestra el test del estudiante
         </tr>
         <tr>
         <td>9.- Atemorizado o asustado.</td>
-        <td><?php if ($mostrar['pre1'] == 0){
+        <td><?php if ($mostrar['pre9'] == 0){
             echo "No";
-        }elseif ($mostrar['pre1'] == 1) {
+        }elseif ($mostrar['pre9'] == 1) {
             echo "Leve";
-        }elseif ($mostrar['pre1'] == 2) {
+        }elseif ($mostrar['pre9'] == 2) {
             echo "Moderado";
-        }elseif ($mostrar['pre1'] == 3) {
+        }elseif ($mostrar['pre9'] == 3) {
             echo "Bastante";
         }
 
@@ -235,13 +235,13 @@ public static function verTest(){//Muestra el test del estudiante
         </tr>
         <tr>
         <td>10.- Nervioso.</td>
-        <td><?php if ($mostrar['pre1'] == 0){
+        <td><?php if ($mostrar['pre10'] == 0){
             echo "No";
-        }elseif ($mostrar['pre1'] == 1) {
+        }elseif ($mostrar['pre10'] == 1) {
             echo "Leve";
-        }elseif ($mostrar['pre1'] == 2) {
+        }elseif ($mostrar['pre10'] == 2) {
             echo "Moderado";
-        }elseif ($mostrar['pre1'] == 3) {
+        }elseif ($mostrar['pre10'] == 3) {
             echo "Bastante";
         }
 
@@ -250,13 +250,13 @@ public static function verTest(){//Muestra el test del estudiante
 
         <tr>
         <td>11.- Con sensación de bloqueo.</td>
-        <td><?php if ($mostrar['pre1'] == 0){
+        <td><?php if ($mostrar['pre11'] == 0){
             echo "No";
-        }elseif ($mostrar['pre1'] == 1) {
+        }elseif ($mostrar['pre11'] == 1) {
             echo "Leve";
-        }elseif ($mostrar['pre1'] == 2) {
+        }elseif ($mostrar['pre11'] == 2) {
             echo "Moderado";
-        }elseif ($mostrar['pre1'] == 3) {
+        }elseif ($mostrar['pre11'] == 3) {
             echo "Bastante";
         }
 
@@ -264,13 +264,13 @@ public static function verTest(){//Muestra el test del estudiante
         </tr>
         <tr>
         <td>12.- Con temblores en las manos.</td>
-        <td><?php if ($mostrar['pre1'] == 0){
+        <td><?php if ($mostrar['pre12'] == 0){
             echo "No";
-        }elseif ($mostrar['pre1'] == 1) {
+        }elseif ($mostrar['pre12'] == 1) {
             echo "Leve";
-        }elseif ($mostrar['pre1'] == 2) {
+        }elseif ($mostrar['pre12'] == 2) {
             echo "Moderado";
-        }elseif ($mostrar['pre1'] == 3) {
+        }elseif ($mostrar['pre12'] == 3) {
             echo "Bastante";
         }
 
@@ -278,13 +278,13 @@ public static function verTest(){//Muestra el test del estudiante
         </tr>
         <tr>
         <td>13.- Inquieto, inseguro.</td>
-        <td><?php if ($mostrar['pre1'] == 0){
+        <td><?php if ($mostrar['pre13'] == 0){
             echo "No";
-        }elseif ($mostrar['pre1'] == 1) {
+        }elseif ($mostrar['pre13'] == 1) {
             echo "Leve";
-        }elseif ($mostrar['pre1'] == 2) {
+        }elseif ($mostrar['pre13'] == 2) {
             echo "Moderado";
-        }elseif ($mostrar['pre1'] == 3) {
+        }elseif ($mostrar['pre13'] == 3) {
             echo "Bastante";
         }
 
@@ -292,13 +292,13 @@ public static function verTest(){//Muestra el test del estudiante
         </tr>
         <tr>
         <td>14.- Con miedo a perder el control.</td>
-        <td><?php if ($mostrar['pre1'] == 0){
+        <td><?php if ($mostrar['pre14'] == 0){
             echo "No";
-        }elseif ($mostrar['pre1'] == 1) {
+        }elseif ($mostrar['pre14'] == 1) {
             echo "Leve";
-        }elseif ($mostrar['pre1'] == 2) {
+        }elseif ($mostrar['pre14'] == 2) {
             echo "Moderado";
-        }elseif ($mostrar['pre1'] == 3) {
+        }elseif ($mostrar['pre14'] == 3) {
             echo "Bastante";
         }
 
@@ -306,13 +306,13 @@ public static function verTest(){//Muestra el test del estudiante
         </tr>
         <tr>
         <td>15.- Con sensación de ahogo.</td>
-        <td><?php if ($mostrar['pre1'] == 0){
+        <td><?php if ($mostrar['pre15'] == 0){
             echo "No";
-        }elseif ($mostrar['pre1'] == 1) {
+        }elseif ($mostrar['pre15'] == 1) {
             echo "Leve";
-        }elseif ($mostrar['pre1'] == 2) {
+        }elseif ($mostrar['pre15'] == 2) {
             echo "Moderado";
-        }elseif ($mostrar['pre1'] == 3) {
+        }elseif ($mostrar['pre15'] == 3) {
             echo "Bastante";
         }
 
@@ -320,13 +320,13 @@ public static function verTest(){//Muestra el test del estudiante
         </tr>
         <tr>
         <td>16.- Con temor a morir.</td>
-        <td><?php if ($mostrar['pre1'] == 0){
+        <td><?php if ($mostrar['pre16'] == 0){
             echo "No";
-        }elseif ($mostrar['pre1'] == 1) {
+        }elseif ($mostrar['pre16'] == 1) {
             echo "Leve";
-        }elseif ($mostrar['pre1'] == 2) {
+        }elseif ($mostrar['pre16'] == 2) {
             echo "Moderado";
-        }elseif ($mostrar['pre1'] == 3) {
+        }elseif ($mostrar['pre16'] == 3) {
             echo "Bastante";
         }
 
@@ -334,13 +334,13 @@ public static function verTest(){//Muestra el test del estudiante
         </tr>
         <tr>
         <td>17.- Con miedo.</td>
-        <td><?php if ($mostrar['pre1'] == 0){
+        <td><?php if ($mostrar['pre17'] == 0){
             echo "No";
-        }elseif ($mostrar['pre1'] == 1) {
+        }elseif ($mostrar['pre17'] == 1) {
             echo "Leve";
-        }elseif ($mostrar['pre1'] == 2) {
+        }elseif ($mostrar['pre17'] == 2) {
             echo "Moderado";
-        }elseif ($mostrar['pre1'] == 3) {
+        }elseif ($mostrar['pre17'] == 3) {
             echo "Bastante";
         }
 
@@ -348,13 +348,13 @@ public static function verTest(){//Muestra el test del estudiante
         </tr>
         <tr>
         <td>18.- Con problemas digestivos.</td>
-        <td><?php if ($mostrar['pre1'] == 0){
+        <td><?php if ($mostrar['pre18'] == 0){
             echo "No";
-        }elseif ($mostrar['pre1'] == 1) {
+        }elseif ($mostrar['pre18'] == 1) {
             echo "Leve";
-        }elseif ($mostrar['pre1'] == 2) {
+        }elseif ($mostrar['pre18'] == 2) {
             echo "Moderado";
-        }elseif ($mostrar['pre1'] == 3) {
+        }elseif ($mostrar['pre18'] == 3) {
             echo "Bastante";
         }
 
@@ -362,13 +362,13 @@ public static function verTest(){//Muestra el test del estudiante
         </tr>
         <tr>
         <td>19.- Con desvanecimientos.</td>
-        <td><?php if ($mostrar['pre1'] == 0){
+        <td><?php if ($mostrar['pre19'] == 0){
             echo "No";
-        }elseif ($mostrar['pre1'] == 1) {
+        }elseif ($mostrar['pre19'] == 1) {
             echo "Leve";
-        }elseif ($mostrar['pre1'] == 2) {
+        }elseif ($mostrar['pre19'] == 2) {
             echo "Moderado";
-        }elseif ($mostrar['pre1'] == 3) {
+        }elseif ($mostrar['pre19'] == 3) {
             echo "Bastante";
         }
 
@@ -376,13 +376,13 @@ public static function verTest(){//Muestra el test del estudiante
         </tr>
         <tr>
         <td>20.- Con rubor facial.</td>
-        <td><?php if ($mostrar['pre1'] == 0){
+        <td><?php if ($mostrar['pre20'] == 0){
             echo "No";
-        }elseif ($mostrar['pre1'] == 1) {
+        }elseif ($mostrar['pre20'] == 1) {
             echo "Leve";
-        }elseif ($mostrar['pre1'] == 2) {
+        }elseif ($mostrar['pre20'] == 2) {
             echo "Moderado";
-        }elseif ($mostrar['pre1'] == 3) {
+        }elseif ($mostrar['pre20'] == 3) {
             echo "Bastante";
         }
 
@@ -390,13 +390,13 @@ public static function verTest(){//Muestra el test del estudiante
         </tr>
         <tr>
         <td>21.- Con sudores, fríos o calientes.</td>
-        <td><?php if ($mostrar['pre1'] == 0){
+        <td><?php if ($mostrar['pre21'] == 0){
             echo "No";
-        }elseif ($mostrar['pre1'] == 1) {
+        }elseif ($mostrar['pre21'] == 1) {
             echo "Leve";
-        }elseif ($mostrar['pre1'] == 2) {
+        }elseif ($mostrar['pre21'] == 2) {
             echo "Moderado";
-        }elseif ($mostrar['pre1'] == 3) {
+        }elseif ($mostrar['pre21'] == 3) {
             echo "Bastante";
         }
 
