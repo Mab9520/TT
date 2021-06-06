@@ -50,8 +50,6 @@
                 </table>
             </div>
         </div>
-    </div>
-    <script src="../js/dinamica.js"></script>
-    
+    </div>    
 </body>
 </html>

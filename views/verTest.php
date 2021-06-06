@@ -28,7 +28,7 @@ $usuario = Estudiante::usuarioPorId($_GET['id']);
     <title>Especialistas</title>
 </head>
 <body>
-<div class="col-12">
+<div class="col-12 encabezado">
 	<a href="perfilEstudiantePrivado.php?id=<?php echo $usuario[0]['id'];?>"><i class="fas fa-arrow-alt-circle-left"></i></a>
 	</div>
     <div class="container">

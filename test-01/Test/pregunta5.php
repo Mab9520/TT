@@ -4,6 +4,7 @@ require("../../includes/funciones.php");
 verificarSesion();
 
  $conexion = conexion("root", "");
+
 ?>
 <!DOCTYPE html>
 <head>
@@ -13,19 +14,21 @@ verificarSesion();
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <link rel=StyleSheet href="../../css/style.css" type="text/CSS">
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     <title>Document</title>
 </head>
 <body>
+    <div class="container encabezado">
+        <div class="row">
+            <div class="col-12">
+                <h1>Test de Ansiedad de Beck</h1>
+            </div>
+        </div>
+    </div>
     <div class="container text-center">
         <div class="row">
             <div class="col-12">
-                Aqui el header
-            </div>
-            <div class="col-12">
-                <h2>Test de Ansiedad de Beck</h2>
-            </div>
-            <div class="col-12">
-                <h1>5.- Con temor a que ocurra lo peor. </h1>
+                <h2>Con temor a que ocurra lo peor.</h2>
             </div>
 
             <div class="col-12">
@@ -33,30 +36,35 @@ verificarSesion();
                     <input type="hidden" name="Pregunta1" value=<?php echo $_POST['Pregunta1']; ?>>
 	                <input type="hidden" name="Pregunta2" value=<?php echo $_POST['Pregunta2']; ?>>
 	                <input type="hidden" name="Pregunta3" value=<?php echo $_POST['Pregunta3']; ?>>
-	                <input type="hidden" name="Pregunta4" value=<?php echo $_POST['Pregunta4']; ?>>
-
+                    <input type="hidden" name="Pregunta4" value=<?php echo $_POST['Pregunta4']; ?>>
                     <div class="row">
-                        <div class="col-12 col-lg-6 respuesta">
-                            <input type="radio" name="Pregunta5" value="0">No
+                        <div class="col-12 respuesta">
+                            <input class="form-check-input" type="radio" name="Pregunta5" value="0">
+                            <label class="form-check-label">No</label>
                         </div>
-                        <div class="col-12 col-lg-6 respuesta">
-                            <input type="radio" name="Pregunta5" value="1">Leve 
+                        <div class="col-12 respuesta">
+                            <input class="form-check-input" type="radio" name="Pregunta5" value="1">
+                            <label class="form-check-label">Leve</label>
+                        </div>
+                        <div class="col-12 respuesta">
+                            <input class="form-check-input" type="radio" name="Pregunta5" value="2">
+                            <label class="form-check-label">Moderado</label>
+                        </div>
+                        <div class="col-12 respuesta">
+                            <input class="form-check-input" type="radio" name="Pregunta5" value="3">
+                            <label class="form-check-label">Bastante</label>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-12 col-lg-6 respuesta">
-                            <input type="radio" name="Pregunta5" value="2">Moderado
-                        </div>
-                        <div class="col-12 col-lg-6 respuesta">
-                            <input type="radio" name="Pregunta5" value="3">Bastante
-                        </div>
-                    </div>
-                    <div class="col-12">
+                    <div class="col-12 d-flex justify-content-end">
                         <input class="btn" type="submit" value="Siguiente">
                     </div>
                 </form>
                 <form method="POST">
-                    <div class="col-12 col-lg-6">
+                    <input type="hidden" name="Pregunta1" value=<?php echo $_POST['Pregunta1']; ?>>
+	                <input type="hidden" name="Pregunta2" value=<?php echo $_POST['Pregunta2']; ?>>
+	                <input type="hidden" name="Pregunta3" value=<?php echo $_POST['Pregunta3']; ?>>
+                    <input type="hidden" name="Pregunta4" value=<?php echo $_POST['Pregunta4']; ?>>
+                    <div class="col-12 d-flex justify-content-end">
                         <input class="btn" name="cancelarTest" type="submit" id="" value="Cancelar"> 
                     </div>
                 </form>

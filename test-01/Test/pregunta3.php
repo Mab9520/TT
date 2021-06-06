@@ -18,13 +18,17 @@ verificarSesion();
     <title>Test</title>
 </head>
 <body>
+    <div class="container encabezado">
+        <div class="row">
+            <div class="col-12">
+                <h1>Test de Ansiedad de Beck</h1>
+            </div>
+        </div>
+    </div>
     <div class="container text-center">
         <div class="row">
             <div class="col-12">
-                <h2>Test de Ansiedad de Beck</h2>
-            </div>
-            <div class="col-12">
-                <h1>1.- Torpe o entumecido. </h1>
+                <h2>Con temblor en las piernas.</h2>
             </div>
 
             <div class="col-12">
@@ -32,27 +36,31 @@ verificarSesion();
                     <input type="hidden" name="Pregunta1" value=<?php echo $_POST['Pregunta1']; ?>>
 	                <input type="hidden" name="Pregunta2" value=<?php echo $_POST['Pregunta2']; ?>>
                     <div class="row">
-                        <div class="col-12 col-lg-6 respuesta">
-                            <input type="radio" name="Pregunta3" value="0">No
+                        <div class="col-12 col-lg-12 respuesta">
+                            <input class="form-check-input" type="radio" name="Pregunta3" value="0">
+                            <label class="form-check-label">No</label>
                         </div>
-                        <div class="col-12 col-lg-6 respuesta">
-                            <input type="radio" name="Pregunta3" value="1">Leve 
+                        <div class="col-12 col-lg-12 respuesta">
+                            <input class="form-check-input" type="radio" name="Pregunta3" value="1">
+                            <label class="form-check-label">Leve</label>
+                        </div>
+                        <div class="col-12 col-lg-12 respuesta">
+                            <input class="form-check-input" type="radio" name="Pregunta3" value="2">
+                            <label class="form-check-label">Moderado</label>
+                        </div>
+                        <div class="col-12 col-lg-12 respuesta">
+                            <input class="form-check-input" type="radio" name="Pregunta3" value="3">
+                            <label class="form-check-label">Bastante</label>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-12 col-lg-6 respuesta">
-                            <input type="radio" name="Pregunta3" value="2">Moderado
-                        </div>
-                        <div class="col-12 col-lg-6 respuesta">
-                            <input type="radio" name="Pregunta3" value="3">Bastante
-                        </div>
-                    </div>
-                    <div class="col-12">
+                    <div class="col-12 d-flex justify-content-end">
                         <input class="btn" type="submit" value="Siguiente">
                     </div>
                 </form>
                 <form method="POST">
-                <div class="col-12 col-lg-6">
+                    <input type="hidden" name="Pregunta1" value=<?php echo $_POST['Pregunta1']; ?>>
+	                <input type="hidden" name="Pregunta2" value=<?php echo $_POST['Pregunta2']; ?>>
+                    <div class="col-12 d-flex justify-content-end">
                         <input class="btn" name="cancelarTest" type="submit" id="" value="Cancelar"> 
                     </div>
                 </form>

@@ -515,6 +515,7 @@ if($pregunta1 == "0")
 
 		</div>
 	</div>
+	<input type="submit" value="Ok">
 </div>
 
 </body>

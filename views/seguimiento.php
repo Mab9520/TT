@@ -61,7 +61,7 @@ while ($rowesp = $selesp->fetch(PDO::FETCH_ASSOC)) {
                             <tr>
                               
                                 <th scope="col">Actividad del especialista</th>
-                                <th scope="col">Actividad del estudiante</th>
+                                <th scope="col">Evidencia del estudiante</th>
                                 <th scope="col">Comentarios adicionales</th>
                             </tr>
                         </thead>

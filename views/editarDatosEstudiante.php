@@ -26,7 +26,7 @@ verificarSesion();
 
 <body>
 <?php  ?>
-<div class="container encabezado">
+<div class="container">
     <div class="row">
         <div class="col-12 col-lg-12">
             <h1>Editar mis datos</h1>
@@ -70,31 +70,35 @@ if(isset($_POST['editar'])){
         Estudiante::editarDatos($_SESSION['id'], $datos);
         ?>
         <script>
-        //    Swal.fire({
-          //      title: 'Se han editado los datos!',
-            //    icon: 'success',
-              //  confirmButtonText: 'Cool'
-            //}).then( () =>{
-              //  location.href = "editarDatosEstudiante.html";
-            //});
+            Swal.fire({
+               title: 'Se han editado los datos!',
+                icon: 'success',
+                confirmButtonText: 'Cool'
+            }).then( () =>{
+                location.href = "editarDatosEstudiante.html";
+            });
         </script>
         <?php
 }else
 
-if(isset($_POST['eliminar'])){  
-    ?>
-    <script>
-        //Swal.fire({
-          //  title: 'Se han editado los datos!',
-            //icon: 'success',
-            //confirmButtonText: 'Cool'
-        //}).then( () =>{
-          //  location.href = "editarDatosEstudiante.html";
-        //});
-    </script>
-    <?php
+if(isset($_POST['eliminar'])){    
+    
+    
     Estudiante::eliminarDatos($_SESSION['id']);
     Estudiante::cerrarSesion();
+    
+    ?>
+    <script>
+        Swal.fire({
+            title: 'Se han editado los datos!',
+            icon: 'success',
+            confirmButtonText: 'Cool'
+        }).then( () =>{
+        
+        });
+    </script>
+    <?php
+
         
         
         

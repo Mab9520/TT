@@ -53,12 +53,6 @@ verificarSesion();
                 </div> 
             </div>
         </div>
-    
-    
-
-
-        <script src="../js/ocultaCampos.js"></script>
-        <script src="../js/navegacion.js"></script>
 </body>
 </html>
 <?php

@@ -91,7 +91,6 @@ class Especialista {
         <td><?php echo $row['Telefono'];?></td></tr>
         <tr><td>Instituto</td>
         <td><?php echo $row['Instituto'];?></td></tr>
-        <tr><td colspan="2"><a href="">Seguimiento de actividades</a></td></tr>
         <tr><td colspan="2"><a href = "perfilEstudiantePrivado.php?id=<?php echo $row['id'] ?>"><input class="btn" type="submit" value="Ver Perfil"></a></td></tr>
         <tr><td colspan="2"><a onclick= "location.href = 'AgendaVista.php'"><input class="btn" type="submit" value="Agendar cita"></a></td></tr>
         </table>
@@ -106,7 +105,7 @@ public static function verTest(){//Muestra el test del estudiante
      ?>
 
     <br>
-    <table border="1" >
+    <table class="informacion">
         <tr>
         <td>1.- Torpe o entumecido.</td>
         <td><?php if ($mostrar['pre1'] == 0){

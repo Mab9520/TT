@@ -70,17 +70,13 @@ while ($row = $sel->fetch(PDO::FETCH_ASSOC)) {
         <div class="container">
             <div class="row justify-content-md-center">
                 <div class="col-12">
-                    <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                        Nuevo
-                    </button> -->
-
                     <table class="table mt-2">
                         <thead>
                             <tr>
                                 
-                                <th scope="col">Titulo</th>
-                                <th scope="col">Descripción</th>
-                                <th scope="col">Archivos</th>
+                                <th scope="col">Actividad</th>
+                                <th scope="col">Comentarios adicionales</th>
+                                <th scope="col">Visualizar</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -116,15 +112,15 @@ while ($row = $sel->fetch(PDO::FETCH_ASSOC)) {
                     <div class="modal-body">
                         <form enctype="multipart/form-data" id="form1">
                             <div class="form-group">
-                                <label for="title">Titulo</label>
+                                <label for="title">Actividad</label>
                                 <input type="text" class="form-control" id="title" name="title">
                             </div>
                             <div class="form-group">
-                                <label for="description">Descripcion</label>
+                                <label for="description">Comentarios</label>
                                 <input type="text" class="form-control" id="description" name="description">
                             </div>
                             <div class="form-group">
-                                <label for="description">Archivo:</label>
+                                <label for="description">Subir evidencia*</label>
                                 <input type="file" class="form-control" id="file" name="file">
                             </div>
                         </form>
