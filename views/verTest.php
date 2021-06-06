@@ -31,6 +31,9 @@ $usuario = Estudiante::usuarioPorId($_GET['id']);
 <div class="col-12 encabezado">
 	<a href="perfilEstudiantePrivado.php?id=<?php echo $usuario[0]['id'];?>"><i class="fas fa-arrow-alt-circle-left"></i></a>
 	</div>
+
+    <a href="../includes/reportepdf.php?id=<?php echo $usuario[0]['id'];?>"><input class="btn" type="button" value="Imprimir Reporte"></a>
+    
     <div class="container">
         <div class="row">
             <div class="col-12">
