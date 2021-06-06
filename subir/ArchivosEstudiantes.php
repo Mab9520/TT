@@ -17,6 +17,7 @@ $conexion = conexion("root", "");
 
 $tmp = array();
 $res = array();
+$fecha = date('Y-m-d');
 $id_estudiante = $_SESSION['id'];
 $sel = $conexion->query("SELECT * FROM files WHERE id_estudiante = '$id_estudiante'");
 while ($row = $sel->fetch(PDO::FETCH_ASSOC)) {
@@ -73,7 +74,7 @@ while ($row = $sel->fetch(PDO::FETCH_ASSOC)) {
                     <table class="table mt-2">
                         <thead>
                             <tr>
-                                
+                                <th scope="col">Fecha de subida</th>
                                 <th scope="col">Actividad</th>
                                 <th scope="col">Comentarios adicionales</th>
                                 <th scope="col">Visualizar</th>
@@ -82,7 +83,7 @@ while ($row = $sel->fetch(PDO::FETCH_ASSOC)) {
                         <tbody>
                             <?php foreach ($res as $val) { ?>
                                 <tr>
-                                    
+                                    <td><?php echo $fecha ?> </td>
                                     <td><?php echo $val['title'] ?></td>
                                     <td><?php echo $val['description'] ?></td>
                                     <td>

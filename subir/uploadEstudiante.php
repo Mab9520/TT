@@ -10,6 +10,7 @@ $conexion = conexion("root", "");
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $title = $_POST['title'];
     $description = $_POST['description'];
+    $fecha = date('Y-m-d');
 
     $file_name = $_FILES['file']['name'];
 
@@ -32,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
     }
 
-    $ins = $conexion->query("INSERT INTO filesest(title,description,url, type, id_fileEspecialista, id_Estudiante) VALUES ('$title','$description','$new_name_file', '','$idActividad', '$id_estudiante' )");
+    $ins = $conexion->query("INSERT INTO files(title,description,url, type, fecha, id_estudiante, id_especialista) VALUES ('$title','$description','$new_name_file','$fecha', '$id', '$esp')");
 
     $completada = $conexion->prepare("UPDATE files SET status = 1");
     $completada->execute();
