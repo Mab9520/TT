@@ -129,7 +129,7 @@ class Estudiante{
 
     public static function eliminarDatos($id){//Elimina la cuenta del usuario
         $conexion = conexion("root", "");
-        $consulta = $conexion->prepare("DELETE * FROM estudiante WHERE id = :id");
+        $consulta = $conexion->prepare("DELETE  FROM estudiante WHERE id = :id");
         $consulta->execute(array(
             ':id' =>$id
         ));
