@@ -478,6 +478,14 @@ echo "Resultado: $puntos puntos <br> $mensaje <br><br><br> $img ";
         }
     }
 
+    public static function eliminarDatos($cedula){//Elimina la cuenta del usuario
+        $conexion = conexion("root", "");
+        $consulta = $conexion->prepare("DELETE  FROM especialista WHERE Cedula = :cedula");
+        $consulta->execute(array(
+            ':cedula' =>$cedula
+        ));
+        
+    }
     public static function closeSession(){ //Cierra y destruye la sesion
         session_unset();
         session_destroy();

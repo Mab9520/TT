@@ -81,25 +81,44 @@ if(isset($_POST['editar'])){
         <?php
 }else
 
-if(isset($_POST['eliminar'])){    
-    
-    
-    Estudiante::eliminarDatos($_SESSION['id']);
-    Estudiante::cerrarSesion();
-    
-    ?>
+if(isset($_POST['editar'])){
+    $pass=sha1($_POST['pass']);
+    $datos = array(
+        $_POST['nombre'],
+        $_POST['apellidos'],
+        $pass,
+        $_POST['telefono']           
+    );
+        Estudiante::editarDatos($_SESSION['id'], $datos);
+        ?>
+        <script>
+            Swal.fire({
+                title: 'Se han editado los datos!',
+                icon: 'success',
+                confirmButtonText: 'Ok'
+            }).then( () =>{
+                location.href = "editarDatosEstudiante.php";
+            });
+        </script>
+        <?php
+}else
+
+if(isset($_POST['eliminar'])){?>
     <script>
         Swal.fire({
-            title: 'Se han editado los datos!',
-            icon: 'success',
-            confirmButtonText: 'Cool'
-        }).then( () =>{
-        
-        });
+            title: '¿Deseas eliminar tu cuenta?',
+            showCancelButton: true,
+            icon: 'warning',
+            text:'Si eliminas tu cuenta se perderá toda tu información',
+            confirmButtonText: `Aceptar`,
+        }).then((result) => {
+            /* Read more about isConfirmed, isDenied below */
+            if (result.isConfirmed) {
+                location.href = "../includes/eliminarEstudiante.php";
+            }
+        })
     </script>
     <?php
+} 
 
-        
-        
-        
-}
+?>

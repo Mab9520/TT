@@ -78,22 +78,22 @@ if(isset($_POST['editar'])){
         <?php
 }else
 
-if(isset($_POST['eliminar'])){  
-    ?>
+if(isset($_POST['eliminar'])){?>
     <script>
         Swal.fire({
-            title: '¿Desea eliminar su cuenta?',
+            title: '¿Deseas eliminar tu cuenta?',
+            showCancelButton: true,
             icon: 'warning',
-            confirmButtonText: 'ok'
-        }).then( () =>{
-            location.href = "../index.php";
-        });
+            text:'Si eliminas tu cuenta se perderá toda tu información',
+            confirmButtonText: `Aceptar`,
+        }).then((result) => {
+            /* Read more about isConfirmed, isDenied below */
+            if (result.isConfirmed) {
+                location.href = "../includes/eliminarEspecialista.php";
+            }
+        })
     </script>
     <?php
-    Especialista::eliminarDatos($_SESSION['id']);
-    Especialista::cerrarSesion();
-        
-        
-        
-}
+} 
+
 ?>

@@ -6,7 +6,7 @@ include('../includes/funciones.php');
 require('headerEsp.php');
 $conexion = conexion("root", "");
 $fecha = date('Y-m-d');
-
+$usuario = Estudiante::usuarioPorId($_GET['id']);
 $tmp = array();
 $res = array();
 $id_estudiante = $_GET['id'];
@@ -46,6 +46,9 @@ while ($rowesp = $selesp->fetch(PDO::FETCH_ASSOC)) {
     <title>Registro especialista</title>
 </head>
     <body> 
+    <div class="col-12 encabezado">
+	<a href="perfilEstudiantePrivado.php?id=<?php echo $usuario[0]['id'];?>"><i class="fas fa-arrow-alt-circle-left"></i></a>
+</div>
         <div class="container">
             <div class="row">
                 <div class="col-12">
