@@ -37,7 +37,7 @@ while ($row = $sel->fetch(PDO::FETCH_ASSOC)) {
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Syne+Mono&display=swap" rel="stylesheet">
-
+    <title>Subir actividad</title>
     </head>
     <body>
     <div class="container encabezado">

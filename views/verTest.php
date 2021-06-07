@@ -25,7 +25,7 @@ $usuario = Estudiante::usuarioPorId($_GET['id']);
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Syne+Mono&display=swap" rel="stylesheet">
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <title>Especialistas</title>
+    <title>Respuestas del test</title>
 </head>
 <body>
 <div class="col-12 encabezado">

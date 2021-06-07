@@ -15,7 +15,7 @@ verificarSesion();
     <link rel=StyleSheet href="../../css/style.css" type="text/CSS">
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-    <title>Document</title>
+    <title>Item7</title>
 </head>
 <body>
     <div class="container encabezado">
