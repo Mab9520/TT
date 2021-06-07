@@ -3,6 +3,7 @@
 <?php
 
 include('../includes/funciones.php');
+include('../clases/Estudiante.php');
 require('headerEsp.php');
 $conexion = conexion("root", "");
 $fecha = date('Y-m-d');

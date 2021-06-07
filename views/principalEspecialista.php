@@ -42,7 +42,7 @@
                         </div>
                         <div class="flip-card-back">
                             <p>Consultar agenda</p>
-                            <a href = '../views/Agenda.php'"><img src="../images/agen.png" alt=""></a>
+                            <a href = 'AgendaVista.php'"><img src="../images/agen.png" alt=""></a>
                         </div>
                     </div>
                 </div>

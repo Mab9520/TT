@@ -88,11 +88,12 @@ class Pacientes{
         
     }
 
-    public static function aceptarSolicitud($id){ //Acepta la solicitud del estudiante y coloca el status en 1 como aceptado, muestra el mensaje del script
+    public static function aceptarSolicitud($id, $cedula){ //Acepta la solicitud del estudiante y coloca el status en 1 como aceptado, muestra el mensaje del script
         $conexion = conexion("root", "");
-        $consulta = $conexion->prepare("UPDATE pacientes SET status = 1 WHERE est_enviador = :id");
+        $consulta = $conexion->prepare("UPDATE pacientes SET status = 1 WHERE est_enviador = :id AND esp_receptor = :cedula");
         if($consulta->execute(array(
-                       ':id' => $id   
+                       ':id' => $id,
+                       ':cedula' => $cedula   
         ))){
             ?>
         <script>
@@ -164,5 +165,16 @@ class Pacientes{
         
     <?php   
     }
+
+    public static function alSerAceptado($id){//Elimina la cuenta del usuario
+        $conexion = conexion("root", "");
+        $consulta = $conexion->prepare("DELETE FROM pacientes WHERE est_enviador = :id AND status = 0");
+        $consulta->execute(array(
+            ':id' =>$id
+        ));
+        
+    }
+
+    
     
 }
