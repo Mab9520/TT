@@ -81,11 +81,13 @@ if(isset($_POST['aceptarEstudiante'])){
     //metodo para aceptar al estudiante
     pacientes::aceptarSolicitud($_GET['id'], $_SESSION['id']);
     pacientes::alSerAceptado($_GET['id']);
+    include "../includes/mailAceptado.php";
 }else
 
 if(isset($_POST['rechazarEstudiante'])){
     //metodo para rechazar solicitud
     pacientes::eliminarSolicitud($_GET['id']);
+    include "../includes/mailRechazo.php";
     
 
 }

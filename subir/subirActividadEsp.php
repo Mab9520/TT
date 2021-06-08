@@ -183,7 +183,12 @@ while ($row = $sel->fetch(PDO::FETCH_ASSOC)) {
                                         var msg = xhttp.responseText;
                                         if (msg == 'success') {
                                             alert(msg);
-                                            $('#exampleModal').modal('hide')
+                                            <?php 
+                                            include ("../includes/mailActividad.php");
+                                            ?>
+                                            $('#exampleModal').modal('hide');
+                                            
+
                                         } else {
                                             alert(msg);
                                         }
