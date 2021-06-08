@@ -27,7 +27,7 @@
                         </div>
                         <div class="flip-card-back">
                             <p>Consultar estudiantes</p>
-                            <a href = '../views/verEstudiantes.php'"><img src="../images/testb.png" alt="test"></a>
+                            <a href = '../views/verEstudiantes.php'><img src="../images/testb.png" alt="test"></a>
                         </div>
                     </div>
                 </div>
@@ -36,13 +36,13 @@
                 <div class="flip-card">
                     <div class="flip-card-inner">
                         <div class = "flip-card-front">
-                            <img src="../images/agen.png" alt="Ver agenda">
+                            <img src="https://1.bp.blogspot.com/-XFX3gD0gC0c/YL_JSuwqemI/AAAAAAAAM98/kWoyIv5unCwqeS7tqqxYkWjpQmKe9HtigCLcBGAsYHQ/s0/4.png" alt="Ver agenda">
                             <p>Agenda</p>
                             <p>En esta sección usted podrá consultar su agenda de citas, editarlas o crear nuevas citas para sus estudiantes</p>
                         </div>
                         <div class="flip-card-back">
                             <p>Consultar agenda</p>
-                            <a href = 'AgendaVista.php'"><img src="../images/agen.png" alt=""></a>
+                            <a href = 'AgendaVista.php'><img src="https://1.bp.blogspot.com/-XFX3gD0gC0c/YL_JSuwqemI/AAAAAAAAM98/kWoyIv5unCwqeS7tqqxYkWjpQmKe9HtigCLcBGAsYHQ/s0/4.png" alt=""></a>
                         </div>
                     </div>
                 </div>

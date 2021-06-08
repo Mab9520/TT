@@ -418,15 +418,15 @@ if ($mostrar['id_estudiante'] == "") {
     if(($puntos == 0) || ($puntos <= 21))
 {
     $mensaje="Ansiedad muy baja";
-    $img= "<img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgnmpHqY8TdHNEg6qeO0ttO-kZ6mrF0jpHvG6By7LQ5h4OyLdVx9Ie_cFo__gIYp8U-PY&usqp=CAU' border='0' width='300' height='300'>";
+    $img= "<img src='https://1.bp.blogspot.com/-xo0qdE5kajk/YL_JSb0pISI/AAAAAAAAM90/JNoc7xTMvNYGsLjU0DHc51pG5F5P4_BXQCLcBGAsYHQ/s0/1.png' border='0' width='300' height='300'>";
 } else if (($puntos == 4) || ($puntos <= 35))
 {
     $mensaje="Ansiedad Moderada";
-    $img= "<img src='https://pbs.twimg.com/media/EQ74g1wW4AEptSV.jpg' border='0' width='300' height='300'>";
+    $img= "<img src='https://1.bp.blogspot.com/-S2PvWDH9fiE/YL_JSOJW0eI/AAAAAAAAM94/NRMqmAcLiKok_FY51DOsxs_mB0X9lKhdQCLcBGAsYHQ/s0/2.png' border='0' width='300' height='300'>";
 } else if (($puntos == 8) || ($puntos <= 63))
 {
     $mensaje="Ansiedad Severa";
-    $img= "<img src='https://holatelcel.com/wp-content/uploads/2020/09/cheems-memes-3.jpg' border='0' width='300' height='300'>";
+    $img= "<img src='https://1.bp.blogspot.com/-uVpCu7Ifrtk/YL_JSG9LOlI/AAAAAAAAM9w/sbjuD8eHS-kP6IF6_WBlCCM6W5C1PQ9tQCLcBGAsYHQ/s0/3.png' border='0' width='300' height='300'>";
 
 }
 echo "Resultado: $puntos puntos <br> $mensaje <br><br><br> $img ";
