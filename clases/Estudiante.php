@@ -68,7 +68,11 @@ class Estudiante{
         $results = $execute->execute(array($_GET['id']));
         $row = $execute->fetch();
         ?>
-        <form method="POST"> 
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                   <form method="POST"> 
+                   
             <table class="informacion">
             <thead><th colspan="2"><?php echo $row['Nombre']; echo " "; echo $row['Apellidos']?></th></thead>
             <tr><td>Correo electrónico</td>
@@ -79,7 +83,11 @@ class Estudiante{
             <td><?php echo $row['Cedula'];?></td></tr>
             <td colspan="2"><a href="?agregar=<?php echo $_GET['id']?>"><input class="btn" type="submit" value="Enviar solicitud" name="solicitar"></a></td>
             </table>
-            </form> 
+            </form>  
+                </div>
+            </div>
+        </div>
+        
     <?php   
     }
 

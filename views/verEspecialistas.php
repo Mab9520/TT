@@ -21,39 +21,44 @@ require("headerEstu.php");
     <title>Especialistas</title>
 </head>
 <body>
+    
 <div class="container">
     <div class="row">
-        <div class="col-12 lista">
-            <table>
-            <?php
-            require("../clases/Estudiante.php");
-            
-            $userts = Estudiante::verEspecialistas();
-            foreach($userts as $row){?>
-                <tr>
-                   <ul class="list-group">
-                        <td><li><a href="?id=<?php echo $row['Cedula']; ?> " ><?php echo $row['Nombre']; echo " ";echo $row['Apellidos'];?></a></li></td>
-                    </ul>
-                    
-                </tr>
-            <?php
-            }
-            
-            ?>
-        </table>      
+        <div class="col-12 ">
+            <h2>Especialistas que pueden ayudarte</h2>
         </div>
-    </div>
-    <div class="col-12">
-    <?php
-        if (isset($_GET['id'])) {
-            // Create the query
+        <div class="col-12">
+            <div class="col-12 lista">
+                <table>
+                
+                    <?php
+                        require("../clases/Estudiante.php");
             
-                Estudiante::verInfoEspecialistas();
-            if (empty($row)) {
-                $result = "No se encontraron resultados !!";
-            }
-        }    
-      ?>
+                        $userts = Estudiante::verEspecialistas();
+                        foreach($userts as $row){?>
+                        <tr>
+                            <ul class="list-group ">
+                                <td><li><a href="?id=<?php echo $row['Cedula']; ?> " ><?php echo $row['Nombre']; echo " ";echo $row['Apellidos'];?></a></li></td>
+                            </ul>
+                    
+                        </tr>
+                        <?php
+                        }
+                        ?>
+                </table>      
+            </div>
+            <div class="col-12">
+        
+                <?php
+                    if (isset($_GET['id'])) {
+                        Estudiante::verInfoEspecialistas();
+                        if (empty($row)) {
+                        $result = "No se encontraron resultados !!";
+                        }
+                    }    
+                ?>
+            </div>
+        </div>
     </div>
 </div>
 </body>
