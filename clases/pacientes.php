@@ -166,7 +166,7 @@ class Pacientes{
     <?php   
     }
 
-    public static function alSerAceptado($id){//Elimina la cuenta del usuario
+    public static function alSerAceptado($id){//Elimina las otras solicitudes que envio el estudiante
         $conexion = conexion("root", "");
         $consulta = $conexion->prepare("DELETE FROM pacientes WHERE est_enviador = :id AND status = 0");
         $consulta->execute(array(
