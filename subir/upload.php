@@ -13,6 +13,7 @@ $esp = $_SESSION['id'];
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $title = $_POST['title'];
     $description = $_POST['description'];
+    $fecha = date('Y-m-d');
 
     $file_name = $_FILES['file']['name'];
 
@@ -35,7 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
     }
 
-    $ins = $conexion->query("INSERT INTO files(title,description,url, type, fecha, id_estudiante, id_especialista) VALUES ('$title','$description','$new_name_file','$fecha', '$id', '$esp')");
+    $ins = $conexion->query("INSERT INTO files(title,description,url, fecha, id_estudiante, id_especialista) VALUES ('$title','$description','$new_name_file','$fecha', '$id', '$esp')");
 
     if ($ins) {
         echo 'success';

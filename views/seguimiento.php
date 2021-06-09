@@ -5,6 +5,7 @@
 include('../includes/funciones.php');
 require('headerEsp.php');
 $conexion = conexion("root", "");
+$fecha = date('Y-m-d');
 
 $tmp = array();
 $res = array();
@@ -59,7 +60,7 @@ while ($rowesp = $selesp->fetch(PDO::FETCH_ASSOC)) {
                     <table class="table mt-2">
                         <thead>
                             <tr>
-                              
+                                <th scope="col">Fecha de subida de la actividad</th>
                                 <th scope="col">Actividad del especialista</th>
                                 <th scope="col">Evidencia del estudiante</th>
                                 <th scope="col">Comentarios adicionales</th>
@@ -68,7 +69,10 @@ while ($rowesp = $selesp->fetch(PDO::FETCH_ASSOC)) {
                         <tbody>
                             <?php foreach ($resesp as $valesp) { ?>
                                 <tr>
-                                    
+                                    <td>
+                                        <?php echo $fecha ?>
+
+                                    </td>
                                     <td>
                                         <button onclick="openModelPDFEsp('<?php echo $valesp['url'] ?>')" class="btn btn-primary" type="button">Ver Archivo </button>
                                     </td>

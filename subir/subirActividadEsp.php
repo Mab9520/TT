@@ -95,7 +95,6 @@ while ($row = $sel->fetch(PDO::FETCH_ASSOC)) {
                             <?php foreach ($res as $val) { ?>
                                 <tr>
                                     <td><?php echo $fecha ?> </td>
-                                    <td><?php echo $fechaActual ?> </td>
                                     <td><?php echo $val['title'] ?></td>
                                     <td><?php echo $val['description'] ?></td>
                                     <td>
