@@ -13,7 +13,7 @@ $esp = $_SESSION['id'];
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $title = $_POST['title'];
     $description = $_POST['description'];
-    $fecha = date('Y-m-d');
+    $fecha = $_POST['fecha'];
 
     $file_name = $_FILES['file']['name'];
 

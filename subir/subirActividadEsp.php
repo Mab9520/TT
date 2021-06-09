@@ -17,7 +17,6 @@ $conexion = conexion("root", "");
 
 $tmp = array();
 $res = array();
-$fecha = date('Y-m-d');
 $id_estudiante = $_GET['id'];
 $sel = $conexion->query("SELECT * FROM files WHERE id_Estudiante = '$id_estudiante'");//se seleccionan los archivos del id del estudiante
 while ($row = $sel->fetch(PDO::FETCH_ASSOC)) {
@@ -98,7 +97,7 @@ while ($row = $sel->fetch(PDO::FETCH_ASSOC)) {
                         <tbody>
                             <?php foreach ($res as $val) { ?>
                                 <tr>
-                                    <td><?php echo $fecha ?> </td>
+                                    <td><?php echo $val['fecha'] ?> </td>
                                     <td><?php echo $val['title'] ?></td>
                                     <td><?php echo $val['description'] ?></td>
                                     <td>
@@ -136,6 +135,10 @@ while ($row = $sel->fetch(PDO::FETCH_ASSOC)) {
                             <div class="form-group">
                                 <label for="description">Archivo:</label>
                                 <input type="file" class="form-control" id="file" name="file">
+                            </div>
+                            <div class="form-group">
+                                <label for="description">Fecha</label>
+                                <input class="form-control" name="fecha" value="<?php $fecha = date('Y-m-d'); echo $fecha;?>">
                             </div>
                         </form>
                     </div>

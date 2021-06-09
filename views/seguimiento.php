@@ -6,7 +6,6 @@ include('../includes/funciones.php');
 include('../clases/Estudiante.php');
 require('headerEsp.php');
 $conexion = conexion("root", "");
-$fecha = date('Y-m-d');
 $usuario = Estudiante::usuarioPorId($_GET['id']);
 $tmp = array();
 $res = array();
@@ -74,7 +73,7 @@ while ($rowesp = $selesp->fetch(PDO::FETCH_ASSOC)) {
                             <?php foreach ($resesp as $valesp) { ?>
                                 <tr>
                                     <td>
-                                        <?php echo $fecha ?>
+                                        <?php echo $valesp['fecha']; ?>
 
                                     </td>
                                     <td>
