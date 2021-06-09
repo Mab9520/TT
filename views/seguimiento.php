@@ -23,7 +23,7 @@ while ($row = $sel->fetch(PDO::FETCH_ASSOC)) {
 $tmpesp = array();
 $resesp = array();
 
-$selesp = $conexion->query("SELECT * FROM files WHERE id_estudiante = '$id_estudiante'");
+$selesp = $conexion->query("SELECT * FROM files WHERE id_estudiante = '$id_estudiante' AND status = 1");
 while ($rowesp = $selesp->fetch(PDO::FETCH_ASSOC)) {
     $tmpesp = $rowesp;
     array_push($resesp, $tmpesp);
@@ -60,12 +60,12 @@ while ($rowesp = $selesp->fetch(PDO::FETCH_ASSOC)) {
             <div class="row justify-content-md-center">
                 <div class="col-12 col-lg-12">
 
-                    <table class="table mt-2">
+                    <table class="table informacion mt-2">
                         <thead>
                             <tr>
-                                <th scope="col">Fecha de subida de la actividad</th>
-                                <th scope="col">Actividad del especialista</th>
-                                <th scope="col">Evidencia del estudiante</th>
+                                <th scope="col">Fecha de subida</th>
+                                <th scope="col">Actividad </th>
+                                <th scope="col">Evidencia</th>
                                 <th scope="col">Comentarios adicionales</th>
                             </tr>
                         </thead>

@@ -65,6 +65,7 @@ while ($row = $sel->fetch(PDO::FETCH_ASSOC)) {
             <div class="row">
                 <div class="col-12">
                     <h1>Mis actividades</h1>
+                    
                 </div>
             </div>
         </div>
@@ -88,9 +89,10 @@ while ($row = $sel->fetch(PDO::FETCH_ASSOC)) {
                                     <td><?php echo $val['description'] ?></td>
                                     <td>
                                         <button onclick="openModelPDF('<?php echo $val['url'] ?>')" class="btn btn-primary" type="button">Ver Archivo </button>
-                                        <a href="#exampleModal?id=<?php echo $val['id'] ?>"><button  type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                                            Completar actividad
+                                        <a href="?id=<?php echo $val['id']?>#exampleModal"><button  type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Completar actividad
                                         </button></a>
+                                        
+                                        
                                         <!-- <a class="btn btn-primary" target="_black" href="<?php echo 'http://' . $_SERVER['HTTP_HOST'] . '/uploadfile/' . $val['url']; ?>" >Ver Archivo en otra página</a> -->
                                     </td>
                                 </tr>
@@ -99,7 +101,8 @@ while ($row = $sel->fetch(PDO::FETCH_ASSOC)) {
                     </table>
                 </div>
             </div>
-        </div>
+        
+        
         <!-- Modal para subir archivo-->
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
@@ -114,6 +117,7 @@ while ($row = $sel->fetch(PDO::FETCH_ASSOC)) {
                         <form enctype="multipart/form-data" id="form1">
                             <div class="form-group">
                                 <label for="title">Actividad</label>
+                                
                                 <input type="text" class="form-control" id="title" name="title">
                             </div>
                             <div class="form-group">
@@ -123,12 +127,15 @@ while ($row = $sel->fetch(PDO::FETCH_ASSOC)) {
                             <div class="form-group">
                                 <label for="description">Subir evidencia*</label>
                                 <input type="file" class="form-control" id="file" name="file">
+                                
                             </div>
                         </form>
                     </div>
                     <div class="modal-footer">
+                    
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                        <button type="button" class="btn btn-primary" onclick="onSubmitForm()">Completar actividad</button>
+                        <button type="button" class="btn btn-primary" onclick="onSubmitForm()"> Completar actividad</button>
+                        
                     </div>
                 </div>
             </div>
@@ -155,6 +162,7 @@ while ($row = $sel->fetch(PDO::FETCH_ASSOC)) {
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
         <script>
                             function onSubmitForm() {
                                 var frm = document.getElementById('form1');
@@ -172,7 +180,7 @@ while ($row = $sel->fetch(PDO::FETCH_ASSOC)) {
 
                                     }
                                 };
-                                xhttp.open("POST", "uploadEstudiante.php?id=<?php echo $val['id'] ?>", true);
+                                xhttp.open("POST", "uploadEstudiante.php?id=<?php echo $_GET['id'] ?>", true);
                                 xhttp.send(data);
                                 $('#form1').trigger('reset');
                             }

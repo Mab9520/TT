@@ -4,22 +4,24 @@ require("../includes/funciones.php");
 session_start();
 verificarSesion();
 
-$id_estudiante = $_SESSION['id'];
+$id = $_SESSION['id'];
 $idActividad = $_GET['id'];
 $conexion = conexion("root", "");
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $title = $_POST['title'];
     $description = $_POST['description'];
     $fecha = date('Y-m-d');
-
+    
     $file_name = $_FILES['file']['name'];
 
     $new_name_file = null;
 
     if ($file_name != '' || $file_name != null) {
+        
         $file_type = $_FILES['file']['type'];
         list($type, $extension) = explode('/', $file_type);
         if ($extension == 'pdf') {
+            
             $dir = 'filesEst/';
             if (!file_exists($dir)) {
                 mkdir($dir, 0777, true);
@@ -28,15 +30,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             //$new_name_file = 'files/' . date('Ymdhis') . '.' . $extension;
             $new_name_file = $dir . file_name($file_name) . '.' . $extension;
             if (copy($file_tmp_name, $new_name_file)) {
-                
-            }
+                 
+            } 
         }
     }
 
-    $ins = $conexion->query("INSERT INTO files(title,description,url, type, fecha, id_estudiante, id_especialista) VALUES ('$title','$description','$new_name_file','$fecha', '$id', '$esp')");
-
-    $completada = $conexion->prepare("UPDATE files SET status = 1");
+    $completada = $conexion->prepare("UPDATE files SET status = 1 WHERE id = '$idActividad' ");
     $completada->execute();
+    $ins = $conexion->query("INSERT INTO filesest (title, description, url, id_fileEspecialista, id_Estudiante, fecha) VALUES ('$title','$description','$new_name_file','$idActividad','$id','$fecha')");
+
+    
 
     if ($ins) {
         echo 'success';
