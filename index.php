@@ -34,7 +34,7 @@
                 <div class="flip-card-inner">
                     <div class="flip-card-front">
                         <p>Estudiante</p> 
-                        <p>¿Ya estas registrado?</p> 
+                        <p>¿Ya estás registrado?</p> 
                         <p>Inicia sesión en la herramienta</p>
                         <img src="images/est.png" alt="Avatar" >
                     </div>
@@ -51,7 +51,7 @@
                     <div class = "flip-card-front">
                         <p>Especialista</p>
                         <p>¿Ya estás registrado? </p>
-                        <p>Inicia sesión en la herramienta.</p>
+                        <p>Inicia sesión en la herramienta</p>
                         <img src="images/psico.png" alt="Avatar">
                     </div>
                     <div class="flip-card-back">

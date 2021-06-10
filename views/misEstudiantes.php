@@ -26,44 +26,40 @@ verificarSesion();
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <h1>Estudiantes con los que tiene seguimiento</h1>
+                <h2>Estudiantes con los que tiene seguimiento</h2>
             </div>
-            <div class="col-12 border">
-                <div class="col-12 col-lg-6">
-                    <div class="col-12  lista">
-                        <form action="" method = "POST">
-                            <table class="listaNombres">
-                                <?php
-                                require("../clases/Estudiante.php");
+            <div class="col-12">
+                <div class="col-12  lista">
+                    <form action="" method = "POST">
+                        <table>
+                            <?php
+                            require("../clases/Estudiante.php");
             
-                                $paciente = pacientes::verPacientes($_SESSION['id']);
-                                foreach($paciente as $row){?>
-                                    <tr>
-                                        <ul>
-                                            <td><li><a  href="?id=<?php echo $row['id']; ?> " ><?php echo $row['Nombre']; echo " ";echo $row['Apellidos'];?></a></li></td>
-                                        </ul>
-                    
-                                    </tr>
-                                <?php
-                                }
-                                ?>
-                            </table>
-                        </form> 
-                    </div> 
-                </div>
-                <div class="col-12 col-lg-12">
+                            $paciente = pacientes::verPacientes($_SESSION['id']);
+                            foreach($paciente as $row){?>
+                                <tr>
+                                    <ul>
+                                        <td><li><a  href="?id=<?php echo $row['id']; ?> " ><?php echo $row['Nombre']; echo " ";echo $row['Apellidos'];?></a></li></td>
+                                    </ul>            
+                                </tr>
+                            <?php
+                            }
+                            ?>
+                        </table>
+                    </form> 
+                </div> 
+                <div class="col-12">
                     <?php
                     if (isset($_GET['id'])) {
                  // Create the query
                     Especialista::verInfoEstudiantes();?>
                     
 
-                <?php    
-                }
-                ?>
+                    <?php    
+                    }
+                    ?>
+                </div>
             </div>
-            </div>
-            
         </div>
     </div>
 </body>

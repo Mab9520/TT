@@ -72,7 +72,7 @@ while ($row = $sel->fetch(PDO::FETCH_ASSOC)) {
         <div class="container">
             <div class="row justify-content-md-center">
                 <div class="col-12">
-                    <table class="table mt-2">
+                    <table class="table informacion mt-2">
                         <thead>
                             <tr>
                                 <th scope="col">Fecha de subida</th>

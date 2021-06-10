@@ -85,7 +85,7 @@ while ($row = $sel->fetch(PDO::FETCH_ASSOC)) {
                         Nuevo
                     </button>
 
-                    <table class="table mt-2">
+                    <table class="table informacion mt-2">
                         <thead>
                             <tr>
                                 <th scope="col">Fecha de subida</th>

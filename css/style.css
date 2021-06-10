@@ -22,7 +22,15 @@ body{
     height: 100vh;
     color: #050505;
     font-family: Bree Serif;
-    font-size: larger;
+    font-size: 1.35em;
+}
+label{
+    font-size: 1em;
+}
+
+h1{
+    font-weight: bold;
+    font-size: 2em;
 }
 .title{
     text-align: center;

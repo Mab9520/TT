@@ -22,7 +22,7 @@ require("headerEstu.php");
 </head>
 <body>
     
-<div class="container">
+<div class="container ">
     <div class="row">
         <div class="col-12 ">
             <h2>Especialistas que pueden ayudarte</h2>

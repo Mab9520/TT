@@ -82,18 +82,24 @@ class Especialista {
         $results = $execute->execute(array($_GET['id']));
         $row = $execute->fetch();
         ?>
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                   <table class="informacion">
+                        <thead><th colspan="2"><?php echo $row['Nombre']; echo " "; echo $row['Apellidos']?></th></thead>
+                        <tr><td>Correo</td>
+                        <td><?php echo $row['Correo'];?></td></tr>
+                        <tr><td>Numero de telefono</td>
+                        <td><?php echo $row['Telefono'];?></td></tr>
+                        <tr><td>Instituto</td>
+                        <td><?php echo $row['Instituto'];?></td></tr>
+                        <tr><td colspan="2"><a href = "perfilEstudiantePrivado.php?id=<?php echo $row['id'] ?>"><input class="btn" type="submit" value="Ver Perfil"></a></td></tr>
+                        <tr><td colspan="2"><a onclick= "location.href = 'AgendaVista.php'"><input class="btn" type="submit" value="Agendar cita"></a></td></tr>
+                    </table> 
+                </div>
+            </div>
+        </div>
         
-        <table class="informacion" style=" width: 18rem; text-align:center;  border-radius: 20px;">
-        <thead><th colspan="2"><?php echo $row['Nombre']; echo " "; echo $row['Apellidos']?></th></thead>
-        <tr><td>Correo</td>
-        <td><?php echo $row['Correo'];?></td></tr>
-        <tr><td>Numero de telefono</td>
-        <td><?php echo $row['Telefono'];?></td></tr>
-        <tr><td>Instituto</td>
-        <td><?php echo $row['Instituto'];?></td></tr>
-        <tr><td colspan="2"><a href = "perfilEstudiantePrivado.php?id=<?php echo $row['id'] ?>"><input class="btn" type="submit" value="Ver Perfil"></a></td></tr>
-        <tr><td colspan="2"><a onclick= "location.href = 'AgendaVista.php'"><input class="btn" type="submit" value="Agendar cita"></a></td></tr>
-        </table>
     <?php   
 }
 

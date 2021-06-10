@@ -58,13 +58,14 @@ verificarSesion();
                             <label class="form-check-label">Bastante</label>
                         </div>
                     </div>
-                    <div class="col-12 d-flex justify-content-end">
+                    
+                    <div class="col-6 col-lg-6 d-flex justify-content-end">
                         <input class="btn" type="submit" value="Siguiente">
                     </div>
                 </form>
                 <form method="POST">
-                    <div class="col-12col-12 d-flex justify-content-end">
-                        <input class="btn" name="cancelarTest" type="submit" id="" value="Cancelar"> 
+                    <div class="col-6 col-lg-6 d-flex justify-content-end">
+                        <input class="btn" name="cancelarTest" type="submit" id="" value="Cancelar">
                     </div>
                 </form>
             </div>

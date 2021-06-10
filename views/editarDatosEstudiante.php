@@ -29,7 +29,7 @@ verificarSesion();
 <div class="container">
     <div class="row">
         <div class="col-12 col-lg-12">
-            <h1>Editar mis datos</h1>
+            <h2>Editar mis datos</h2>
         </div>
     </div>
 </div>

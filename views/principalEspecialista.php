@@ -27,7 +27,7 @@
                         </div>
                         <div class="flip-card-back">
                             <p>Consultar estudiantes</p>
-                            <a href = '../views/verEstudiantes.php'><img src="../images/testb.png" alt="test"></a>
+                            <a href = '../views/misEstudiantes.php'><img src="../images/testb.png" alt="test"></a>
                         </div>
                     </div>
                 </div>
