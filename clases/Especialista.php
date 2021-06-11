@@ -94,7 +94,7 @@ class Especialista {
                         <tr><td>Instituto</td>
                         <td><?php echo $row['Instituto'];?></td></tr>
                         <tr><td colspan="2"><a href = "perfilEstudiantePrivado.php?id=<?php echo $row['id'] ?>"><input class="btn" type="submit" value="Ver Perfil"></a></td></tr>
-                        <tr><td colspan="2"><a onclick= "location.href = 'AgendaVista.php'"><input class="btn" type="submit" value="Agendar cita"></a></td></tr>
+                    <tr><td colspan="2"><a onclick= "location.href = 'AgendaVista.php'"><input class="btn" type="submit" value="Agendar cita"></a></td></tr>
                     </table> 
                 </div>
             </div>
@@ -424,7 +424,8 @@ if ($mostrar['id_estudiante'] == "") {
     if(($puntos == 0) || ($puntos <= 21))
 {
     $mensaje="Ansiedad muy baja";
-    $img= "<img src='https://1.bp.blogspot.com/-xo0qdE5kajk/YL_JSb0pISI/AAAAAAAAM90/JNoc7xTMvNYGsLjU0DHc51pG5F5P4_BXQCLcBGAsYHQ/s0/1.png' border='0' width='300' height='300'>";
+    $img= "<img src='https://1.bp.blogspot.com/-uVpCu7Ifrtk/YL_JSG9LOlI/AAAAAAAAM9w/sbjuD8eHS-kP6IF6_WBlCCM6W5C1PQ9tQCLcBGAsYHQ/s0/3.png' border='0' width='300' height='300'>";
+    
 } else if (($puntos == 4) || ($puntos <= 35))
 {
     $mensaje="Ansiedad Moderada";
@@ -432,8 +433,8 @@ if ($mostrar['id_estudiante'] == "") {
 } else if (($puntos == 8) || ($puntos <= 63))
 {
     $mensaje="Ansiedad Severa";
-    $img= "<img src='https://1.bp.blogspot.com/-uVpCu7Ifrtk/YL_JSG9LOlI/AAAAAAAAM9w/sbjuD8eHS-kP6IF6_WBlCCM6W5C1PQ9tQCLcBGAsYHQ/s0/3.png' border='0' width='300' height='300'>";
-
+    
+    $img= "<img src='https://1.bp.blogspot.com/-xo0qdE5kajk/YL_JSb0pISI/AAAAAAAAM90/JNoc7xTMvNYGsLjU0DHc51pG5F5P4_BXQCLcBGAsYHQ/s0/1.png' border='0' width='300' height='300'>";
 }
 echo "Resultado: $puntos puntos <br> $mensaje <br><br><br> $img ";
 }

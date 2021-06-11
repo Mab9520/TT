@@ -17,10 +17,17 @@ $usuario = Estudiante::usuarioPorId($_SESSION['id']);
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <link rel=StyleSheet href="../../css/style.css" type="text/CSS">
 	<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+	<style>
+		img{
+    		width: 15em; 
+			height: 18em;
+			margin: auto;
+		}
+	</style>
     <title>Resultados</title>
 </head>
 <body>
-<div class="container">
+<div class="container encabezado">
     <div class="row">
         <div class="col-10 col-lg-10 text-center">
             <div class="">
@@ -495,27 +502,78 @@ if($pregunta1 == "0")
 
 	if(($puntos == 0) || ($puntos <= 21))
 	{
+		?>
+    		<script>
+        		Swal.fire({
+            	title: 'Tus niveles de ansiedad se encuentran en un rango normal.',
+				text: 'No es necesario que requieras la ayuda de un profesional, sin embargo si lo deseas puedes solicitar un seguimiento si piensas que lo requieres',
+            	icon: 'success',
+            	confirmButtonText: 'Ver especialistas',
+				cancelButtonText: 'Ver resultados',
+				showCancelButton: true
+        		}).then( (result) =>{
+					if (result.isConfirmed) {
+						location.href = "../../views/verEspecialistas.php";
+                }
+					
+            });
+    		</script>
+    	<?php
 		$mensaje="Ansiedad muy baja";
-		$img= "<img src='https://1.bp.blogspot.com/-xo0qdE5kajk/YL_JSb0pISI/AAAAAAAAM90/JNoc7xTMvNYGsLjU0DHc51pG5F5P4_BXQCLcBGAsYHQ/s0/1.png' border='0' width='150' height='600'>";
+		$img= "<img src='https://1.bp.blogspot.com/-uVpCu7Ifrtk/YL_JSG9LOlI/AAAAAAAAM9w/sbjuD8eHS-kP6IF6_WBlCCM6W5C1PQ9tQCLcBGAsYHQ/s0/3.png'>";
+		
+		
 	} else if (($puntos == 22) || ($puntos <= 35))
 	{
+		?>
+    		<script>
+        		Swal.fire({
+            	title: 'Tu nivel de ansiedad se encuentra en un rango fuera de lo normal',
+				text: 'Te recomendamos buscar la ayuda de un profesional, si lo deseas, pulsa en el botón para ver los especialistas o bien observa unicamente tu resultado',
+            	icon: 'warning',
+            	confirmButtonText: 'Ver especialistas',
+				cancelButtonText: 'Ver resultados',
+				showCancelButton: true
+				}).then( (result) =>{
+					if (result.isConfirmed) {
+						location.href = "../../views/verEspecialistas.php";
+                }
+            });
+    		</script>
+    	<?php
 		$mensaje="Ansiedad Moderada";
 		$img= "<img src='https://1.bp.blogspot.com/-S2PvWDH9fiE/YL_JSOJW0eI/AAAAAAAAM94/NRMqmAcLiKok_FY51DOsxs_mB0X9lKhdQCLcBGAsYHQ/s0/2.png' border='0' width='150' height='600'>";
 	} else if (($puntos == 36) || ($puntos <= 63))
 	{
+		?>
+    		<script>
+        		Swal.fire({
+            	title: 'Tu nivel de ansiedad se encuentra en un rango fuera de lo normal',
+				text: 'Te recomendamos buscar la ayuda de un profesional, si lo deseas, pulsa en el botón para ver los especialistas o bien observa unicamente tu resultado',
+            	icon: 'warning',
+            	confirmButtonText: 'Ver especialistas',
+				cancelButtonText: 'Ver resultados',
+				showCancelButton: true
+			}).then( (result) =>{
+					if (result.isConfirmed) {
+						location.href = "../../views/verEspecialistas.php";
+                }
+            });
+    		</script>
+
+    	<?php
 		$mensaje="Ansiedad Severa";
-		$img= "<img src='https://1.bp.blogspot.com/-uVpCu7Ifrtk/YL_JSG9LOlI/AAAAAAAAM9w/sbjuD8eHS-kP6IF6_WBlCCM6W5C1PQ9tQCLcBGAsYHQ/s0/3.png' border='0' width='150' height='600'>";
+		$img= "<img src='https://1.bp.blogspot.com/-xo0qdE5kajk/YL_JSb0pISI/AAAAAAAAM90/JNoc7xTMvNYGsLjU0DHc51pG5F5P4_BXQCLcBGAsYHQ/s0/1.png'>";
 
 	}
 ?>
 	<h1><?php echo $_SESSION['Nombre']; ?></h1>
 <?php
-	echo "Te informamos que tu nivel de ansiedad se encuentra en un puntaje de $puntos puntos en un niven de $mensaje de acuerdo a la catalogación de Beck <br><br><br> $img ";
+	echo "Te informamos que tu nivel de ansiedad se encuentra en un puntaje de $puntos puntos en un nivel de $mensaje de acuerdo a la catalogación de la ansiedad de Beck <br><br><br> $img ";
 ?>
 
 		</div>
 	</div>
-	<input type="submit" value="Ok">
 </div>
 
 </body>

@@ -23,12 +23,12 @@
     <title>Solicitudes</title>
 </head>
 <body>
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-               <p>Solicitudes</p> 
+    <div class="container ">
+        <div class="row d-flex justify-content-center align-items-center">
+            <div class="col-12 text-center">
+               <h2>Solicitudes</h2> 
             </div>
-            <div class="col-12">
+            <div class="col-12 text-center">
                 <p>Seleccione de la lista el estudiante del que quiera consultar los datos</p>
             </div>
             <div class="col-12 lista">

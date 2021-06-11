@@ -103,7 +103,7 @@ if(isset($_POST['cancelarTest'])){?>
                 showCancelButton: true,
                 icon: 'warning',
                 text:'Si cancelas el test se perderán todas tus respuestas',
-                confirmButtonText: `Ok`,
+                confirmButtonText: `Cancelar test`,
             }).then((result) => {
                 /* Read more about isConfirmed, isDenied below */
                 if (result.isConfirmed) {

@@ -67,6 +67,9 @@ h1{
     
 }
 
+.imgResultados{
+    width: 50px; height: 50px;
+}
 .container img{
     margin: auto;
     max-width: 100%;
@@ -246,11 +249,11 @@ i{
     margin-top: 5%;
     text-align: center
 }
-.lista{
+.container .lista{
     padding: 1rem;
     margin: 2rem;
-    width: 15rem;
-    height:10rem;
+    width: 20em;
+    height:15em;
     overflow: scroll;
     overflow-x: hidden
 }
