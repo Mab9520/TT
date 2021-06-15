@@ -15,6 +15,7 @@ $usuario = Estudiante::usuarioPorId($_SESSION['id']);
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
     <link rel=StyleSheet href="../../css/style.css" type="text/CSS">
 	<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 	<style>
@@ -38,7 +39,7 @@ $usuario = Estudiante::usuarioPorId($_SESSION['id']);
         <div class="col-2 col-lg-2 text-center">
             <nav class="nav">
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Menu</a>
+                    <a class="nav-link" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-bars"></i></a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <li><a class="dropdown-item" href="../../views/principalEstudiante.php">Página principal</a></li>
                         <li><a class="dropdown-item" href="../../views/verEspecialistas.php">Especialistas</a></li>
