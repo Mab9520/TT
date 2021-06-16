@@ -88,10 +88,15 @@ while ($row = $sel->fetch(PDO::FETCH_ASSOC)) {
                                     <td><?php echo $val['title'] ?></td>
                                     <td><?php echo $val['description'] ?></td>
                                     <td>
+                                    <?php
+                                        if(!empty($val['url'])){?>
                                         <button onclick="openModelPDF('<?php echo $val['url'] ?>')" class="btn btn-primary" type="button">Ver Archivo </button>
                                         <a href="?id=<?php echo $val['id']?>#exampleModal"><button  type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Completar actividad
                                         </button></a>
-                                        
+                                        <?php
+                                            }
+
+                                        ?>
                                         
                                         <!-- <a class="btn btn-primary" target="_black" href="<?php echo 'http://' . $_SERVER['HTTP_HOST'] . '/uploadfile/' . $val['url']; ?>" >Ver Archivo en otra página</a> -->
                                     </td>

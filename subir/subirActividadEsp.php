@@ -101,8 +101,16 @@ while ($row = $sel->fetch(PDO::FETCH_ASSOC)) {
                                     <td><?php echo $val['title'] ?></td>
                                     <td><?php echo $val['description'] ?></td>
                                     <td>
-                                        <button onclick="openModelPDF('<?php echo $val['url'] ?>')" class="btn btn-primary" type="button">Ver Archivo </button>
-                                        <a class="btn btn-primary" target="_black" href="<?php echo 'http://' . $_SERVER['HTTP_HOST'] . '/TT/subir/' . $val['url']; ?>" >Ver Archivo en otra página</a>
+                                        <?php
+                                            if(!empty($val['url'])){?>
+                                                <button onclick="openModelPDF('<?php echo $val['url'] ?>')" class="btn btn-primary" type="button">Ver Archivo </button>
+                                                <a class="btn btn-primary" target="_black" href="<?php echo 'http://' . $_SERVER['HTTP_HOST'] . '/TT/subir/' . $val['url']; ?>" >Ver Archivo en otra página</a>
+                                            <?php
+                                            }
+
+                                        ?>
+                                       
+                                        
                                     </td>
                                 </tr>
                             <?php } ?>
@@ -144,7 +152,7 @@ while ($row = $sel->fetch(PDO::FETCH_ASSOC)) {
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                        <button type="button" class="btn btn-primary" onclick="onSubmitForm()">Guardar</button>
+                        <button type="button" class="btn btn-primary" onclick="onSubmitForm();">Guardar</button>
                        
                     </div>
                 </div>
