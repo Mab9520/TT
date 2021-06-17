@@ -36,9 +36,9 @@ verificarSesion();
                 <img class="imgFondo" src="../images/psico.png" alt="">
                 <div class="col-12 col-lg-12 encima text-center">
                     <form method = "post">
-                        <p><input class = "form-control" type="text"  name = "nombre" value="<?php echo $usuario[0]['Nombre']; ?>" ></p>
-                        <p><input class = "form-control" type="text"   name ="apellidos" value="<?php echo $usuario[0]['Apellidos']; ?>"></p>
-                        <p> <input  class = "form-control" type="password" name = "pass" placeholder="Contraseña"/></p>
+                        <p><input required class = "form-control" type="text"  name = "nombre" value="<?php echo $usuario[0]['Nombre']; ?>" ></p>
+                        <p><input required class = "form-control" type="text"   name ="apellidos" value="<?php echo $usuario[0]['Apellidos']; ?>"></p>
+                        <p> <input required class = "form-control" type="password" name = "pass" placeholder="Contraseña"/></p>
                         <p>Opcional:</p>
                         <p><input class = "form-control telefono" type="tel"  placeholder="Teléfono" name = "telefono"></p>
                         
@@ -70,7 +70,7 @@ if(isset($_POST['editar'])){
             Swal.fire({
                 title: 'Se han editado los datos!',
                 icon: 'success',
-                confirmButtonText: 'Ok'
+                confirmButtonText: 'Aceptar'
             }).then( () =>{
                 location.href = "editarDatosEspecialista.php";
             });

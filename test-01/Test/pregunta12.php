@@ -33,7 +33,7 @@ verificarSesion();
     </div>
     <div class="container">
         <div class="row">
-            <div class="row text-center">
+            <div class="row">
                 <div class="col-12">
                     <form action="pregunta13.php" method="POST">
                         <input type="hidden" name="Pregunta1" value=<?php echo $_POST['Pregunta1']; ?>>

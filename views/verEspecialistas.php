@@ -28,7 +28,7 @@ require("headerEstu.php");
             <h2>Especialistas que pueden ayudarte</h2>
         </div>
         <div class="col-12">
-            <div class="col-12 lista">
+            <div class="col-12">
                 <table>
                 
                     <?php

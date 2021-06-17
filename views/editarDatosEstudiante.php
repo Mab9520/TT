@@ -39,13 +39,13 @@ verificarSesion();
                 <img class="imgFondo" src="../images/est.png" alt="">
                 <div class="col-12 col-lg-12 encima text-center">
                     <form method = "post">
-                        <p><input class = "form-control" type="text"  name = "nombre" value="<?php echo $usuario[0]['Nombre']; ?>" ></p>
-                        <p><input class = "form-control" type="text"   name ="apellidos" value="<?php echo $usuario[0]['Apellidos']; ?>"></p>
-                        <p> <input class = "form-control" placeholder="Contraseña"  type="password" name = "pass"/></p>
+                        <p><input require class = "form-control" type="text"  name = "nombre" value="<?php echo $usuario[0]['Nombre']; ?>" ></p>
+                        <p><input required class = "form-control" type="text"   name ="apellidos" value="<?php echo $usuario[0]['Apellidos']; ?>"></p>
+                        <p> <input required class = "form-control" placeholder="Contraseña"  type="password" name = "pass"/></p>
                         <p>Opcional:</p>
-                        <p><input class = "form-control telefono" type="tel"  placeholder="Teléfono" name = "telefono"></p>
+                        <p><input  class = "form-control telefono" type="tel"  placeholder="Teléfono" name = "telefono"></p>
                         
-                        <p><input class = "btn" type="submit" name="editar" value="Guardar cambios"></p>
+                        <p><input  class = "btn" type="submit" name="editar" value="Guardar cambios"></p>
                         <p><input class = "btn" type="submit" name="eliminar" value="Eliminar cuenta"></p>
                     
                         </form>
@@ -61,10 +61,11 @@ verificarSesion();
 </html>
 <?php
 if(isset($_POST['editar'])){
+    $pass=sha1($_POST['pass']);
     $datos = array(
         $_POST['nombre'],
         $_POST['apellidos'],
-        $_POST['pass'],
+        $pass,
         $_POST['telefono']           
     );
         Estudiante::editarDatos($_SESSION['id'], $datos);
@@ -75,7 +76,7 @@ if(isset($_POST['editar'])){
                 icon: 'success',
                 confirmButtonText: 'Cool'
             }).then( () =>{
-                location.href = "editarDatosEstudiante.html";
+                location.href = "editarDatosEstudiante.php";
             });
         </script>
         <?php
@@ -95,7 +96,7 @@ if(isset($_POST['editar'])){
             Swal.fire({
                 title: 'Se han editado los datos!',
                 icon: 'success',
-                confirmButtonText: 'Ok'
+                confirmButtonText: 'Aceptar'
             }).then( () =>{
                 location.href = "editarDatosEstudiante.php";
             });

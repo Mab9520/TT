@@ -40,18 +40,18 @@
     if ($mostrar['rol_id'] == 2) {
         $_SESSION['id'] = $mostrar['id'];;
         $_SESSION['Nombre'] = $mostrar['Nombre'];
-        header("location: http://localhost/TT/views/principalEstudiante.php");
+        header("location: ../views/principalEstudiante.php");
     }elseif ($mostrar1['rol_id'] == 1) {
         $_SESSION['id'] = $mostrar1['Cedula'];
         $_SESSION['Nombre'] = $mostrar1['Nombre'];
-        header("location: http://localhost/TT/views/principalEspecialista.php");
+        header("location: ../views/principalEspecialista.php");
     }else {
         ?>
         <script>
             Swal.fire({
                 title: 'Usuario o contraseña incorrectos!',
                 icon: 'error',
-                confirmButtonText: 'Ok'
+                confirmButtonText: 'Aceptar'
             }).then( () =>{
                 location.href = "../views/login.views.php";
             });

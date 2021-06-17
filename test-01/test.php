@@ -21,7 +21,8 @@ verificarSesion();
         Swal.fire({
         title: 'Bienvenido al test de ansiedad de Beck!',
         text: 'Este cuestionario esta compuesto por los síntomas más comunes de la ansiedad. Lee cada uno de los ítems atentamente e indica cuanto te han afectado en la última semana incluyendo el día de hoy.',
-        confirmButtonText: 'Ok'
+        confirmButtonText: 'Aceptar',
+        confirmButtonColor: 'rgb(14, 167, 128)'
         });
     </script>
 
@@ -41,7 +42,7 @@ verificarSesion();
     </div>
     <div class="container">
         <div class="row">
-            <div class="row text-center">
+            <div class="row ">
                 <div class="col-12">
                     <form action="Test/pregunta2.php" method="POST">
                         <div class="row">

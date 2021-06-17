@@ -1,53 +1,58 @@
 <?php
-//Encio de los correos vista
-// Varios destinatarios
-$para  = $correo . ', '; // atención a la coma
-//$para = 'wez@example.com' . ', ';
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
 
-// título
-$título = 'Gracias por registrarte';
+require 'PHPMailer/Exception.php';
+require 'PHPMailer/PHPMailer.php';
+require 'PHPMailer/SMTP.php';
 
 //aleatoria
 $codigoran = rand(1000,9999);
 
-// mensaje
-$mensaje = '
-<html>
+$mail = new PHPMailer(true);
+
+try {
+    //Server settings
+    $mail->SMTPDebug = 0;                      //Enable verbose debug output
+    $mail->isSMTP();                                            //Send using SMTP
+    $mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
+    $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
+    $mail->Username   = 'herramientaapoyoalpsicologo@gmail.com
+';                     //SMTP username
+    $mail->Password   = 'herramientaapoyo';                               //SMTP password
+    $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;         //Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` encouraged
+    $mail->Port       = 587;                                    //TCP port to connect to, use 465 for `PHPMailer::ENCRYPTION_SMTPS` above
+
+    //Recipients
+    $mail->setFrom('herramientaapoyoalpsicologo@gmail.com', 'Herramienta Apoyo al Psicologo
+');
+    $mail->addAddress($correo);     //Add a recipient
+
+
+    //Content
+    $mail->isHTML(true);                                  //Set email format to HTML
+    $mail->Subject = 'Gracias por registrarte';
+    $mail->Body    = '<html>
 <head>
-    <meta charset="UTF8" />
+    <meta charset="UTF-8">
+
     <link rel=StyleSheet href="../css/style.css" type="text/CSS">
   <title>Gracias por registrarte</title>
 </head>
 <body>
-  <p>tu codigo de verificacion es :!</p>
+  <p>Tu codigo de verificacion es :</p>
+   <h2>'.$codigoran.'</h2>
   <p> <a 
-     href="http://localhost/TT/includes/confirm.php?email='.$correo.'">
+     href="https://6b82f967019b.ngrok.io/TT/includes/confirm.php?email='.$correo.'">
 
     Verificar cuenta </a> 
     </p>
- <h2>'.$codigoran.'</h2>
-  
 </body>
-</html>
-';
+</html>';
 
-// Para enviar un correo HTML, debe establecerse la cabecera Content-type
-$cabeceras  = 'MIME-Version: 1.0' . "\r\n";
-$cabeceras .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
-
-// Cabeceras adicionales
-$cabeceras .= 'To: ' .$correo . "\r\n";
-$cabeceras .= 'From: Verificar Correo <verificacorreo@example.com>' . "\r\n";
-$cabeceras .= 'Cc: verificacorreoarchive@example.com' . "\r\n";
-$cabeceras .= 'Bcc: verificacorreocheck@example.com' . "\r\n";
-
-// Enviarlo
-$enviado=false;
-if(mail($para, $título, $mensaje, $cabeceras)){
-   $enviado=true;
+$mail->send();
+    echo 'Message has been sent';
+} catch (Exception $e) {
+    echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
 }
-
-
-
-
 ?>

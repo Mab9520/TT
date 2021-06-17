@@ -33,10 +33,10 @@
             <div class="col-12 text-center">
                 <form class="col-12 " method="POST" action="../includes/login.php">
                     <div class="col-12 d-flex justify-content-center ">
-                        <p><input placeholder="Correo electrónico" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email"></p>
+                        <p><input required placeholder="Correo electrónico" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email"></p>
                     </div>
                     <div class="col-12 d-flex justify-content-center">
-                        <p><input placeholder="Contraseña" type="password" class="form-control" id="exampleInputPassword1" name="pass"></p>
+                        <p><input required placeholder="Contraseña" type="password" class="form-control" id="exampleInputPassword1" name="pass"></p>
                     </div>
                         <p><a href="./restablecer.php">Olvidé mi contraseña</a></p>
                         <p><button type="submit" class="btn">Iniciar sesion</button></p>
