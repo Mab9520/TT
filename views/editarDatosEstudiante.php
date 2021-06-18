@@ -34,6 +34,8 @@ verificarSesion();
     </div>
 </div>
     <div class="container">
+        <div class="row">
+
         
             <div class="col-12 col-lg-12">
                 <img class="imgFondo" src="../images/est.png" alt="">
@@ -52,7 +54,7 @@ verificarSesion();
                 </div> 
             </div>
         </div>
-    
+    </div>
     
     <?php if(!empty($error)): ?>
         <p class="error"><?php echo $error; ?></p>
@@ -74,7 +76,8 @@ if(isset($_POST['editar'])){
             Swal.fire({
                title: 'Se han editado los datos!',
                 icon: 'success',
-                confirmButtonText: 'Cool'
+                confirmButtonText: 'Aceptar',
+                confirmButtonColor: 'rgb(14, 167, 128)'
             }).then( () =>{
                 location.href = "editarDatosEstudiante.php";
             });
@@ -96,7 +99,8 @@ if(isset($_POST['editar'])){
             Swal.fire({
                 title: 'Se han editado los datos!',
                 icon: 'success',
-                confirmButtonText: 'Aceptar'
+                confirmButtonText: 'Aceptar',
+                confirmButtonColor: 'rgb(14, 167, 128)'
             }).then( () =>{
                 location.href = "editarDatosEstudiante.php";
             });
@@ -112,6 +116,7 @@ if(isset($_POST['eliminar'])){?>
             icon: 'warning',
             text:'Si eliminas tu cuenta se perderá toda tu información',
             confirmButtonText: `Aceptar`,
+            confirmButtonColor: 'rgb(14, 167, 128)'
         }).then((result) => {
             /* Read more about isConfirmed, isDenied below */
             if (result.isConfirmed) {

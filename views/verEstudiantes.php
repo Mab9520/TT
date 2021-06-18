@@ -40,7 +40,7 @@
                     if(count($solicitud) > 0){
                         echo "Usted tiene: ".count($solicitud) ." solicitudes";
                         foreach($solicitud as $solicitudes):?>
-                            <li><a href="perfilEstudiantePublico.php?id=<?php echo $solicitudes['id'] ?>"><?php echo $solicitudes['Nombre']; echo " "; echo $solicitudes['Apellidos'];?></a></li>
+                            <li><i class="fas fa-user-alt doctor"></i><a href="perfilEstudiantePublico.php?id=<?php echo $solicitudes['id'] ?>"><?php echo $solicitudes['Nombre']; echo " "; echo $solicitudes['Apellidos'];?></a></li>
                         <?php endforeach; 
                     }else{
                         echo "no hay solicitudes";

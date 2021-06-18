@@ -14,20 +14,19 @@
     <title>Mi página principal</title>
 </head>
 <body>
-<div class="container text-center">
+<div class="container">
     <div class="row">
-
         <div class="col-12 col-lg-6">
             <div class="flip-card">
                 <div class="flip-card-inner">
                     <div class="flip-card-front">
-                        <img src="../images/test.png" alt="Avatar" >
+                        <img class="img-fluid" src="../images/test.png" alt="Avatar" >
                         <p>Realizar test</p>
                         <p>En esta sección puedes realizar el test para permitirnos calcular tus niveles de ansiedad</p>
                     </div>
                     <div class="flip-card-back">
                         <p>Realizar mi test de ansiedad</p>
-                        <a href = '../test-01/test.php'"><img src="../images/testb.png" alt="test"></a>
+                        <a href = '../test-01/test.php'"><img class="img-fluid" src="../images/testb.png" alt="test"></a>
                     </div>
                 </div>
             </div>
@@ -36,13 +35,13 @@
             <div class="flip-card">
                 <div class="flip-card-inner">
                     <div class = "flip-card-front">
-                        <img src="../images/Actividades.png" alt="Avatar">
+                        <img class="img-fluid" src="../images/Actividades.png" alt="Avatar">
                         <p>Actividades</p>
                         <p>En esta sección puedes consultar las actividades  que el especialista haya cargado para ti</p>
                     </div>
                     <div class="flip-card-back">
                         <p>Ver mis actividades</p>
-                        <a href = '../subir/ArchivosEstudiantes.php'"><img src="../images/actividadesb.png" alt=""></a>
+                        <a href = '../subir/ArchivosEstudiantes.php'"><img class="img-fluid" src="../images/actividadesb.png" alt=""></a>
                     </div>
                 </div>
             </div>

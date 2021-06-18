@@ -15,21 +15,22 @@
     <title>Herramienta de apoyo al psicólogo</title>
 </head>
 <body>
-    <div class="container encabezado">
+    <div class="encabezado">
         <div class="row">
-            <div class="col-12 text-center">
+            <div class="col-12 text-center d-flex justify-content-center">
                 <h1>Bienvenido</h1>
-                <h2>Herramienta de apoyo al psicólogo en la evaluación de la ansiedad en jóvenes universitarios</h2>
+            </div>
+            <div class="col-12 text-center d-flex justify-content-center">
+            <h2>Herramienta de apoyo al psicólogo en la evaluación de la ansiedad en jóvenes universitarios</h2>
             </div>
         </div>
     </div>
-<div class="container d-flex align-items-center justify-content-center">
-    <div class="row text-center">
-        
-        <div class="col-12 col-lg-12">
+<div class="container">
+    <div class="row">
+        <div class="col-12 col-lg-12 d-flex justify-content-center">
             <a href="views/login.views.php"><input class="btn" type="submit" value="Iniciar sesión" name="iniciaSesion"></a>
         </div>
-        <div class="col-12 col-lg-6">
+        <div class="col-12 col-lg-6 d-flex justify-content-center">
             <div class="flip-card">
                 <div class="flip-card-inner">
                     <div class="flip-card-front">
@@ -45,7 +46,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-12 col-lg-6">
+        <div class="col-12 col-lg-6 d-flex justify-content-center">
             <div class="flip-card">
                 <div class="flip-card-inner">
                     <div class = "flip-card-front">

@@ -84,7 +84,9 @@ while ($row = $sel->fetch(PDO::FETCH_ASSOC)) {
                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
                         Nuevo
                     </button>
+                    <div class="col-12">
 
+                    
                     <table class="table informacion mt-2">
                         <thead>
                             <tr>
@@ -119,6 +121,7 @@ while ($row = $sel->fetch(PDO::FETCH_ASSOC)) {
                 </div>
             </div>
         </div>
+        </div>
         <!-- Modal -->
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
@@ -145,8 +148,8 @@ while ($row = $sel->fetch(PDO::FETCH_ASSOC)) {
                                 <input type="file" class="form-control" id="file" name="file">
                             </div>
                             <div class="form-group">
-                                <label for="description">Fecha</label>
-                                <input class="form-control" name="fecha" value="<?php $fecha = date('Y-m-d'); echo $fecha;?>">
+                                <label hidden for="description">Fecha</label>
+                                <input hidden class="form-control" name="fecha" value="<?php $fecha = date('Y-m-d'); echo $fecha;?>">
                             </div>
                         </form>
                     </div>

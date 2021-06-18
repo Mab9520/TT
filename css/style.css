@@ -38,6 +38,9 @@ h1{
     color: aliceblue;
     padding: 1.5%;
 }
+.form-check-input:checked{
+    background-color:rgb(34, 126, 103);
+}
 .btn{
     text-align: center;
     padding: .7rem;
@@ -45,9 +48,10 @@ h1{
     border: none;
     margin: .5rem;
     color: white;
-    background: rgb(83, 83, 83);
+    background: rgb(34, 126, 103);
     border-radius: 3px;
     font-size: .8rem;
+    font-weight: bold;
     cursor: pointer;
 }
 .btn:hover{
@@ -55,7 +59,10 @@ h1{
     transition: .5s;
 }
 
-
+.cancelar{
+    background-color: rgb(207, 86, 86);
+    
+}
 .container{
     max-width: 100%;
     width: 100%;
@@ -110,7 +117,7 @@ h1{
     }
 .imgFondo{
     display: flex;
-    opacity: 40%;
+    opacity: 30%;
     position: relative;
     height: 29.5em;
     width:auto;
@@ -120,9 +127,9 @@ h1{
 }
 
 .flip-card {
-  width: 20em;
+  width: 15em;
   height: 20em;
-  margin-top: 5%;
+  margin-top: 10%;
 }
 /* This container is needed to position the front and back side */
 .flip-card-inner {
@@ -255,8 +262,23 @@ i{
     width: 20em;
     height:15em;
 }
+.doctor{
+    color: #050505;
+}
+.doctor:hover{
+    color: #373A41;
+}
+.table-responsive{
+    margin: .5em;
+}
 
-
+li{
+    list-style: none;
+}
+li a{
+    text-decoration: none;
+    color: #373A41;
+}
 .informacion{
     background-color: #9b9da0;
     text-align: center;

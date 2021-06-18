@@ -21,33 +21,37 @@ require("headerEstu.php");
     <title>Especialistas</title>
 </head>
 <body>
+
     
-<div class="container ">
+<div class="container">
+
     <div class="row">
-        <div class="col-12 ">
+        <div class="col-12 d-flex justify-content-center">
             <h2>Especialistas que pueden ayudarte</h2>
         </div>
-        <div class="col-12">
-            <div class="col-12">
-                <table>
-                
-                    <?php
-                        require("../clases/Estudiante.php");
+    </row>
+    <div class="row">
+        <div class="col-12 d-flex justify-content-center table-responsive">
+            <table class="table">
+                <?php
+                    require("../clases/Estudiante.php");
             
-                        $userts = Estudiante::verEspecialistas();
-                        foreach($userts as $row){?>
-                        <tr>
-                            <ul class="list-group ">
-                                <td><li><a href="?id=<?php echo $row['Cedula']; ?> " ><?php echo $row['Nombre']; echo " ";echo $row['Apellidos'];?></a></li></td>
-                            </ul>
+                    $userts = Estudiante::verEspecialistas();
+                    foreach($userts as $row){?>
+                    <tr>
+                        <ul class="list-group">
+                            <td><li><i class="fas fa-user-md doctor"></i><a href="?id=<?php echo $row['Cedula']; ?>"><?php echo $row['Nombre']; echo " ";echo $row['Apellidos'];?></a></li></td>
+                        </ul>
                     
-                        </tr>
-                        <?php
-                        }
-                        ?>
-                </table>      
-            </div>
-            <div class="col-12">
+                    </tr>
+                <?php
+                }
+                ?>
+            </table>      
+        </div>
+    </div>    
+    <div class="row">
+        <div class="col-12">
         
                 <?php
                     if (isset($_GET['id'])) {
@@ -58,8 +62,7 @@ require("headerEstu.php");
                     }    
                 ?>
             </div>
-        </div>
-    </div>
+    </div> 
 </div>
 </body>
 </html>

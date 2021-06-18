@@ -71,7 +71,7 @@ verificarSesion();
                     </form>
                                 <div class="col-6 ">
                                     <form method="POST">                    
-                                        <input class="btn" name="cancelarTest" type="submit" id="" value="Cancelar">  
+                                        <input class="btn cancelar" name="cancelarTest" type="submit" id="" value="Cancelar">  
                                 </div>
                                     </form>
                 </div>
@@ -92,7 +92,9 @@ if(isset($_POST['cancelarTest'])){?>
                 icon: 'warning',
                 text:'Si cancelas el test se perderán todas tus respuestas',
                 confirmButtonText: `Cancelar test`,
-                cancelButtonText: 'Continuar test'
+                cancelButtonText: 'Continuar test',
+                confirmButtonColor: 'rgb(184, 64, 64)',
+                cancelButtonColor: 'rgb(34, 126, 103)'
             }).then((result) => {
                 /* Read more about isConfirmed, isDenied below */
                 if (result.isConfirmed) {

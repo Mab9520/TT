@@ -15,7 +15,7 @@
     <title>Iniciar sesión</title>
 </head>
 <body>
-    <div class="container encabezado">
+    <div class=" encabezado">
         <div class="row">
            <div class="col-12">
             <a href="../index.php"><i class="fas fa-arrow-alt-circle-left"></i></a>

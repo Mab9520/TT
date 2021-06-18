@@ -84,9 +84,9 @@ class Especialista {
         ?>
         <div class="container">
             <div class="row">
-                <div class="col-12">
-                   <table class="informacion">
-                        <thead><th colspan="2"><?php echo $row['Nombre']; echo " "; echo $row['Apellidos']?></th></thead>
+                <div class="col-12 table-responsive d-flex text-center">
+                   <table class="table table-success table-striped table-bordered border-success table-sm">
+                        <thead class="table-light"><th colspan="2"><?php echo $row['Nombre']; echo " "; echo $row['Apellidos']?></th></thead>
                         <tr><td>Correo</td>
                         <td><?php echo $row['Correo'];?></td></tr>
                         <tr><td>Numero de telefono</td>

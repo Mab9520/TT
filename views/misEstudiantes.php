@@ -25,21 +25,21 @@ verificarSesion();
 <body>
     <div class="container">
         <div class="row">
-            <div class="col-12">
+            <div class="col-12 d-flex justify-content-center">
                 <h2>Estudiantes con los que tiene seguimiento</h2>
             </div>
             <div class="col-12">
-                <div class="col-12  lista">
+                <div class="col-12 d-flex justify-content-center table-responsive">
                     <form action="" method = "POST">
-                        <table>
+                        <table class="table">
                             <?php
                             require("../clases/Estudiante.php");
             
                             $paciente = pacientes::verPacientes($_SESSION['id']);
                             foreach($paciente as $row){?>
                                 <tr>
-                                    <ul>
-                                        <td><li><a  href="?id=<?php echo $row['id']; ?> " ><?php echo $row['Nombre']; echo " ";echo $row['Apellidos'];?></a></li></td>
+                                    <ul class="list-group">
+                                        <td><li><i class="fas fa-user-alt doctor"></i><a  href="?id=<?php echo $row['id']; ?> " ><?php echo $row['Nombre']; echo " ";echo $row['Apellidos'];?></a></li></td>
                                     </ul>            
                                 </tr>
                             <?php

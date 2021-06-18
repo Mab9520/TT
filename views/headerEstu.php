@@ -14,16 +14,17 @@ session_start();
     <title>Bienvenido</title>
 </head>
 <body>
-<div class="container encabezado">
+<div class="container-fluid encabezado">
     <div class="row">
-        <div class="col-10 col-lg-10 text-center">
+        <div class="col-12  text-center">
             <div class="">
                 <h1>Bienvenido</h1>
                 <h2><?php echo $_SESSION['Nombre']; ?></h2>
             </div>
         </div>
-
-        <div class="col-2 col-lg-2 text-center">
+    </div>
+    <div class="row">
+        <div class="col-12 d-flex">
             <nav class="nav">
                 <li class="nav-item dropdown">
                 <a class="nav-link" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-bars"></i></a>
@@ -38,6 +39,8 @@ session_start();
             </nav>
         </div>
     </div>
+        
+</div>
 </div>
 
 
