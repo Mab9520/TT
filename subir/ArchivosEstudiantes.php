@@ -33,6 +33,7 @@ while ($row = $sel->fetch(PDO::FETCH_ASSOC)) {
         <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
         <link rel="stylesheet" href="../css/style.css">
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <title>Mis actividades</title>
     </head>
     <body>
@@ -67,6 +68,12 @@ while ($row = $sel->fetch(PDO::FETCH_ASSOC)) {
                     <h1>Mis actividades</h1>
                     
                 </div>
+                <div class="col-12">
+                    <form action="" method="POST">
+<input name="eliminaSeguimiento"class="btn" type="submit" value="Eliminar seguimiento">
+                    </form>
+                    
+                </div>
             </div>
         </div>
         <div class="container">
@@ -91,12 +98,13 @@ while ($row = $sel->fetch(PDO::FETCH_ASSOC)) {
                                     <?php
                                         if(!empty($val['url'])){?>
                                         <button onclick="openModelPDF('<?php echo $val['url'] ?>')" class="btn btn-primary" type="button">Ver Archivo </button>
-                                        <a href="?id=<?php echo $val['id']?>#exampleModal"><button  type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Completar actividad
-                                        </button></a>
                                         <?php
                                             }
 
                                         ?>
+                                        <a href="?id=<?php echo $val['id']?>#exampleModal"><button  type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Completar actividad
+                                        </button></a>
+                                        
                                         
                                         <!-- <a class="btn btn-primary" target="_black" href="<?php echo 'http://' . $_SERVER['HTTP_HOST'] . '/uploadfile/' . $val['url']; ?>" >Ver Archivo en otra página</a> -->
                                     </td>
@@ -123,15 +131,15 @@ while ($row = $sel->fetch(PDO::FETCH_ASSOC)) {
                             <div class="form-group">
                                 <label for="title">Actividad</label>
                                 
-                                <input type="text" class="form-control" id="title" name="title">
+                                <input type="text" class="form-control" id="title" name="title" required >
                             </div>
                             <div class="form-group">
                                 <label for="description">Comentarios</label>
-                                <input type="text" class="form-control" id="description" name="description">
+                                <input  type="text" class="form-control" id="description" name="description" required>
                             </div>
                             <div class="form-group">
-                                <label for="description">Subir evidencia*</label>
-                                <input type="file" class="form-control" id="file" name="file">
+                                <label for="description">Subir evidencia</label>
+                                <input  type="file" class="form-control" id="file" name="file" required>
                                 
                             </div>
                         </form>
@@ -199,3 +207,27 @@ while ($row = $sel->fetch(PDO::FETCH_ASSOC)) {
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
 </html>
+
+<?php
+if(isset($_POST['eliminaSeguimiento'])){?>
+    <script>
+            Swal.fire({
+                title: 'Deseas eliminar tu seguimiento?',
+                showCancelButton: true,
+                icon: 'warning',
+                text:'Si eliminas tu seguimiento puedes solicitar otro especialista',
+                confirmButtonText: `Eliminar`,
+                cancelButtonText: 'Cancelar',
+                confirmButtonColor: 'rgb(184, 64, 64)',
+                cancelButtonColor: 'rgb(34, 126, 103)'
+            }).then((result) => {
+                /* Read more about isConfirmed, isDenied below */
+                if (result.isConfirmed) {
+                    location.href = "../includes/eliminaSeguimiento.php";
+                }
+            })
+        </script>
+        <?php
+}
+
+?>

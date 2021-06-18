@@ -156,5 +156,27 @@ class Estudiante{
 ));
     }
 
+    public static function eliminarSeguimiento($id){
+        $conexion = conexion("root", "");
+        $consulta = $conexion->prepare("DELETE  FROM pacientes WHERE est_enviador = :id");
+        $consulta->execute(array(
+            ':id' =>$id
+        ));
+    }
+    public static function eliminarActividadesEsp($id){
+        $conexion = conexion("root", "");
+        $consulta2 = $conexion->prepare("DELETE FROM files WHERE id_Estudiante =:id");
+        $consulta2->execute(array(
+            ':id' =>$id
+        ));
+    }
+    public static function eliminarActividades($id){
+        $conexion = conexion("root", "");
+        $consulta3 = $conexion->prepare("DELETE FROM filesest WHERE id_Estudiante =:id");
+        $consulta3->execute(array(
+            ':id' =>$id
+        ));
+    }
 }
+
 ?>

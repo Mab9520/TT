@@ -77,12 +77,24 @@ while ($rowesp = $selesp->fetch(PDO::FETCH_ASSOC)) {
 
                                     </td>
                                     <td>
+                                    <?php
+                                        if(!empty($val['url'])){?>
                                         <button onclick="openModelPDFEsp('<?php echo $valesp['url'] ?>')" class="btn btn-primary" type="button">Ver Archivo </button>
+                                        <?php
+                                            }
+
+                                        ?>
                                     </td>
                                     <?php } ?>
                                     <?php foreach ($res as $val) { ?>
                                     <td>
+                                    <?php
+                                        if(!empty($val['url'])){?>
                                         <button onclick="openModelPDF('<?php echo $val['url'] ?>')" class="btn btn-primary" type="button">Ver Archivo </button>
+                                        <?php
+                                            }
+
+                                        ?>
                                     </td>
                                     <td><?php echo $val['description'] ?></td>
                                 </tr>
