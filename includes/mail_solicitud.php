@@ -6,8 +6,8 @@ require 'PHPMailer/Exception.php';
 require 'PHPMailer/PHPMailer.php';
 require 'PHPMailer/SMTP.php';
 
-//aleatoria
-$codigo = rand(1000,9999);
+$estudiante=$_SESSION['Nombre'];
+$correo=$row['Correo'];
 
 $mail = new PHPMailer(true);
 
@@ -26,26 +26,28 @@ try {
     //Recipients
     $mail->setFrom('herramientaapoyoalpsicologo@gmail.com', 'Herramienta Apoyo al Psicologo
 ');
-    $mail->addAddress($email);     //Add a recipient
+    $mail->addAddress($correo);     //Add a recipient
 
 
     //Content
     $mail->isHTML(true);                                  //Set email format to HTML
-    $mail->Subject = 'Restablecer Contraseña';
+    $mail->Subject = 'Has recibido una nueva solicitud';
     $mail->Body    = '<html>
 <head>
-  <title>Restablecer</title>
+    <meta charset="UTF8" />
+    <link rel=StyleSheet href="../css/style.css" type="text/CSS">
+  <title>Nueva Solicitud</title>
 </head>
 <body>
-    <h1>Herramienta de apoyo al Psicologo</h1>
-    <div style="text-align:center; background-color:#ccc">
-        <p>Restablecer contrasena</p>
-        <h3>'.$codigo.'</h3>
-        <p> <a 
-            href="http://61f8de7ffd0e.ngrok.io/TT/includes/reset.php?email='.$email.'&codigo='.$codigo.'"> 
-            para restablecer da click aqui </a> </p>
-        <p> <small>Si usted no envio este codigo favor de omitir</small> </p>
-    </div>
+<h1>  El estudiante '.$estudiante.'  </h1>
+  <p>Te ha enviado una solicitud.</p>
+  <p> <a 
+     href="http://61f8de7ffd0e.ngrok.io/TT/views/verEstudiantes.php">
+
+    Aceptar Estudiante</a> 
+    </p>
+ <h2></h2>
+  
 </body>
 </html>';
 
@@ -55,4 +57,3 @@ $mail->send();
     
 }
 ?>
-

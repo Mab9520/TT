@@ -1,8 +1,9 @@
 <?php
 require("../includes/funciones.php");
+
 require("headerEstu.php");
       verificarSesion();
-    
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -56,6 +57,8 @@ require("headerEstu.php");
                 <?php
                     if (isset($_GET['id'])) {
                         Estudiante::verInfoEspecialistas();
+                        //include ("../includes/mail_solicitud.php");
+
                         if (empty($row)) {
                         $result = "No se encontraron resultados !!";
                         }

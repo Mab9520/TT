@@ -18,13 +18,13 @@
         $mostrar1= $res1->fetch()
     ?>
     <?php
-    if($mostrar['correo'] == isset($email)){
+    if($mostrar['rol_id'] == 2){
         include "mail_reset.php";
         $conexion->query("update estudiante set codigo = '$codigo' where correo = '$email' ");
         echo "<p>Verifica tu email para restablecer tu cuenta</p>" ;
     ?>
          <?php
-    }elseif ($mostrar1['correo'] = $email){
+    }elseif ($mostrar1['rol_id'] == 1){
         include "mail_reset.php";
         $conexion->query("update especialista set codigo = '$codigo' where correo = '$email' ");
         echo "<p>Verifica tu email para restablecer tu cuenta</p>" ;

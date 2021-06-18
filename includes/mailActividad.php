@@ -1,18 +1,38 @@
 <?php
-//Encio de los correos vista
-// Varios destinatarios
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+require 'PHPMailer/Exception.php';
+require 'PHPMailer/PHPMailer.php';
+require 'PHPMailer/SMTP.php';
+
 $especialista=$_SESSION['Nombre'];
 $correo=$usuario[0]['Correo'];
-$para  = $correo . ', '; // atención a la coma
-//$para = 'wez@example.com' . ', ';
 
-// título
-$título = 'Te han asignado una nueva Actividad';
+$mail = new PHPMailer(true);
+
+try {
+    //Server settings
+    $mail->SMTPDebug = 0;                      //Enable verbose debug output
+    $mail->isSMTP();                                            //Send using SMTP
+    $mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
+    $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
+    $mail->Username   = 'herramientaapoyoalpsicologo@gmail.com
+';                     //SMTP username
+    $mail->Password   = 'herramientaapoyo';                               //SMTP password
+    $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;         //Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` encouraged
+    $mail->Port       = 587;                                    //TCP port to connect to, use 465 for `PHPMailer::ENCRYPTION_SMTPS` above
+
+    //Recipients
+    $mail->setFrom('herramientaapoyoalpsicologo@gmail.com', 'Herramienta Apoyo al Psicologo
+');
+    $mail->addAddress($correo);     //Add a recipient
 
 
-// mensaje
-$mensaje = '
-<html>
+    //Content
+    $mail->isHTML(true);                                  //Set email format to HTML
+    $mail->Subject = 'Te han asignado una nueva Actividad';
+    $mail->Body    = '<html>
 <head>
     <meta charset="UTF8" />
     <link rel=StyleSheet href="../css/style.css" type="text/CSS">
@@ -20,31 +40,16 @@ $mensaje = '
 </head>
 <body>
 <h1>  El especialista '.$especialista.'  </h1>
-  <p>Te ha asignado una nueva Actividad Checala Kabron :v.</p>
+  <p>Te ha asignado una nueva actividad.</p>
   
  <h2></h2>
   
 </body>
-</html>
-';
+</html>';
 
-// Para enviar un correo HTML, debe establecerse la cabecera Content-type
-$cabeceras  = 'MIME-Version: 1.0' . "\r\n";
-$cabeceras .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
-
-// Cabeceras adicionales
-$cabeceras .= 'To: ' .$correo . "\r\n";
-$cabeceras .= 'From: Especialista Asignado <notificacion@example.com>' . "\r\n";
-$cabeceras .= 'Cc: notificacion@example.com' . "\r\n";
-$cabeceras .= 'Bcc: notificacion@example.com' . "\r\n";
-
-// Enviarlo
-$enviado=false;
-if(mail($para, $título, $mensaje, $cabeceras)){
-   $enviado=true;
+$mail->send();
+    
+} catch (Exception $e) {
+    
 }
-
-
-
-
 ?>

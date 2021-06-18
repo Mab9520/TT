@@ -83,7 +83,8 @@ class Estudiante{
             <td><?php echo $row['Cedula'];?></td></tr>
             <td colspan="2"><a href="?agregar=<?php echo $_GET['id']?>"><input class="btn" type="submit" value="Enviar solicitud" name="solicitar"></a></td>
             </table>
-            </form>  
+            </form>
+              
                 </div>
             </div>
         </div>

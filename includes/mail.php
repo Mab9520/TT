@@ -43,7 +43,7 @@ try {
   <p>Tu codigo de verificacion es :</p>
    <h2>'.$codigoran.'</h2>
   <p> <a 
-     href="https://6b82f967019b.ngrok.io/TT/includes/confirm.php?email='.$correo.'">
+     href="http://61f8de7ffd0e.ngrok.io/TT/includes/confirm.php?email='.$correo.'">
 
     Verificar cuenta </a> 
     </p>
@@ -51,8 +51,8 @@ try {
 </html>';
 
 $mail->send();
-    echo 'Message has been sent';
+    
 } catch (Exception $e) {
-    echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+    
 }
 ?>
