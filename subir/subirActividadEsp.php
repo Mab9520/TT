@@ -212,7 +212,7 @@ while ($row = $sel->fetch(PDO::FETCH_ASSOC)) {
                             }
                             function openModelPDF(url) {
                                 $('#modalPdf').modal('show');
-                                $('#iframePDF').attr('src','<?php echo 'http://' . $_SERVER['HTTP_HOST'] . '/TT/subir/'; ?>'+url);
+                                $('#iframePDF').attr('src','<?php echo 'http://' . $_SERVER['HTTP_HOST'] . '/TT/subir/files'; ?>'+url);
                             }
         </script>
 
