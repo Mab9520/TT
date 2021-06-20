@@ -148,8 +148,8 @@ while ($row = $sel->fetch(PDO::FETCH_ASSOC)) {
                                 <input type="file" class="form-control" id="file" name="file">
                             </div>
                             <div class="form-group">
-                                <label hidden for="description">Fecha</label>
-                                <input hidden class="form-control" name="fecha" value="<?php $fecha = date('Y-m-d'); echo $fecha;?>">
+                                <label for="description">Fecha</label>
+                                <input disable class="form-control" name="fecha" value="<?php $fecha = date('Y-m-d'); echo $fecha;?>">
                             </div>
                         </form>
                     </div>
