@@ -289,13 +289,13 @@ $events = $req->fetchAll();
 					$end = $event['end'];
 				}
 			?>
-				{
+				
 					id: '<?php echo $event['id']; ?>',
 					title: '<?php echo $event['title']; ?>',
 					start: '<?php echo $start; ?>',
 					end: '<?php echo $end; ?>',
 					color: '<?php echo $event['color']; ?>',
-				},
+				
 			<?php endforeach; ?>
 			]
 		});
@@ -320,7 +320,7 @@ $events = $req->fetchAll();
 			 type: "POST",
 			 data: {Event:Event},
 			 success: function(rep) {
-					if(rep == 'OK'){
+					if(rep == 'Aceptar'){
 						alert('Evento se ha guardado correctamente');
 					}else{
 						alert('No se pudo guardar. Inténtalo de nuevo.'); 
