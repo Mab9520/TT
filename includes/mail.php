@@ -43,7 +43,7 @@ try {
   <p>Tu codigo de verificacion es :</p>
    <h2>'.$codigoran.'</h2>
   <p> <a 
-     href="http://61f8de7ffd0e.ngrok.io/TT/includes/confirm.php?email='.$correo.'">
+     href="https://82820e037cd9.ngrok.io/TT/includes/confirm.php?email='.$correo.'">
 
     Verificar cuenta </a> 
     </p>

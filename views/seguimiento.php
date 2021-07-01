@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-
+<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
 <?php
 
 include('../includes/funciones.php');

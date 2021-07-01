@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"> 
 <!--
 To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates

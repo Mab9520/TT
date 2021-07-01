@@ -42,7 +42,7 @@ try {
 <h1>  El estudiante '.$estudiante.'  </h1>
   <p>Te ha enviado una solicitud.</p>
   <p> <a 
-     href="http://61f8de7ffd0e.ngrok.io/TT/views/verEstudiantes.php">
+     href="https://82820e037cd9.ngrok.io/TT/views/verEstudiantes.php">
 
     Aceptar Estudiante</a> 
     </p>

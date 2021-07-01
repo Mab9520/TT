@@ -42,7 +42,7 @@ try {
         <p>Restablecer contrasena</p>
         <h3>'.$codigo.'</h3>
         <p> <a 
-            href="http://61f8de7ffd0e.ngrok.io/TT/includes/reset.php?email='.$email.'&codigo='.$codigo.'"> 
+            href="https://82820e037cd9.ngrok.io/TT/includes/reset.php?email='.$email.'&codigo='.$codigo.'"> 
             para restablecer da click aqui </a> </p>
         <p> <small>Si usted no envio este codigo favor de omitir</small> </p>
     </div>
