@@ -37,7 +37,7 @@
                     <p> <input class = "form-control" type="password"  placeholder="Contraseña" name = "pass"></p>
                     <p>Verifica tu contraseña</p>
                     <p> <input class = "form-control" type="password"  placeholder="Contraseña" name = "pass2"></p>
-                    <p> <input class = "form-control" type="number"  placeholder="Cedula profesional" name = "cedula"></p>
+                    <p> <input class = "form-control" type="number"  placeholder="Cédula profesional" name = "cedula"></p>
                     <p> <input class = "form-control" type="text"  placeholder="Especialidad" name = "especialidad"></p>
                     <p> <input class = "form-control type="text"  placeholder="Sexo M/F" name = "sexo"></p>
                     <p>Opcional:</p>
@@ -91,7 +91,7 @@ if(isset($_POST['registrar'])){
                     Swal.fire({
                     title: 'Las contraseñas no coinciden',
                     icon: 'error',
-                    confirmButtonText: 'Ok'
+                    confirmButtonText: 'Aceptar'
                     });
                 </script>
                 <?php
@@ -102,7 +102,7 @@ if(isset($_POST['registrar'])){
                     Swal.fire({
                     title: 'Este usuario ya existe',
                     icon: 'error',
-                    confirmButtonText: 'Ok'
+                    confirmButtonText: 'Aceptar'
                     });
                 </script>
                 <?php

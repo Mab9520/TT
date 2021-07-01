@@ -43,7 +43,7 @@
                             <li><i class="fas fa-user-alt doctor"></i><a href="perfilEstudiantePublico.php?id=<?php echo $solicitudes['id'] ?>"><?php echo $solicitudes['Nombre']; echo " "; echo $solicitudes['Apellidos'];?></a></li>
                         <?php endforeach; 
                     }else{
-                        echo "no hay solicitudes";
+                        echo "No hay solicitudes";
                     }
                     ?>
                 </ul>

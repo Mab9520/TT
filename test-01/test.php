@@ -20,7 +20,7 @@ verificarSesion();
     <script>
         Swal.fire({
         title: 'Bienvenido al test de ansiedad de Beck!',
-        text: 'Este cuestionario esta compuesto por los síntomas más comunes de la ansiedad. Lee cada uno de los ítems atentamente e indica cuanto te han afectado en la última semana incluyendo el día de hoy.',
+        text: 'Este cuestionario está compuesto por los síntomas más comunes de la ansiedad. Lee cada uno de los ítems atentamente e indica cuanto te han afectado en la última semana incluyendo el día de hoy.',
         confirmButtonText: 'Aceptar',
         confirmButtonColor: 'rgb(14, 167, 128)'
         });

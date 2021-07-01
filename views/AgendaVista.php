@@ -43,10 +43,6 @@ $events = $req->fetchAll();
 
     <!-- Custom CSS -->
     <style>
-    body {
-        
-        
-    }
 	#calendar {
 		max-width: 500px;
 	}
@@ -127,7 +123,7 @@ $events = $req->fetchAll();
 					</div>
 				  </div>
 				  <div class="form-group">
-					<label for="end" class="col-sm-2 control-label">Hora de termino</label>
+					<label for="end" class="col-sm-2 control-label">Hora de término</label>
 					<div class="col-sm-10">
 					  <input type="datetime-local" name="end" class="form-control" id="end" >
 					</div>
@@ -189,7 +185,7 @@ $events = $req->fetchAll();
 					</div>
 				  </div>
 				  <div class="form-group">
-					<label for="end" class="col-sm-2 control-label">Hora de termino</label>
+					<label for="end" class="col-sm-2 control-label">Hora de término</label>
 					<div class="col-sm-10">
 					  <input type="datetime-local" name="end" class="form-control" id="end" >
 					</div>

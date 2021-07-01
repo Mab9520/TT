@@ -45,7 +45,7 @@ $usuario = Estudiante::usuarioPorId($_SESSION['id']);
                         <li><a class="dropdown-item" href="../../views/verEspecialistas.php">Especialistas</a></li>
                         <li><a class="dropdown-item" href="../test.php">Realizar test</a></li>
                         <li><a class="dropdown-item" href="../../views/editarDatosEstudiante.php">Editar datos</a></li>
-                        <li><a class="dropdown-item" href="../../includes/logout.php">Cerrar sesion</a></li>
+                        <li><a class="dropdown-item" href="../../includes/logout.php">Cerrar sesión</a></li>
                     </ul>
                 </li>
             </nav>
@@ -507,7 +507,7 @@ if($pregunta1 == "0")
     		<script>
         		Swal.fire({
             	title: 'Tus niveles de ansiedad se encuentran en un rango normal.',
-				text: 'No es necesario que requieras la ayuda de un profesional, sin embargo si lo deseas puedes solicitar un seguimiento si piensas que lo requieres',
+				text: 'No es necesario que requieras la ayuda de un profesional, sin embargo si lo deseas puedes solicitar un seguimiento si piensas que lo requieres.',
             	icon: 'success',
             	confirmButtonText: 'Ver especialistas',
 				cancelButtonText: 'Ver resultados',
@@ -530,7 +530,7 @@ if($pregunta1 == "0")
     		<script>
         		Swal.fire({
             	title: 'Tu nivel de ansiedad se encuentra en un rango fuera de lo normal',
-				text: 'Te recomendamos buscar la ayuda de un profesional, si lo deseas, pulsa en el botón para ver los especialistas o bien observa unicamente tu resultado',
+				text: 'Te recomendamos buscar la ayuda de un profesional, si lo deseas, pulsa en el botón para ver los especialistas o bien observa únicamente tu resultado.',
             	icon: 'warning',
             	confirmButtonText: 'Ver especialistas',
 				cancelButtonText: 'Ver resultados',
@@ -550,7 +550,7 @@ if($pregunta1 == "0")
     		<script>
         		Swal.fire({
             	title: 'Tu nivel de ansiedad se encuentra en un rango fuera de lo normal',
-				text: 'Te recomendamos buscar la ayuda de un profesional, si lo deseas, pulsa en el botón para ver los especialistas o bien observa unicamente tu resultado',
+				text: 'Te recomendamos buscar la ayuda de un profesional, si lo deseas, pulsa en el botón para ver los especialistas o bien observa únicamente tu resultado.',
             	icon: 'warning',
             	confirmButtonText: 'Ver especialistas',
 				cancelButtonText: 'Ver resultados',
@@ -570,7 +570,7 @@ if($pregunta1 == "0")
 ?>
 	<h1><?php echo $_SESSION['Nombre']; ?></h1>
 <?php
-	echo "Te informamos que tu nivel de ansiedad se encuentra en un puntaje de $puntos puntos en un nivel de $mensaje de acuerdo a la catalogación de la ansiedad de Beck <br><br><br> $img ";
+	echo "Te informamos que tu nivel de ansiedad se encuentra en un puntaje de $puntos puntos en un nivel $mensaje de acuerdo a la catalogación de la ansiedad de Beck <br><br><br> $img ";
 ?>
 
 		</div>

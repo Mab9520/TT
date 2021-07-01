@@ -37,7 +37,7 @@
                     <div class = "flip-card-front">
                         <img class="img-fluid" src="../images/Actividades.png" alt="Avatar">
                         <p>Actividades</p>
-                        <p>En esta sección puedes consultar las actividades  que el especialista haya cargado para ti</p>
+                        <p>En esta sección puedes consultar las actividades que el especialista haya cargado para ti</p>
                     </div>
                     <div class="flip-card-back">
                         <p>Ver mis actividades</p>

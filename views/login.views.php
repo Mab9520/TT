@@ -39,7 +39,7 @@
                         <p><input required placeholder="Contraseña" type="password" class="form-control" id="exampleInputPassword1" name="pass"></p>
                     </div>
                         <p><a href="./restablecer.php">Olvidé mi contraseña</a></p>
-                        <p><button type="submit" class="btn">Iniciar sesion</button></p>
+                        <p><button type="submit" class="btn">Iniciar sesión</button></p>
                 </form>
             </div> 
         </div>

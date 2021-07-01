@@ -33,7 +33,7 @@ session_start();
                         <li><a class="dropdown-item" href="verEspecialistas.php">Especialistas</a></li>
                         <li><a class="dropdown-item" href="../test-01/test.php">Realizar test</a></li>
                         <li><a class="dropdown-item" href="editarDatosEstudiante.php">Editar datos</a></li>
-                        <li><a class="dropdown-item" href="../includes/logout.php">Cerrar sesion</a></li>
+                        <li><a class="dropdown-item" href="../includes/logout.php">Cerrar sesión</a></li>
                     </ul>
                 </li>
             </nav>

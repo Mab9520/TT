@@ -35,7 +35,7 @@ $usuario = Estudiante::usuarioPorId($_GET['id']);
         <div class="col-12 col-lg-12 text-center">
             <h1><?php echo $usuario[0]['Nombre']; echo " "; echo $usuario[0]['Apellidos'];?></h1>
             <p>Correo: <span><?php echo $usuario[0]['Correo']; ?></span>
-            <p>Numero de telefono: <span><?php echo $usuario[0]['Telefono']; ?></span></h2>
+            <p>Número telefónico: <span><?php echo $usuario[0]['Telefono']; ?></span></h2>
             <p>Instituto: <span><?php echo $usuario[0]['Instituto']; ?></span></h2>
         </div>
         <div class="col-12 col-lg-6 text-center">
@@ -55,7 +55,7 @@ $usuario = Estudiante::usuarioPorId($_GET['id']);
                         <img src="../images/test.png" alt="Avatar" >
                     </div>
                     <div class="flip-card-back text-break">
-                        <p>Visualizacion de los resultados del test</p>
+                        <p>Visualización de los resultados del test</p>
                         <!--Aqui va el metodo para ver el resultado-->
                         <?php 
                         Especialista::verResultados();
@@ -73,7 +73,7 @@ $usuario = Estudiante::usuarioPorId($_GET['id']);
                         <img src="../images/test.png" alt="Avatar">
                     </div>
                     <div class="flip-card-back">
-                        <p>Visualizacion de las respuestas del test de ansiedad de Beck</p>
+                        <p>Visualización de las respuestas del test de ansiedad de Beck</p>
                         <!--Aqui va el metodo para ver el test-->
                         <a href="verTest.php?id=<?php echo $usuario[0]['id'];?>"><input class="btn" type="button" value="Ver test"></a>
                     </div>

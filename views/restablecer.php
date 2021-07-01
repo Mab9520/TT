@@ -24,9 +24,9 @@
     <div class="container">
         <div class="row justify-content-md-center" style="margin-top:15%">
             <form class="col-3" action="../includes/restablecer.php" method="POST">
-                <h2>Restablecer Password</h2>
+                <h2>Restablecer Contraseña</h2>
                 <div class="mb-3">
-                    <label for="c" class="form-label">Email</label>
+                    <label for="c" class="form-label">Correo electrónico</label>
                     <input type="email" class="form-control" id="c" name="email">
                  
                 </div>
