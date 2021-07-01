@@ -42,8 +42,8 @@ class Pacientes{
                         Swal.fire({
                             title: 'No se ha podido enviar la solicitud',
                             icon: 'error',
-                            text: 'Intentalo nuevamente',
-                            confirmButtonText: 'Ok'
+                            text: 'Inténtalo nuevamente',
+                            confirmButtonText: 'Aceptar'
                         });
                     </script>
             <?php
@@ -98,7 +98,7 @@ class Pacientes{
             ?>
         <script>
             Swal.fire({
-                title: 'Se ha aceptado al estudiante!',
+                title: 'Se ha aceptado al estudiante',
                 icon: 'success',
                 confirmButtonText: 'Aceptar'
             }).then( () =>{
@@ -118,7 +118,7 @@ class Pacientes{
             ?>
         <script>
             Swal.fire({
-                title: 'Se ha rechazado la solicitud!',
+                title: 'Se ha rechazado la solicitud',
                 icon: 'success',
                 confirmButtonText: 'Aceptar'
             }).then( () =>{

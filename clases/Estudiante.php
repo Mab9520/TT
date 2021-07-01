@@ -77,9 +77,9 @@ class Estudiante{
             <thead class="table-light"><th colspan="2"><?php echo $row['Nombre']; echo " "; echo $row['Apellidos']?></th></thead>
             <tr><td>Correo electrónico</td>
             <td><?php echo $row['Correo'];?></td></tr>
-            <tr><td>Telefono</td>
+            <tr><td>Número telefónico</td>
             <td><?php echo $row['Telefono'];?></td></tr>
-            <tr><td>Cedula profesional</td>
+            <tr><td>Cédula profesional</td>
             <td><?php echo $row['Cedula'];?></td></tr>
             <td colspan="2"><a href="?agregar=<?php echo $_GET['id']?>"><input class="btn" type="submit" value="Enviar solicitud" name="solicitar"></a></td>
             </table>

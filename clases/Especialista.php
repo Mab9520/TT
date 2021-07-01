@@ -21,10 +21,10 @@ class Especialista {
             ?>
         <script>
             Swal.fire({
-                title: 'Se han registrado los datos correctamente',
-                text: 'Te hemos enviado un código de verificación, revisa tu correo',
+                title: 'Se han registrado los datos correctamente.',
+                text: 'Te hemos enviado un código de verificación, revisa tu correo.',
                 icon: 'success',
-                confirmButtonText: 'Ok'
+                confirmButtonText: 'Aceptar'
             });
         </script>
         <?php
@@ -33,9 +33,9 @@ class Especialista {
             ?>
         <script>
             Swal.fire({
-                title: 'Ha ocurrido un error en su registro, inténtelo nuevamente',
+                title: 'Ha ocurrido un error en su registro, inténtelo nuevamente.',
                 icon: 'success',
-                confirmButtonText: 'Ok'
+                confirmButtonText: 'Aceptar'
             });
         </script>
         <?php
@@ -89,7 +89,7 @@ class Especialista {
                         <thead class="table-light"><th colspan="2"><?php echo $row['Nombre']; echo " "; echo $row['Apellidos']?></th></thead>
                         <tr><td>Correo</td>
                         <td><?php echo $row['Correo'];?></td></tr>
-                        <tr><td>Numero de telefono</td>
+                        <tr><td>Número de telefónico</td>
                         <td><?php echo $row['Telefono'];?></td></tr>
                         <tr><td>Instituto</td>
                         <td><?php echo $row['Instituto'];?></td></tr>
@@ -418,7 +418,7 @@ public static function verResultados(){//Muestra los resultados del test y los c
     $mostrar= $result->fetch();
 
 if ($mostrar['id_estudiante'] == "") {
-    echo "No se ha realizado aun el Test";
+    echo "No se ha realizado aún el Test";
 }else { 
     $puntos = $mostrar['puntos'];
     if(($puntos == 0) || ($puntos <= 21))
@@ -464,9 +464,9 @@ echo "Resultado: $puntos puntos <br> $mensaje <br><br><br> $img ";
             ?>
         <script>
             Swal.fire({
-                title: 'Se han editado los datos!',
+                title: 'Se han editado los datos.',
                 icon: 'success',
-                confirmButtonText: 'Ok'
+                confirmButtonText: 'Aceptar'
             }).then( () =>{
                 location.href = "editarDatosEspecialista.php";
             });
